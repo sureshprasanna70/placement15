@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body{
+  background-image:url('/assets/gs.png');
+}
+
+a:active{
+  color:grey;
+}
+.headline{
+  text-align:center;
+  background-color:#FF5722;
+  color:#fff;
+  padding:2%;
+  font-weight:bold !important;
+  font-size:20px;
+}
+.descline{
+  line-height:2.25em;
+}
+.studentname{
+  border-bottom-style:dotted;
+  border-bottom-color:grey;
+  padding-left:5%;
+  padding-right:5%;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold !important;
+}
+.message{
+  text-align:center;
+  color:#FFF;
+  background-color: #F44336 !important;
+  width: 25%;
+  padding: 2%;
+}
+.checkbox .checkbox-material {
+  vertical-align: middle;
+  position: relative;
+  top: 3px;
+} 
+.checkbox label span {
+  display: block;
+  position: absolute;
+  left: 0px;
+  transition-duration: 0.2s;
+}
+.checkbox input[type=checkbox]:checked+.checkbox-material .check, .checkbox-default input[type=checkbox]:checked+.checkbox-material .check {
+  color: #4caf50;
+}
+.checkbox .checkbox-material .check {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid;
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 1;
+}

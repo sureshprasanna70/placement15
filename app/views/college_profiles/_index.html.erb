@@ -1,0 +1,61 @@
+  <%if @college_profiles.nil?%>
+    <center><p class="message"><i class="mdi-alert-warning"></i>No College Profile yet</p></center>
+    <center><%=link_to new_college_profile_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%>
+  <%else%>
+<div class="well descline">
+  You are <span class="studentname"><%=current_user.name%></span>
+  Studying <span class="studentname"><%=@college_profiles.degree%>  <%=@college_profiles.branch%></span> and 
+  in semester <span class="studentname"><%=@college_profiles.semester%></span> which is a <span class="studentname"> <%=@college_profiles.level%></span> degree
+        <td><%= link_to 'Destroy',@college_profiles, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  <%= link_to edit_college_profile_path(@college_profiles),:class=>"btn btn-large btn-success",:remote=>true do%> 
+    <i class="mdi-editor-mode-edit"></i> Edit
+  <%end%>
+  <%= link_to 'Back', :back,:class=>"btn btn-large btn-danger" %> 
+</div>
+  <div class="well col-lg-12">
+    <div class="col-md-6">
+      <label>Level:</label>
+      <%= @college_profiles.level %>
+    </div>
+
+    <div class="col-md-6">
+      <label>Degree:</label>
+      <%= @college_profiles.degree %>
+    </div>
+    <div class="col-md-6">
+      <strong>Branch:</strong>
+      <%= @college_profiles.branch %>
+    </div>
+
+    <div class="col-md-6">
+      <strong>College:</strong>
+      <%= @college_profiles.college %>
+    </div>
+    <div class="col-md-6">
+      <strong>Semester:</strong>
+      <%= @college_profiles.semester %>
+    </div>
+
+    <div class="col-md-6">
+      <strong>Cgpa:</strong>
+      <%= @college_profiles.cgpa %>
+    </div>
+    <div class="col-md-6">
+      <%= link_to 'Edit', edit_college_profile_path(@college_profiles),:class=>"btn btn-large btn-success" %> 
+    </div>
+    <div class="col-md-6">
+      <%= link_to 'Back', college_profiles_path,:class=>"btn btn-large btn-danger" %> 
+    </div>
+  </div>
+</div>
+</div>
+<div class="well col-lg-6">
+  <dl class="dl-horizontal">
+    <dt>Name</dt>
+    <dd><%=current_user.name%></dd>
+    <dt>Degree</dt>
+    <dd><%=@college_profiles.degree%></dd>
+  </dl>
+</div>
+<%end%>

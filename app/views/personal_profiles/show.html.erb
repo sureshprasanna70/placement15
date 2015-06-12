@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @personal_profile.gender %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @personal_profile.dob %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @personal_profile.age %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @personal_profile.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @personal_profile.weight %>
+</p>
+
+<p>
+  <strong>Guardian name:</strong>
+  <%= @personal_profile.guardian_name %>
+</p>
+
+<p>
+  <strong>Guardian occupation:</strong>
+  <%= @personal_profile.guardian_occupation %>
+</p>
+
+<p>
+  <strong>Nationality:</strong>
+  <%= @personal_profile.nationality %>
+</p>
+
+<p>
+  <strong>Mother tongue:</strong>
+  <%= @personal_profile.mother_tongue %>
+</p>
+
+<%= link_to 'Edit', edit_personal_profile_path(@personal_profile) %> |
+<%= link_to 'Back', personal_profiles_path %>
