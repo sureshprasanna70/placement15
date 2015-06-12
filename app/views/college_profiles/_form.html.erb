@@ -1,0 +1,43 @@
+<%= form_for(@college_profile) do |f| %>
+  <% if @college_profile.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(@college_profile.errors.count, "error") %> prohibited this college_profile from being saved:</h2>
+      <ul>
+        <% @college_profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <div class="form-group">
+      <label>Degree</label> 
+      <%= f.select :degree,options_for_select("BE"=>"BE","ME"=>"ME"),{},{:required=>true,:class=>"form-control"} %><br> 
+    </div>
+    <div class="form-group">
+      <label>Branch</label>
+      <%= f.select :branch,options_for_select("CS"=>"CS","IT"=>"IT"),{},{:class=>"form-control",:required=>true}%> 
+    </div>
+    <div class="form-group">
+      <label>Semester</label>
+      <%= f.number_field :semester,:class=>"form-control"%> 
+    </div>
+    <div class="form-group">
+      <label>Level</label>
+      <%= f.select :level,options_for_select("UG"=>"UG","PG"=>"PG") ,{},{:class=>"form-control",:required=>true}%> 
+    </div>
+    <div class="form-group">
+      <label>College</label>
+      <%=f.select :college,options_for_select("CEG"=>"CEG","MIT"=>"MIT","ACT"=>"ACT") ,{},{:class=>"form-control",:required=>true}%>
+    </div>
+    <div class="form-group">
+      <label>CGPA</label>
+      <%=f.text_field :cgpa,:class=>"form-control"%>
+    </div>
+    <div class="actions">
+      <button class="btn btn-success" type="submit">
+        <span class="glyphicon glyphicon-floppy-disk"> </span> Save
+      </button>
+    </div>
+  </fieldset>
+<% end %>

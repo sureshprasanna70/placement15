@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gender: MyString
+  dob: 2015-06-10
+  age: 1
+  height: 1
+  weight: 1
+  guardian_name: MyText
+  guardian_occupation: MyText
+  nationality: MyString
+  mother_tongue: MyString
+
+two:
+  gender: MyString
+  dob: 2015-06-10
+  age: 1
+  height: 1
+  weight: 1
+  guardian_name: MyText
+  guardian_occupation: MyText
+  nationality: MyString
+  mother_tongue: MyString

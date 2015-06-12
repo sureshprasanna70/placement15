@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  level: MyString
+  degree: MyString
+  branch: MyString
+  college: MyString
+  semester: 1
+  cgpa: 1.5
+
+two:
+  level: MyString
+  degree: MyString
+  branch: MyString
+  college: MyString
+  semester: 1
+  cgpa: 1.5
