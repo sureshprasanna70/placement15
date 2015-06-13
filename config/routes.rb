@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'resume'=>"home#resume"
+   get 'data/user/pic/:id/:filename.:extension'=>"application#download"
   devise_for :users,:controllers=>{registrations:"registrations"}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
