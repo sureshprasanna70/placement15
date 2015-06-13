@@ -14,6 +14,7 @@ gem 'rolify'
 gem 'date_validator', '~> 0.7.0'
 gem 'gravatar_image_tag'
 gem 'carrierwave'
+gem 'rmagick'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
