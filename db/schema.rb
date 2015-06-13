@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612115029) do
+ActiveRecord::Schema.define(version: 20150612152746) do
 
   create_table "college_profiles", force: :cascade do |t|
     t.string   "level",      limit: 255
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150612115029) do
     t.datetime "confirmation_sent_at"
     t.datetime "confirmed_at"
     t.string   "phone",                  limit: 10
+    t.text     "pic",                    limit: 65535
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

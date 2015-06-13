@@ -1,6 +1,6 @@
 
 <div class="well col-lg-6">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put },:class=>"form-horizontal") do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put },:class=>"form-horizontal",:multipart=>true) do |f| %>
   <%= devise_error_messages! %>
   <fieldset>
 <legend>Edit <%= resource_name.to_s.humanize %></legend>
@@ -16,6 +16,14 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+  <div class="form-group">
+    <%= f.label :registerno %> <br />
+    <%= f.text_field :registerno, :class=>"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :contact %> <br />
+    <%= f.text_field :phone, :class=>"form-control" %>
+  </div>
 
   <div class="form-group">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -31,7 +39,7 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" ,:class=>"form-control"%>
   </div>
-
+  <%=f.file_field :pic%>
   <div class="actions">
     <%= f.submit "Update" ,:class=>"btn btn-primary"%>
   </div>
