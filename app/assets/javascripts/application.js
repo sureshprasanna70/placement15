@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 $(document).ajaxStart(function(){
-      $("#ajaxloader").html("<center><img src='/assets/loading.GIF' width=60px></img></center>");
+      $("#ajaxloader").html("<center><img src='/assets/loading.GIF' width=30px></img></center>");
 });
 $(document).ajaxComplete(function(){
       $("#ajaxloader").html(" ");
