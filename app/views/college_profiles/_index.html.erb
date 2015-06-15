@@ -1,5 +1,6 @@
-  <%if @college_profiles.nil?%>
-    <center><p class="message"><i class="mdi-alert-warning"></i>No College Profile yet</p></center>
+<%if @college_profiles.nil?%>
+
+    <center><p class="message"><i class="mdi-alert-warning"></i> No College Profile yet</p></center>
     <center><%=link_to new_college_profile_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%>
   <%else%>
 <div class="well descline">
