@@ -1,40 +1,40 @@
 <h1><center><i class="mdi-social-person-outline"></i>Personal Profile</center></h1>
 <%if not @personal_profiles.nil?%>
-    <%= link_to @personal_profiles, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-danger pull-right" do%>
-      <i class="mdi-action-delete"></i> Destroy
-    <%end%>
-    <%= link_to edit_personal_profile_path(@personal_profiles),:class=>"btn btn-large btn-success pull-right",:remote=>true do%> 
-      <i class="mdi-editor-mode-edit"></i> Edit
-    <%end%>
-    <%= link_to :back,:class=>"btn btn-large btn-danger" do%> 
-      <i class="mdi-hardware-keyboard-arrow-left"></i> Back
-    <%end%>
-  <br>
+<%= link_to @personal_profiles, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-danger pull-right" do%>
+<i class="mdi-action-delete"></i> Destroy
+<%end%>
+<%= link_to edit_personal_profile_path(@personal_profiles),:class=>"btn btn-large btn-success pull-right",:remote=>true do%> 
+<i class="mdi-editor-mode-edit"></i> Edit
+<%end%>
+<%= link_to :back,:class=>"btn btn-large btn-danger" do%> 
+<i class="mdi-hardware-keyboard-arrow-left"></i> Back
+<%end%>
+<br>
 <dl class="dl-horizontal">
-        <dt>Gender</dt>
-        <dd><%= @personal_profiles.gender %></dd>
-        <dt>Dob</dt>
-        <dd><%=@personal_profiles.dob %></dd>
-        <dt>Age</dt>
-        <dd><%=@personal_profiles.age %></dd>
-        <dt>Height</dt>
-        <dd><%=@personal_profiles.height %></dd>
-        <dt>Weight</dt>
-        <dd><%=@personal_profiles.weight %></dd>
-        <dt>Guardian name</dt>
-        <dd><%=@personal_profiles.guardian_name %></dd>
-        <dt>Guardian occupation</dt>
-        <dd><%=@personal_profiles.guardian_occupation %></dd>
-        <dt>Nationality</dt>
-        <dd><%=@personal_profiles.nationality %></dd>
-        <dt>Mother tongue</dt>
-        <dd><%=@personal_profiles.mother_tongue %></dd>
-      </dl>
+  <dt>Gender</dt>
+  <dd><%= @personal_profiles.gender %></dd>
+  <dt>Dob</dt>
+  <dd><%=@personal_profiles.dob %></dd>
+  <dt>Age</dt>
+  <dd><%=@personal_profiles.age %></dd>
+  <dt>Height</dt>
+  <dd><%=@personal_profiles.height %></dd>
+  <dt>Weight</dt>
+  <dd><%=@personal_profiles.weight %></dd>
+  <dt>Guardian name</dt>
+  <dd><%=@personal_profiles.guardian_name %></dd>
+  <dt>Guardian occupation</dt>
+  <dd><%=@personal_profiles.guardian_occupation %></dd>
+  <dt>Nationality</dt>
+  <dd><%=@personal_profiles.nationality %></dd>
+  <dt>Mother tongue</dt>
+  <dd><%=@personal_profiles.mother_tongue %></dd>
+</dl>
 <%else%>
-  <center><p class="message"><i class="mdi-alert-warning"></i>  No Personal Profile yet</p></center>
-  <center>
-    <%= link_to new_personal_profile_path,:class=>"btn btn-primary",:remote=>true do %>
-      <i class="mdi-content-add"></i> Add
-    <%end%>
-  </center>
+<center><p class="message"><i class="mdi-alert-warning"></i>  No Personal Profile yet</p></center>
+<center>
+  <%= link_to new_personal_profile_path,:class=>"btn btn-primary",:remote=>true do %>
+  <i class="mdi-content-add"></i> Add
+  <%end%>
+</center>
 <%end%>

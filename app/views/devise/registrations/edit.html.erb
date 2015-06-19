@@ -1,7 +1,7 @@
 
 <div class="well col-lg-6">
 
-    <legend>Edit Account</legend>
+  <legend>Edit Account</legend>
   <legend>Read this before editing</legend>
   <ul>
     <li>Your register number,mobile number and email cannot be edited</li>
@@ -9,47 +9,58 @@
   </ul>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put },:class=>"form-horizontal",:multipart=>true) do |f| %>
-  <%= devise_error_messages! %>
-  <fieldset>
-<div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name,:class=>"form-control"%>
-  </div>
+    <%= devise_error_messages! %>
+    <fieldset>
+      <div class="form-group">
+        <i class="mdi-action-account-circle"></i>   
+        <%= f.label :name %><br />
+        <%= f.text_field :name,:class=>"form-control"%>
+      </div>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-  <div class="form-group">
-    <%= f.label :registerno %> <br />
-    <%= f.text_field :registerno, :class=>"form-control",:readonly=>true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :contact %> <br />
-    <%= f.text_field :phone, :class=>"form-control" ,:readonly=>true %>
-  </div>
-<div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true,:class=>"form-control" ,:readonly=>true %>
-  </div>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+      <div class="form-group">
+        <i class="mdi-action-book"></i>
+        <%= f.label :registerno %> <br />
+        <%= f.text_field :registerno, :class=>"form-control",:readonly=>true %>
+      </div>
+      <div class="form-group">
+        <i class="mdi-communication-phone"></i> 
+        <%= f.label :contact %> <br />
+        <%= f.text_field :phone, :class=>"form-control" ,:readonly=>true %>
+      </div>
+      <div class="form-group">
+        <i class="mdi-communication-email"></i>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true,:class=>"form-control" ,:readonly=>true %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off",:class=>"form-control" %>
-  </div>
+      <div class="form-group">
+        <i class="mdi-action-lock-open"></i> 
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "off",:class=>"form-control" %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" ,:class=>"form-control"%>
-  </div>
+      <div class="form-group">
+        <i class="mdi-action-lock-open"></i>   
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" ,:class=>"form-control"%>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" ,:class=>"form-control"%>
-  </div>
-  <%=f.file_field :pic%>
-  <div class="actions">
-    <%= f.submit "Update" ,:class=>"btn btn-primary"%>
-  </div>
-</fieldset>
+      <div class="form-group">
+        <i class="mdi-action-lock"></i>
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off" ,:class=>"form-control"%>
+      </div>
+      <div class="form-group">
+        <i class="mdi-image-camera-alt"></i> 
+        <%=f.label :profile_picture%>
+      <%=f.file_field :pic%>
+    </div>
+    <div class="actions">
+      <%= f.submit "Update" ,:class=>"btn btn-primary"%>
+    </div>
+  </fieldset>
 <% end %>
 
 <%= link_to "Back", :back %>
