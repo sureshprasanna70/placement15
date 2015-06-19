@@ -1,6 +1,5 @@
 <h1><center><i class="mdi-social-person-outline"></i>Personal Profile</center></h1>
 <%if not @personal_profiles.nil?%>
-  <div>
     <%= link_to @personal_profiles, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-danger pull-right" do%>
       <i class="mdi-action-delete"></i> Destroy
     <%end%>
@@ -10,7 +9,7 @@
     <%= link_to :back,:class=>"btn btn-large btn-danger" do%> 
       <i class="mdi-hardware-keyboard-arrow-left"></i> Back
     <%end%>
-  </div>
+  <br>
 <dl class="dl-horizontal">
         <dt>Gender</dt>
         <dd><%= @personal_profiles.gender %></dd>
@@ -31,7 +30,6 @@
         <dt>Mother tongue</dt>
         <dd><%=@personal_profiles.mother_tongue %></dd>
       </dl>
-  <br>
 <%else%>
   <center><p class="message"><i class="mdi-alert-warning"></i>  No Personal Profile yet</p></center>
   <center>
