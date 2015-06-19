@@ -4,6 +4,8 @@ class HomeController < ApplicationController
   end
   def resume
   end
+  def faq
+  end
   private
   def sign_in_check
     if not user_signed_in?

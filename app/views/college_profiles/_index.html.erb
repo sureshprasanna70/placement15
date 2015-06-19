@@ -1,18 +1,18 @@
 <h1><center><i class="mdi-maps-local-library"></i>College Profile</center></h1>
 <%if @college_profiles.nil?%>
 
-  <center><p class="message"><i class="mdi-alert-warning"></i> No College Profile yet</p></center>
-  <center><%=link_to new_college_profile_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%>
-<%else%>
+<center><p class="message"><i class="mdi-alert-warning"></i> No College Profile yet</p></center>
+<center><%=link_to new_college_profile_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%>
+  <%else%>
   <div>
-  <%= link_to @college_profiles, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-danger pull-right" do%>
+    <%= link_to @college_profiles, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-danger pull-right" do%>
     <i class="mdi-action-delete"></i> Destroy
-  <%end%>
+    <%end%>
     <%= link_to edit_college_profile_path(@college_profiles),:class=>"btn btn-large btn-success pull-right",:remote=>true do%> 
-      <i class="mdi-editor-mode-edit"></i> Edit
+    <i class="mdi-editor-mode-edit"></i> Edit
     <%end%>
     <%= link_to :back,:class=>"btn btn-large btn-danger" do%> 
-      <i class="mdi-hardware-keyboard-arrow-left"></i> Back
+    <i class="mdi-hardware-keyboard-arrow-left"></i> Back
     <%end%>
   </div>
   <div class="well descline">
