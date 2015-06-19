@@ -1,18 +1,17 @@
-<div class="well descline" id="ajaxarea">
+<div class="well col-lg-12" id="ajaxarea">
   <%if @college_profiles.nil?%>
+    <center><i class="mdi-alert-warning"></i> No College Profile yet</center>
+    <center><%=link_to new_college_profile_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%>
   <%else%>
-  You are <span class="studentname"><%=current_user.name%></span>
-  Studying <span class="studentname"><%=@college_profiles.degree%>  <%=@college_profiles.branch%></span> and 
-  in semester <span class="studentname"><%=@college_profiles.semester%></span> which is a <span class="studentname"> <%=@college_profiles.level%></span> degree
-  <%= link_to edit_college_profile_path(@college_profiles),:class=>"btn btn-large btn-success",:remote=>true do%> 
-    <i class="mdi-editor-mode-edit"></i> Edit
-  <%end%>
-  <%= link_to 'Back', :back,:class=>"btn btn-large btn-danger" %> 
-<%end%>
-</div>
-  <%if @college_profiles.nil?%>
-  <%else%>
-  <!--div class="well col-lg-12">
+    You are <span class="studentname"><%=current_user.name%></span>
+    Studying <span class="studentname"><%=@college_profiles.degree%>  <%=@college_profiles.branch%></span> and 
+    in semester <span class="studentname"><%=@college_profiles.semester%></span> which is a <span class="studentname"> <%=@college_profiles.level%></span> degree
+    <%= link_to edit_college_profile_path(@college_profiles),:class=>"btn btn-large btn-success",:remote=>true do%> 
+      <i class="mdi-editor-mode-edit"></i> Edit
+    <%end%>
+    <%= link_to 'Back', :back,:class=>"btn btn-large btn-danger" %> 
+  </div>
+  <div class="col-lg-12 well">
     <div class="col-md-6">
       <label>Level:</label>
       <%= @college_profiles.level %>
@@ -46,5 +45,4 @@
     <div class="col-md-6">
       <%= link_to 'Back', college_profiles_path,:class=>"btn btn-large btn-danger" %> 
     </div>
-  </div-->
-<%end%>
+  <%end%>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :college_profiles
 
   root 'home#index'
-  get 'resume'=>"home#resume"
+  get 'resume'=>"home#resume",:as=>"resume"
    get 'data/user/pic/:id/:filename.:extension'=>"application#download"
   devise_for :users,:controllers=>{registrations:"registrations"}
   # The priority is based upon order of creation: first created -> highest priority.

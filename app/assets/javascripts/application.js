@@ -12,13 +12,39 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.turbolinks
+//= require introjs
 //= require_tree .
 $(document).ajaxStart(function(){
-      $("#ajaxloader").html("<center><img src='/assets/loading.GIF' width=30px></img></center>");
+  $("#ajaxloader").html("<center><img src='/assets/loading.GIF' width=30px></img></center>");
 });
 $(document).ajaxComplete(function(){
-      $("#ajaxloader").html(" ");
+  $("#ajaxloader").html(" ");
 });
 
 $.material.init()
+  $(document).ready(function(){
+    var intro = introJs();
+    intro.setOptions({
+      steps: [
+    {
+      element: '#home',
+      intro: "This is a <b>bold</b> tooltip."
+    },
+      {
+        element: '#resume',
+      intro: "Ok, <i>wasn't</i> that fun?",
+      position: 'right'
+      },
+      {
+        element: '#step3',
+      intro: 'More features, more <span style="color: red;">f</span><span style="color: green;">u</span><span style="color: blue;">n</span>.',
+      position: 'left'
+      }]
+    });
+$('#sitetour').on('click',function(e){
+  console.log("hello");
+  e.preventDefault();
+    intro.start();
+});
+  });
