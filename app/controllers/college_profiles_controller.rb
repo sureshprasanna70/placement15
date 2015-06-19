@@ -1,5 +1,6 @@
 class CollegeProfilesController < ApplicationController
   before_action :set_college_profile, only: [:show, :edit, :update, :destroy]
+  before_filter :sign_in_check
   respond_to :js,:html
   # GET /college_profiles
   # GET /college_profiles.json
@@ -70,5 +71,10 @@ class CollegeProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def college_profile_params
       params.require(:college_profile).permit(:level, :degree, :branch, :college, :semester, :cgpa)
+    end
+    def sign_in_check
+      if not user_signed_in?
+        redirect_to new_user_session_path
+      end
     end
 end

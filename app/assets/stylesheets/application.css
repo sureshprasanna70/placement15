@@ -12,7 +12,8 @@
  *
  *= require_tree .
  *= require_self
- */
+ *= require introjs
+  */
 body{
   background-image:url('/assets/gs.png');
 }
@@ -47,27 +48,10 @@ a:active{
   width: 25%;
   padding: 2%;
 }
-.checkbox .checkbox-material {
-  vertical-align: middle;
-  position: relative;
-  top: 3px;
-} 
-.checkbox label span {
-  display: block;
-  position: absolute;
-  left: 0px;
-  transition-duration: 0.2s;
+.popover-title{
+  background-color:transparent !important;
+
 }
-.checkbox input[type=checkbox]:checked+.checkbox-material .check, .checkbox-default input[type=checkbox]:checked+.checkbox-material .check {
-  color: #4caf50;
-}
-.checkbox .checkbox-material .check {
-  position: relative;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid;
-  border-radius: 2px;
-  overflow: hidden;
-  z-index: 1;
+.tour-btn{
+  color:#000;
 }

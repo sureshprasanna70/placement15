@@ -21,12 +21,12 @@
         <ul class="nav navbar-nav">
           <%if user_signed_in?%>
             <li>
-            <%= link_to root_path  do%>
+            <%= link_to root_path ,:id=>"home" do%>
               <i class="mdi-action-home"></i> Home
             <%end%>
             </li>
             <li>
-            <%= link_to "/resume" do%>
+            <%= link_to "/resume" ,:id=>"resume" do%>
               <i class="mdi-editor-insert-drive-file"></i> Resume
             <%end%>
             </li>
@@ -39,7 +39,8 @@
           <i class="mdi-action-exit-to-app"></i> Sign out
         <%end%> 
         </li>
-
+        <li> 
+        <a href="" id="sitetour">Site tour</a></li>
       <%else%>
         <li>
         <%=link_to new_user_session_path do%>

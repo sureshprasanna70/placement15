@@ -1,4 +1,10 @@
 <%= form_for(@college_profile) do |f| %>
+  <%= link_to :back  ,:class=>"btn btn-danger" do%>
+    <i class="mdi-hardware-keyboard-arrow-left"></i> Back
+  <%end%>
+
+  <button type="submit" class="btn btn-primary pull-right"><i class="mdi-content-save"></i>Save</button>
+
   <% if @college_profile.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@college_profile.errors.count, "error") %> prohibited this college_profile from being saved:</h2>
@@ -34,10 +40,11 @@
       <label>CGPA</label>
       <%=f.text_field :cgpa,:class=>"form-control"%>
     </div>
-    <div class="actions">
-      <button class="btn btn-success" type="submit">
-        <span class="glyphicon glyphicon-floppy-disk"> </span> Save
-      </button>
-    </div>
   </fieldset>
+  <%= link_to :back  ,:class=>"btn btn-danger" do%>
+    <i class="mdi-hardware-keyboard-arrow-left"></i> Back
+  <%end%>
+
+  <button type="submit" class="btn btn-primary pull-right"><i class="mdi-content-save"></i>Save</button>
+
 <% end %>

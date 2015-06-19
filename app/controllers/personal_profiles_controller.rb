@@ -1,5 +1,6 @@
 class PersonalProfilesController < ApplicationController
   before_action :set_personal_profile, only: [:show, :edit, :update, :destroy]
+  before_filter :sign_in_check 
   respond_to :js,:html
   # GET /personal_profiles
   # GET /personal_profiles.json
@@ -28,8 +29,8 @@ class PersonalProfilesController < ApplicationController
     @personal_profile.user_id=current_user.id
     respond_to do |format|
       if @personal_profile.save
-        format.html { redirect_to @personal_profile, notice: 'Personal profile was successfully created.' }
-        format.json { render :show, status: :created, location: @personal_profile }
+        format.html { redirect_to resume_path, notice: 'Personal profile was successfully created.' }
+        format.json { render :show, status: :created, location: resume_path }
       else
         format.html { render :new }
         format.json { render json: @personal_profile.errors, status: :unprocessable_entity }
@@ -42,8 +43,8 @@ class PersonalProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @personal_profile.update(personal_profile_params)
-        format.html { redirect_to @personal_profile, notice: 'Personal profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @personal_profile }
+        format.html { redirect_to resume_path, notice: 'Your Personal profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: resume_path }
       else
         format.html { render :edit }
         format.json { render json: @personal_profile.errors, status: :unprocessable_entity }
@@ -56,7 +57,7 @@ class PersonalProfilesController < ApplicationController
   def destroy
     @personal_profile.destroy
     respond_to do |format|
-      format.html { redirect_to personal_profiles_url, notice: 'Personal profile was successfully destroyed.' }
+      format.html { redirect_to resume_path, notice: 'Personal profile was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,5 +71,10 @@ class PersonalProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def personal_profile_params
       params.require(:personal_profile).permit(:gender, :dob, :age, :height, :weight, :guardian_name, :guardian_occupation, :nationality, :mother_tongue,:user_id)
+    end
+    def sign_in_check
+      if not user_signed_in?
+        redirect_to new_user_session_path
+      end
     end
 end
