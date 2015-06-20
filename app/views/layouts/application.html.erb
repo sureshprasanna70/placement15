@@ -5,6 +5,8 @@
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= csrf_meta_tags %>
+<meta charset="utf-8"/>
+<meta author="https://twitter.com/cegsuresh"/>
 </head>
 <body>
 <div class="container">
@@ -39,8 +41,8 @@
             </li>
             <li class="dropdown">       
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-             <img src="<%=current_user.pic_url(:thumb)%>" class="img-circle" width="25px" height="25px"/>
-             <%=current_user.name%><span class="caret"></span></a>
+              <img src="<%=current_user.pic_url(:thumb)%>" class="img-circle" width="25px" height="25px"/>
+              <%=current_user.name%><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li> 
               <%=link_to edit_user_registration_path do%>
@@ -54,9 +56,9 @@
           </ul>
           </li>
         <%else%>
-            <li>
-            <a href=""><i class="mdi-action-question-answer"></i> FAQ</a>
-            </li>
+          <li>
+          <a href=""><i class="mdi-action-question-answer"></i> FAQ</a>
+          </li>
           <li>
           <%=link_to new_user_session_path do%>
             <i class="mdi-action-input"></i>
@@ -78,11 +80,11 @@
   <%elsif key=="notice"%>
     <div class="alert alert-dismissable alert-success">
       <button type="button" class="close" data-dismiss="alert">×</button>
-    <i class="mdi-action-done"></i> <%=value%>
-    </div>
-  <%end%> 
+      <i class="mdi-action-done"></i> <%=value%>
+  </div>
+<%end%> 
 <% end %>
-<div class="col-lg-12 loader" id="jazzloader"> 
+<div class="col-lg-12" id="jazzloader"> 
 </div>
 <%= yield %>
 </div>
