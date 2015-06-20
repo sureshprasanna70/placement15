@@ -1,6 +1,8 @@
 <div class="well col-lg-12">
-<h1><center><i class="mdi-action-home"></i> HOME</center></h1>
-
+  <h1><center><i class="mdi-action-home"></i> HOME</center></h1>
+  <%= month_calendar table:{class:'table table-bordered'} do |date| %>
+      <%= date.strftime("%d") %>
+    <% end %>
   <ul>
     <li>Can place what company is next</li>
     <li>Can place schedule  </li>
