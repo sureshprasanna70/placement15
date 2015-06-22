@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require introjs
+ *= require jquery-ui
   */
 body{
   background-image:url('/assets/gs.png');
