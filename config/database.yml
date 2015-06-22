@@ -23,7 +23,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  username: <%=RAILS_ENV["mysql_username"]%>
-  password: <%=RAILS_ENV["mysql_password"]%>
+  username: <%=ENV["mysql_username"]%>
+  password: <%=ENV["mysql_password"]%>
   host: localhost
   database: placements
