@@ -1,23 +1,35 @@
 <div class="well col-lg-12">
-   
+
   <h1><center><i class="mdi-action-home"></i> HOME</center></h1>
   <div class="col-lg-6">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title"><i class="mdi-action-event"></i> Placement Calendar</h3>
-    </div>
-    <div class="panel-body">
-      <%= month_calendar previous_link: prev_month_link,next_link:next_month_link,table:{class:'table table-bordered'} do |date| %>
-        <%= date.strftime("%d") %>
-      <% end %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="mdi-action-event"></i> Placement Calendar</h3>
+      </div>
+      <div class="panel-body">
+        <%= month_calendar previous_link: prev_month_link,next_link:next_month_link,table:{class:'table table-bordered'} do |date| %>
+          <%= date.strftime("%d") %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
   <div class="col-lg-6">
-    <ul>
-      <li>Can place what company is next</li>
-      <li>Can place schedule  </li>
-      <li>Notify of changes in schedule</li>
-    </ul>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="mdi-social-notifications-on"></i> Changes in Schedule</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ticker1">
+          <div class="innerWrap">
+            <div class="list"> The company xyz has been changed to so and so date </div>
+            <div class="list"> News 2 </div>
+            <div class="list"> News 3 </div>
+            <div class="list"> News 4 </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
