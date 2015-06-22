@@ -27,3 +27,4 @@ production:
   password: <%=ENV["mysql_password"]%>
   host: localhost
   database: placements
+  adapter: mysql2
