@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :sign_in_check 
+  before_action :sign_in_check ,only:[:index,:resume]
   def index
   end
   def resume
