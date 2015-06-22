@@ -57,7 +57,7 @@
           </li>
         <%else%>
           <li>
-          <a href=""><i class="mdi-action-question-answer"></i> FAQ</a>
+            <%=link_to faq_path do%><i class="mdi-action-question-answer"></i> FAQ<%end%>
           </li>
           <li>
           <%=link_to new_user_session_path do%>
