@@ -1,12 +1,12 @@
 $(document).ready(function(){
 $('#faq').accordion();
-$('.ticker1, .ticker2').easyTicker({
+$('.ticker1').easyTicker({
     direction: 'up',
     easing: 'swing',
     speed: 'slow',
     interval: 2000,
     height: 'auto',
-    visible: 0,
+    visible: 1,
     mousePause: 1,
     controls: {
           up: '',
