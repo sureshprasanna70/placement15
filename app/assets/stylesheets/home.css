@@ -2,3 +2,11 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+.today{
+  background-color:#009587;
+  color:white;
+}
+.next-month,.prev-month{
+  background-color:grey;
+  color:white;
+}
