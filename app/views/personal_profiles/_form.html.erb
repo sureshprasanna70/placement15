@@ -72,6 +72,10 @@
   <%= f.label :permanent_address %><br>
   <%= f.text_area :permanent_address ,:class=>"form-control" ,:required=>true %>
 </div>
+<div class="form-group">
+  <%= f.label :communicate %><br>
+  <%= f.select :communicate ,options_for_select([["Permanent","permanent"],["Current","current"]]), :class=>"form-control" ,:required=>true %>
+</div>
 
 <%= link_to :back  ,:class=>"btn btn-danger" do%>
 <i class="mdi-hardware-keyboard-arrow-left"></i> Back
