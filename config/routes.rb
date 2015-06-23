@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :academic_details
+
   resources :personal_profiles
   resources :college_profiles
   root 'home#index'

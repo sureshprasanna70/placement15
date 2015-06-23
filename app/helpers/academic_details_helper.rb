@@ -1,0 +1,2 @@
+module AcademicDetailsHelper
+end
