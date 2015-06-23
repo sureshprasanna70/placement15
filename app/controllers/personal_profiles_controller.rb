@@ -70,7 +70,7 @@ class PersonalProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personal_profile_params
-      params.require(:personal_profile).permit(:gender, :dob, :age, :height, :weight, :guardian_name, :guardian_occupation, :nationality, :mother_tongue,:user_id)
+      params.require(:personal_profile).permit(:gender, :dob, :age, :height, :weight, :guardian_name, :guardian_occupation, :nationality, :mother_tongue,:user_id,:current_address,:permanent_address)
     end
     def sign_in_check
       if not user_signed_in?
