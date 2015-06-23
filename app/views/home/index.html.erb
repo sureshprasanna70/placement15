@@ -23,9 +23,11 @@
         <h3 class="panel-title"><i class="mdi-action-event"></i> Placement Calendar</h3>
       </div>
       <div class="panel-body">
+        <div class="table-responsive">
         <%= month_calendar previous_link: prev_month_link,next_link:next_month_link,table:{class:'table table-bordered'} do |date| %>
           <%= date.strftime("%d") %>
         <% end %>
+      </div>
       </div>
     </div>
   </div>
