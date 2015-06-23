@@ -8,9 +8,6 @@ class User < ActiveRecord::Base
   validates_numericality_of :phone
   validates_numericality_of :phone
   validates_uniqueness_of :phone
-  validates :pic ,:file_size => { 
-          :maximum => 0.5.megabytes.to_i 
-              } 
-  has_one :college_profile
+ has_one :college_profile
   has_one :personal_profile
 end
