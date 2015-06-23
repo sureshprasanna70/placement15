@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :course %><br>
-    <%= f.text_field :course %>
+    <%= f.select :course,options_for_select([["SSLC","sslc"],["HSC","hsc"],["UG","ug"],["PG","pg"]]),:class=>"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :institution %><br>
-    <%= f.text_area :institution %>
+    <%= f.text_area :institution ,:class=>"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :examination_authority %><br>
-    <%= f.text_field :examination_authority %>
+    <%= f.text_field :examination_authority,:class=>"form-control"  %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :pass_year %><br>
-    <%= f.date_select :pass_year %>
+    <%= f.date_select :pass_year ,:class=>"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :percentage %><br>
-    <%= f.text_field :percentage %>
+    <%= f.text_field :percentage ,:class=>"form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <button type="submit" class="btn btn-primary"> Save</button>
   </div>
 <% end %>
