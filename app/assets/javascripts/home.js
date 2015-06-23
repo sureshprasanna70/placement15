@@ -6,7 +6,7 @@ $('.ticker1').easyTicker({
     speed: 'slow',
     interval: 2000,
     height: 'auto',
-    visible: 1,
+    visible: 3,
     mousePause: 1,
     controls: {
           up: '',
