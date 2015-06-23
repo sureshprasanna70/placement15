@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course: MyString
+  institution: MyText
+  examination_authority: MyString
+  pass_year: 2015-06-24
+  percentage: 1.5
+
+two:
+  course: MyString
+  institution: MyText
+  examination_authority: MyString
+  pass_year: 2015-06-24
+  percentage: 1.5

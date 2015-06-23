@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @academic_detail.course %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @academic_detail.institution %>
+</p>
+
+<p>
+  <strong>Examination authority:</strong>
+  <%= @academic_detail.examination_authority %>
+</p>
+
+<p>
+  <strong>Pass year:</strong>
+  <%= @academic_detail.pass_year %>
+</p>
+
+<p>
+  <strong>Percentage:</strong>
+  <%= @academic_detail.percentage %>
+</p>
+
+<%= link_to 'Edit', edit_academic_detail_path(@academic_detail) %> |
+<%= link_to 'Back', academic_details_path %>
