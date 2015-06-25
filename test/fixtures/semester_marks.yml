@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  semester: 1
+  gpa: 1.5
+  pass_year: 2015-06-25
+
+two:
+  semester: 1
+  gpa: 1.5
+  pass_year: 2015-06-25
