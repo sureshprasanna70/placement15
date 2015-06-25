@@ -28,7 +28,7 @@ class AcademicDetailsController < ApplicationController
     @academic_detail.user_id=current_user.id
     respond_to do |format|
       if @academic_detail.save
-        format.html { redirect_to @academic_detail, notice: 'Academic detail was successfully created.' }
+        format.html { redirect_to resume_path, notice: 'Academic detail was successfully created.' }
         format.json { render :show, status: :created, location: @academic_detail }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AcademicDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @academic_detail.update(academic_detail_params)
-        format.html { redirect_to @academic_detail, notice: 'Academic detail was successfully updated.' }
+        format.html { redirect_to resume_path, notice: 'Academic detail was successfully updated.' }
         format.json { render :show, status: :ok, location: @academic_detail }
       else
         format.html { render :edit }
