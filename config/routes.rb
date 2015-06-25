@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :semester_marks
+
   resources :academic_details
 
   resources :personal_profiles

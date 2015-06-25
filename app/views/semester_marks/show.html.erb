@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @semester_mark.semester %>
+</p>
+
+<p>
+  <strong>Gpa:</strong>
+  <%= @semester_mark.gpa %>
+</p>
+
+<p>
+  <strong>Pass year:</strong>
+  <%= @semester_mark.pass_year %>
+</p>
+
+<%= link_to 'Edit', edit_semester_mark_path(@semester_mark) %> |
+<%= link_to 'Back', semester_marks_path %>
