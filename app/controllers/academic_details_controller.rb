@@ -4,7 +4,7 @@ class AcademicDetailsController < ApplicationController
   # GET /academic_details
   # GET /academic_details.json
   def index
-    @academic_details = AcademicDetail.all
+    @academic_details = current_user.academic_detail
   end
 
   # GET /academic_details/1
