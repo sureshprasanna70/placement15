@@ -3,16 +3,16 @@
     <div id="error_explanation">
       <h2><%= pluralize(@academic_detail.errors.count, "error") %> prohibited this academic_detail from being saved:</h2>
 
-      <ul>
+      <div class="alert alert-message">
       <% @academic_detail.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
 
   <div class="form-group">
-    <%= f.label :course %><br>
+    <%= f.label :course %><small>(Choose what only what is applicable)</small><br>
     <%= f.select :course,options_for_select([["SSLC","sslc"],["HSC","hsc"],["UG","ug"],["PG","pg"]]),:class=>"form-control" %>
   </div>
   <div class="form-group">
