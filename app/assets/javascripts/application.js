@@ -22,9 +22,9 @@ $(document).ajaxStart(function(){
 $(document).ajaxComplete(function(){
   $("#ajaxloader").html(" ");
 });
-
 $.material.init()
   $(document).ready(function(){
+    
     var intro = introJs();
     intro.setOptions({
       steps: [
@@ -43,9 +43,9 @@ $.material.init()
       position: 'left'
       }]
     });
-$('#sitetour').on('click',function(e){
-  console.log("hello");
-  e.preventDefault();
-    intro.start();
-});
+    $('#sitetour').on('click',function(e){
+      console.log("hello");
+      e.preventDefault();
+      intro.start();
+    });
   });

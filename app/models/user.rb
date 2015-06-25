@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :phone
  has_one :college_profile
   has_one :personal_profile
+  has_many :academic_detail
 end
