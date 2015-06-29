@@ -1,0 +1,33 @@
+<%= form_for(@extra_activity) do |f| %>
+  <% if @extra_activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@extra_activity.errors.count, "error") %> prohibited this extra_activity from being saved:</h2>
+
+      <ul>
+      <% @extra_activity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :area_of_interest %><br>
+    <%= f.text_area :area_of_interest %>
+  </div>
+  <div class="field">
+    <%= f.label :extra_curricular %><br>
+    <%= f.text_area :extra_curricular %>
+  </div>
+  <div class="field">
+    <%= f.label :hobby %><br>
+    <%= f.text_area :hobby %>
+  </div>
+  <div class="field">
+    <%= f.label :responsibilty %><br>
+    <%= f.text_area :responsibilty %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

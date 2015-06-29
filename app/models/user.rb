@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
  has_one :college_profile
   has_one :personal_profile
   has_many :academic_detail
+  has_many :semester_mark
+  has_one :extra_activity
 end

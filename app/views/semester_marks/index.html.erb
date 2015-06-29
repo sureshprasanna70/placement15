@@ -1,14 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="well">
+<center><h1><i class="mdi-action-view-list"></i>Semester Marks</h1></center>
 
-<h1>Listing Semester Marks</h1>
-
-<table>
+<%= link_to 'New Semester mark', new_semester_mark_path ,:class=>"pull-right"%>
+<br>
+<br>
+<div class="table-responsive">
+<table class="table table-bordered"> 
   <thead>
     <tr>
       <th>Semester</th>
       <th>Gpa</th>
       <th>Pass year</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -18,14 +21,10 @@
         <td><%= semester_mark.semester %></td>
         <td><%= semester_mark.gpa %></td>
         <td><%= semester_mark.pass_year %></td>
-        <td><%= link_to 'Show', semester_mark %></td>
         <td><%= link_to 'Edit', edit_semester_mark_path(semester_mark) %></td>
-        <td><%= link_to 'Destroy', semester_mark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Semester mark', new_semester_mark_path %>
+</div>
+</div>

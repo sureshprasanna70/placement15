@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Area of interest:</strong>
+  <%= @extra_activity.area_of_interest %>
+</p>
+
+<p>
+  <strong>Extra curricular:</strong>
+  <%= @extra_activity.extra_curricular %>
+</p>
+
+<p>
+  <strong>Hobby:</strong>
+  <%= @extra_activity.hobby %>
+</p>
+
+<p>
+  <strong>Responsibilty:</strong>
+  <%= @extra_activity.responsibilty %>
+</p>
+
+<%= link_to 'Edit', edit_extra_activity_path(@extra_activity) %> |
+<%= link_to 'Back', extra_activities_path %>
