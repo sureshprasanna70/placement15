@@ -1,6 +1,6 @@
 class SemesterMarksController < ApplicationController
   before_action :set_semester_mark, only: [:show, :edit, :update, :destroy]
-
+  before_filter :sign_in_check
   # GET /semester_marks
   # GET /semester_marks.json
   def index
@@ -62,13 +62,22 @@ class SemesterMarksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_semester_mark
-      @semester_mark = SemesterMark.find(params[:id])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_semester_mark
+    @semester_mark = SemesterMark.find(params[:id])
+    if not @semester_mark.user_id==current_user.id
+      redirect_to root_path
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def semester_mark_params
-      params.require(:semester_mark).permit(:semester, :gpa, :pass_year,:user_id)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def semester_mark_params
+    params.require(:semester_mark).permit(:semester, :gpa, :pass_year,:user_id)
+  end
+  def sign_in_check
+    if not user_signed_in?
+      redirect_to new_user_session_path
     end
+  end
 end

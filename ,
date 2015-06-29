@@ -1,6 +1,4 @@
 <%= form_for(@extra_activity) do |f| %>
-  <%=link_to :back,:class=>"btn btn-danger" do%><i class="mdi-hardware-keyboard-arrow-left"></i> Back <%end%>
-    <button type="submit" class="btn btn-success pull-right"><i class="mdi-content-save"></i> Save</button>
   <% if @extra_activity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@extra_activity.errors.count, "error") %> prohibited this extra_activity from being saved:</h2>
@@ -29,7 +27,7 @@
     <%= f.label :responsibilty %><br>
     <%= f.text_area :responsibilty,:class=>"form-control" %>
   </div>
-  <%=link_to :back,:class=>"btn btn-danger" do%><i class="mdi-hardware-keyboard-arrow-left"></i> Back <%end%>
-    <button type="submit" class="btn btn-success pull-right"><i class="mdi-content-save"></i> Save</button>
-
+  <div class="actions">
+    <button type="submit" class="btn btn-success"><i class="mdi-content-save"></i> Save</button>
+  </div>
 <% end %>

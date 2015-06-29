@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   has_many :academic_detail
   has_many :semester_mark
   has_one :extra_activity
+  has_many :project
 end

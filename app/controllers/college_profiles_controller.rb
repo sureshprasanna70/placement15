@@ -63,18 +63,22 @@ class CollegeProfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_college_profile
-      @college_profile = CollegeProfile.find(params[:id])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_college_profile
+    @college_profile = CollegeProfile.find(params[:id])
+    if not @college_profile.user_id==current_user.id
+      redirect_to root_path
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def college_profile_params
-      params.require(:college_profile).permit(:level, :degree, :branch, :college, :semester, :cgpa)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def college_profile_params
+    params.require(:college_profile).permit(:level, :degree, :branch, :college, :semester, :cgpa)
+  end
+  def sign_in_check
+    if not user_signed_in?
+      redirect_to new_user_session_path
     end
-    def sign_in_check
-      if not user_signed_in?
-        redirect_to new_user_session_path
-      end
-    end
+  end
 end
