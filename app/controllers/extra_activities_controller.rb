@@ -1,6 +1,6 @@
 class ExtraActivitiesController < ApplicationController
   before_action :set_extra_activity, only: [:show, :edit, :update, :destroy]
-
+  before_filter :sign_in_check
   # GET /extra_activities
   # GET /extra_activities.json
   def index
@@ -65,10 +65,18 @@ class ExtraActivitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_extra_activity
       @extra_activity = ExtraActivity.find(params[:id])
+      if not @extra_activity.user_id==current_user.id
+        redirect_to root_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def extra_activity_params
       params.require(:extra_activity).permit(:area_of_interest, :extra_curricular, :hobby, :responsibilty,:user_id)
+    end
+    def sign_in_check
+      if not user_signed_in?
+        redirect_to new_user_session_path
+      end
     end
 end

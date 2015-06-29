@@ -1,11 +1,15 @@
 
 
-<center><h1>Extra Activities</h1></center>
+<center><h1><i class="mdi-image-filter-vintage"></i>  Extra Activities</h1></center>
 <%if not @extra_activities.nil?%>
 <div>
   <%=link_to :back ,:class=>"btn btn-danger" do%>
     <i class="mdi-hardware-keyboard-arrow-left"></i> Back
   <%end%>
+  <%= link_to edit_extra_activity_path(@extra_activities) ,:class=>"btn btn-success pull-right" do%>
+    <i class="mdi-content-create"></i> Edit
+  <%end%>
+
 <br><br>
 </div>
 <div class="table-responsive">
@@ -16,20 +20,16 @@
       <th>Extra curricular</th>
       <th>Hobby</th>
       <th>Responsibilty</th>
-      <th></th>
-    </tr>
+      </tr>
   </thead>
 
   <tbody>
-    <% @extra_activities.each do |extra_activity| %>
       <tr>
-        <td><%= extra_activity.area_of_interest %></td>
-        <td><%= extra_activity.extra_curricular %></td>
-        <td><%= extra_activity.hobby %></td>
-        <td><%= extra_activity.responsibilty %></td>
-        <td><%= link_to 'Edit', edit_extra_activity_path(extra_activity) %></td>
-      </tr>
-    <% end %>
+        <td><%= @extra_activities.area_of_interest %></td>
+        <td><%= @extra_activities.extra_curricular %></td>
+        <td><%= @extra_activities.hobby %></td>
+        <td><%= @extra_activities.responsibilty %></td>
+        </tr>
   </tbody>
 </table>
 </div>

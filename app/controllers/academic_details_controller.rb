@@ -62,18 +62,22 @@ class AcademicDetailsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_academic_detail
-      @academic_detail = AcademicDetail.find(params[:id])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_academic_detail
+    @academic_detail = AcademicDetail.find(params[:id])
+    if not @academic_detail.user_id==current_user.id
+      redirect_to root_path
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def academic_detail_params
-      params.require(:academic_detail).permit(:course, :institution, :examination_authority, :pass_year, :percentage,:user_id)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def academic_detail_params
+    params.require(:academic_detail).permit(:course, :institution, :examination_authority, :pass_year, :percentage,:user_id)
+  end
+  def sign_in_check
+    if not user_signed_in?
+      redirect_to new_user_session_path
     end
-    def sign_in_check
-      if not user_signed_in?
-        redirect_to new_user_session_path
-      end
-    end
+  end
 end

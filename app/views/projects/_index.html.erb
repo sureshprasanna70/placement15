@@ -1,6 +1,5 @@
 
-<center><h1>Listing Projects</h1></center>
-<%if not @projects.nil?%>
+<center><h1><i class="mdi-image-landscape"></i> Projects</h1></center>
 <div>
 <%=link_to :back,:class=>"btn btn-danger" do%>
 <i class="mdi-hardware-keyboard-arrow-left"></i> Back
@@ -14,9 +13,9 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Desc</th>
+      <th>Description</th>
       <th>Technology</th>
-      <th></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -31,14 +30,6 @@
     <% end %>
   </tbody>
 </table>
-<br>
-</div> 
-<%else%>
-<center><p class="message"><i class="mdi-alert-warning"></i>  No Activities yet</p></center>
-<center>
-  <%= link_to new_extra_activity_path,:class=>"btn btn-primary",:remote=>true do %>
-  <i class="mdi-content-add"></i> Add
-  <%end%>
-</center>
 
-<%end%>
+<br>
+</div>

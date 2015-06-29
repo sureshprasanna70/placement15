@@ -66,6 +66,10 @@ class PersonalProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_personal_profile
       @personal_profile = current_user.personal_profile
+       if not @personal_profile.user_id==current_user.id
+        redirect_to root_path
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
