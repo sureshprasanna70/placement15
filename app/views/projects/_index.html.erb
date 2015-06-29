@@ -1,0 +1,44 @@
+
+<center><h1>Listing Projects</h1></center>
+<%if not @projects.nil?%>
+<div>
+<%=link_to :back,:class=>"btn btn-danger" do%>
+<i class="mdi-hardware-keyboard-arrow-left"></i> Back
+<%end%>
+<%= link_to  new_project_path ,:class=>"btn btn-success pull-right" do%>
+  <i class="mdi-content-add"></i> New 
+<%end%>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Desc</th>
+      <th>Technology</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.desc %></td>
+        <td><%= project.technology %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+</div> 
+<%else%>
+<center><p class="message"><i class="mdi-alert-warning"></i>  No Activities yet</p></center>
+<center>
+  <%= link_to new_extra_activity_path,:class=>"btn btn-primary",:remote=>true do %>
+  <i class="mdi-content-add"></i> Add
+  <%end%>
+</center>
+
+<%end%>

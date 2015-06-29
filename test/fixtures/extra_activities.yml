@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  area_of_interest: MyText
+  extra_curricular: MyText
+  hobby: MyText
+  responsibilty: MyText
+
+two:
+  area_of_interest: MyText
+  extra_curricular: MyText
+  hobby: MyText
+  responsibilty: MyText

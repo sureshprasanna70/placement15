@@ -1,0 +1,33 @@
+<div class="well">
+<h1>Listing Extra Activities</h1>
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Area of interest</th>
+      <th>Extra curricular</th>
+      <th>Hobby</th>
+      <th>Responsibilty</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @extra_activities.each do |extra_activity| %>
+      <tr>
+        <td><%= extra_activity.area_of_interest %></td>
+        <td><%= extra_activity.extra_curricular %></td>
+        <td><%= extra_activity.hobby %></td>
+        <td><%= extra_activity.responsibilty %></td>
+        <td><%= link_to 'Show', extra_activity %></td>
+        <td><%= link_to 'Edit', edit_extra_activity_path(extra_activity) %></td>
+        <td><%= link_to 'Destroy', extra_activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+<%= link_to 'New Extra activity', new_extra_activity_path %>
+</div>

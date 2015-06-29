@@ -1,4 +1,11 @@
 <%= form_for(@semester_mark) do |f| %>
+  <div>
+    <%=link_to :back,:class=>"btn btn-danger" do%>
+    <i class="mdi-hardware-keyboard-arrow-left"></i> Back
+  <%end%>
+    <button type="submit" class="btn btn-success pull-right"><i class="mdi-content-save"></i> Save</button>
+  </div>
+  <br>
   <% if @semester_mark.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@semester_mark.errors.count, "error") %> prohibited this semester_mark from being saved:</h2>
@@ -11,19 +18,18 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :semester %><br>
-    <%= f.number_field :semester %>
+    <%= f.number_field :semester,:class=>"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :gpa %><br>
-    <%= f.text_field :gpa %>
+    <%= f.text_field :gpa,:class=>"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :pass_year %><br>
-    <%= f.date_select :pass_year %>
+    <%= f.date_select :pass_year,:class=>"form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

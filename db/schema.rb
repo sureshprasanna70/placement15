@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625071646) do
+ActiveRecord::Schema.define(version: 20150629162723) do
 
   create_table "academic_details", force: :cascade do |t|
     t.string   "course",                limit: 255
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20150625071646) do
     t.integer  "user_id",    limit: 4
   end
 
+  create_table "extra_activities", force: :cascade do |t|
+    t.text     "area_of_interest", limit: 65535
+    t.text     "extra_curricular", limit: 65535
+    t.text     "hobby",            limit: 65535
+    t.text     "responsibilty",    limit: 65535
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "user_id",          limit: 4
+  end
+
   create_table "personal_profiles", force: :cascade do |t|
     t.string   "gender",              limit: 255
     t.date     "dob"
@@ -52,6 +62,15 @@ ActiveRecord::Schema.define(version: 20150625071646) do
     t.text     "current_address",     limit: 65535
     t.text     "permanent_address",   limit: 65535
     t.string   "communicate",         limit: 255
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "desc",       limit: 65535
+    t.text     "technology", limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "semester_marks", force: :cascade do |t|

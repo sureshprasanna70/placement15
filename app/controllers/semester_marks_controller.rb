@@ -4,7 +4,7 @@ class SemesterMarksController < ApplicationController
   # GET /semester_marks
   # GET /semester_marks.json
   def index
-    @semester_marks = SemesterMark.all
+    @semester_marks = current_user.semester_mark
   end
 
   # GET /semester_marks/1
@@ -25,10 +25,10 @@ class SemesterMarksController < ApplicationController
   # POST /semester_marks.json
   def create
     @semester_mark = SemesterMark.new(semester_mark_params)
-
+    @semester_mark.user_id=current_user.id
     respond_to do |format|
       if @semester_mark.save
-        format.html { redirect_to @semester_mark, notice: 'Semester mark was successfully created.' }
+        format.html { redirect_to resume_path, notice: 'Semester mark was successfully created.' }
         format.json { render :show, status: :created, location: @semester_mark }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SemesterMarksController < ApplicationController
   def update
     respond_to do |format|
       if @semester_mark.update(semester_mark_params)
-        format.html { redirect_to @semester_mark, notice: 'Semester mark was successfully updated.' }
+        format.html { redirect_to resume_path notice: 'Semester mark was successfully updated.' }
         format.json { render :show, status: :ok, location: @semester_mark }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class SemesterMarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def semester_mark_params
-      params.require(:semester_mark).permit(:semester, :gpa, :pass_year)
+      params.require(:semester_mark).permit(:semester, :gpa, :pass_year,:user_id)
     end
 end
