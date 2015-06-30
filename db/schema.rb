@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630170914) do
+ActiveRecord::Schema.define(version: 20150630182336) do
 
   create_table "academic_details", force: :cascade do |t|
     t.string   "course",                limit: 255
     t.text     "institution",           limit: 65535
     t.string   "examination_authority", limit: 255
-    t.date     "pass_year"
     t.float    "percentage",            limit: 24
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "user_id",               limit: 4
+    t.string   "pass_year",             limit: 255
   end
 
   create_table "college_profiles", force: :cascade do |t|
@@ -85,10 +85,10 @@ ActiveRecord::Schema.define(version: 20150630170914) do
   create_table "semester_marks", force: :cascade do |t|
     t.integer  "semester",   limit: 4
     t.float    "gpa",        limit: 24
-    t.date     "pass_year"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id",    limit: 4
+    t.string   "pass_year",  limit: 255
   end
 
   create_table "users", force: :cascade do |t|
