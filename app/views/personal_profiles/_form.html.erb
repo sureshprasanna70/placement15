@@ -34,7 +34,7 @@
 </div>
 <div class="form-group">
   <%= f.label :dob %><br>
-  <%= f.date_select :dob ,:class=>"form-control" ,:required=>true %>
+  <%= f.text_field :dob ,:class=>"form-control" ,:required=>true,:id=>"date" %>
 </div>
 <div class="form-group">
   <%= f.label :age %><br>
@@ -82,3 +82,6 @@
 <%end%>
 <button type="submit" class="btn btn-primary pull-right"><i class="mdi-content-save"></i>Save</button>
 <% end %>
+<script>
+</script>
+
