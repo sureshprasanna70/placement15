@@ -24,10 +24,15 @@
       </div>
       <div class="panel-body">
         <div class="table-responsive">
-        <%= month_calendar previous_link: prev_month_link,next_link:next_month_link,table:{class:'table table-bordered'} do |date| %>
-          <%= date.strftime("%d") %>
-        <% end %>
-      </div>
+          <%= month_calendar previous_link: prev_month_link,next_link:next_month_link,table:{class:'table table-bordered'},events: @companies do |date, meetings| %>
+            <%= date.strftime("%d") %>
+            <% meetings.each do |meeting| %>
+              <div>
+                <%= meeting.name %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
