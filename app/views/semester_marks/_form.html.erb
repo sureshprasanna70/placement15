@@ -28,7 +28,7 @@
   </div>
   <div class="form-group">
     <%= f.label :pass_year %><br>
-    <%= f.date_select :pass_year,:class=>"form-control" %>
+    <%= f.select :pass_year, (Time.zone.now.year - 20)..(Time.zone.now.year + 1),:class=>"form-control"%>
   </div>
   <div class="actions">
   </div>
