@@ -4,7 +4,7 @@
 <%=link_to :back,:class=>"btn btn-danger" do%>
 <i class="mdi-hardware-keyboard-arrow-left"></i> Back
 <%end%>
-<%= link_to  new_project_path ,:class=>"btn btn-success pull-right" do%>
+<%= link_to  new_project_path ,:class=>"btn btn-success pull-right",:remote=>"true" do%>
   <i class="mdi-content-add"></i> New 
 <%end%>
 </div>
@@ -25,7 +25,7 @@
         <td><%= project.title %></td>
         <td><%= project.desc %></td>
         <td><%= project.technology %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Edit', edit_project_path(project),:remote=>true %></td>
       </tr>
     <% end %>
   </tbody>

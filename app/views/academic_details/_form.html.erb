@@ -10,6 +10,11 @@
       </div>
     </div>
   <% end %>
+<%= link_to :back  ,:class=>"btn btn-danger" do%>
+<i class="mdi-hardware-keyboard-arrow-left"></i> Back
+<%end%>
+
+<button type="submit" class="btn btn-primary pull-right"><i class="mdi-content-save"></i>Save</button>
 
   <div class="form-group">
     <%= f.label :course %><small>(Choose what only what is applicable)</small><br>
@@ -25,13 +30,15 @@
   </div>
   <div class="form-group">
     <%= f.label :pass_year %><br>
-    <%= f.date_select :pass_year ,:class=>"form-control" %>
+    <%= f.select :pass_year, (Time.zone.now.year - 20)..(Time.zone.now.year + 1),:class=>"form-control"%>
   </div>
   <div class="form-group">
     <%= f.label :percentage %><br>
     <%= f.text_field :percentage ,:class=>"form-control" %>
   </div>
-  <div class="actions">
-    <button type="submit" class="btn btn-primary"> Save</button>
-  </div>
+<%= link_to :back  ,:class=>"btn btn-danger" do%>
+<i class="mdi-hardware-keyboard-arrow-left"></i> Back
+<%end%>
+<button type="submit" class="btn btn-primary pull-right"><i class="mdi-content-save"></i>Save</button>
+
 <% end %>

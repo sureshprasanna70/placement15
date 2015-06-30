@@ -10,20 +10,28 @@
       </ul>
     </div>
   <% end %>
+<%= link_to :back  ,:class=>"btn btn-danger" do%>
+<i class="mdi-hardware-keyboard-arrow-left"></i> Back
+<%end%>
 
-  <div class="field">
+<button type="submit" class="btn btn-primary pull-right"><i class="mdi-content-save"></i>Save</button>
+
+  <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title,:class=>"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :desc %><br>
-    <%= f.text_area :desc %>
+    <%= f.text_area :desc,:class=>"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :technology %><br>
-    <%= f.text_area :technology %>
+    <%= f.text_area :technology,:class=>"form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= link_to :back  ,:class=>"btn btn-danger" do%>
+<i class="mdi-hardware-keyboard-arrow-left"></i> Back
+<%end%>
+
+<button type="submit" class="btn btn-primary pull-right"><i class="mdi-content-save"></i>Save</button>
+
 <% end %>
