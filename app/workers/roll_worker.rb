@@ -20,8 +20,8 @@ class RollWorker
     end
     @ws=Workstatus.new
     @ws.numrange=start_number+"-"+end_number
-    @ws.status="processing"
-    @ws.filename=directory+file
+    @ws.status="done"
+    @ws.filename="excelsheet/"+file
     @ws.save
   end
 end

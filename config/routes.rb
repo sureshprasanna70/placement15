@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   get 'resume'=>"home#resume",:as=>"resume"
   get 'faq'=>"home#faq",:as=>"faq"
   get 'data/user/pic/:id/:filename.:extension'=>"application#download"
+  get 'excelsheet/:filename.:extension'=>"application#exceldownload"
   devise_for :users,:controllers=>{registrations:"registrations"},path_names: { sign_up: ''  }
 end

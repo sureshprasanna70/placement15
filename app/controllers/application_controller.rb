@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
       user_pic = User.find(params[:id])
       send_file user_pic.pic.path
     end
+
+  end
+  def exceldownload
+    send_file "data/excelsheet/"+params[:filename]+"."+params[:extension]
   end
   def disable_json
     if request.format =~ /json/
