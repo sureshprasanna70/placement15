@@ -12,13 +12,16 @@ class RollWorker
     directory=File.dirname(Rails.root)
     directory=directory+"/placement/data/excelsheet"
     file=start_number+"-"+end_number+".csv"
-    @ws=Workstatus.new
-    @ws.numrange=start_number+"-"+end_number
     CSV.open(File.join(directory,file), 'w' ) do |writer|
       rollno_pass.each do |key,value|
         puts value
         writer<<[key,value]
       end
     end
+    @ws=Workstatus.new
+    @ws.numrange=start_number+"-"+end_number
+    @ws.status="processing"
+    @ws.filename=directory+file
+    @ws.save
   end
 end
