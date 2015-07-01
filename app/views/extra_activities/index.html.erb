@@ -1,33 +1,34 @@
 <div class="well">
-<h1>Listing Extra Activities</h1>
-<div class="table-responsive">
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Area of interest</th>
-      <th>Extra curricular</th>
-      <th>Hobby</th>
-      <th>Responsibilty</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @extra_activities.each do |extra_activity| %>
+  <center><h1><i class="mdi-image-filter-vintage"></i>Extra Activities</h1></center>
+
+  <%= link_to 'New',new_extra_activity_path ,:class=>"btn btn-success pull-right"%>
+  <br>
+  <br>
+  <br>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Area of interest</th>
+          <th>Extra curricular</th>
+          <th>Hobby</th>
+          <th>Responsibilty</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
       <tr>
-        <td><%= extra_activity.area_of_interest %></td>
-        <td><%= extra_activity.extra_curricular %></td>
-        <td><%= extra_activity.hobby %></td>
-        <td><%= extra_activity.responsibilty %></td>
-        <td><%= link_to 'Show', extra_activity %></td>
-        <td><%= link_to 'Edit', edit_extra_activity_path(extra_activity) %></td>
-        <td><%= link_to 'Destroy', extra_activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @extra_activities.area_of_interest %></td>
+        <td><%= @extra_activities.extra_curricular %></td>
+        <td><%= @extra_activities.hobby %></td>
+        <td><%= @extra_activities.responsibilty %></td>
+        <td><%= link_to 'Edit', edit_extra_activity_path(@extra_activities) %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
-<br>
-</div>
-<%= link_to 'New Extra activity', new_extra_activity_path %>
+    <br>
+  </div>
 </div>
