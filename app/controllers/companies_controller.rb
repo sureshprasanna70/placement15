@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-
+  before_filter :sign_in_check
   # GET /companies
   # GET /companies.json
   def index
@@ -62,13 +62,20 @@ class CompaniesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_company
-      @company = Company.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_company
+    @company = Company.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def company_params
-      params.require(:company).permit(:name, :visting, :profile,:starts_at)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def company_params
+    params.require(:company).permit(:name, :visting, :profile,:starts_at)
+  end
+  def sign_in_check
+    if user_signed_in? and current_user.has_role? "admin"
+    else
+      redirect_to root_path
     end
+  end
+
 end
