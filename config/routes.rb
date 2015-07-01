@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'admin/index'
 
-  get 'admin/rollno'
+  get 'admin/createuser'=>"admin#rollno"
+  post 'admin/createuser'
 
   resources :companies
 
