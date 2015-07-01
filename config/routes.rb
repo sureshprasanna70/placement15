@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :workstatuses
+
   get 'admin/index'
 
   get 'admin/createuser'=>"admin#rollno"

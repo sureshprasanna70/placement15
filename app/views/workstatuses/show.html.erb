@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numrange:</strong>
+  <%= @workstatus.numrange %>
+</p>
+
+<p>
+  <strong>Workstatus:</strong>
+  <%= @workstatus.workstatus %>
+</p>
+
+<%= link_to 'Edit', edit_workstatus_path(@workstatus) %> |
+<%= link_to 'Back', workstatuses_path %>
