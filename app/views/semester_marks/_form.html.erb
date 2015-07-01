@@ -10,11 +10,11 @@
     <div id="error_explanation">
       <h2><%= pluralize(@semester_mark.errors.count, "error") %> prohibited this semester_mark from being saved:</h2>
 
-      <ul>
+      <div class="alert alert-danger">
       <% @semester_mark.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <%= message %><br/>
       <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
 

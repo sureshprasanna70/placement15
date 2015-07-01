@@ -1,11 +1,11 @@
 <%= form_for(@academic_detail) do |f| %>
   <% if @academic_detail.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@academic_detail.errors.count, "error") %> prohibited this academic_detail from being saved:</h2>
+      <h2><%= pluralize(@academic_detail.errors.count, "error") %> prohibited from being saved:</h2>
 
-      <div class="alert alert-message">
+      <div class="alert alert-danger">
       <% @academic_detail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <%= message %><br>
       <% end %>
       </div>
     </div>
