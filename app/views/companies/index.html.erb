@@ -16,7 +16,7 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= company.name %></td>
-        <td><%= company.starts_at %></td>
+        <td><%= company.starts_at.strftime("%d/%m/%Y") %></td>
         <td><%= company.profile %></td>
         <td><%= link_to 'Show', company %></td>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
