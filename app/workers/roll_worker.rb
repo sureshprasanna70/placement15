@@ -3,13 +3,20 @@ class RollWorker
   def perform(start_number,end_number)
     start_num=start_number.to_i
     end_num=end_number.to_i
-    rollno_pass=Hash
+    rollno_pass={}
     for i in start_num..end_num
       password=Random.rand(2011000000)
-      puts "#{i} password #{password}"
       User.create!({:email => "", :phone=>"",:registerno=>i, :password => password, :password_confirmation => password })
-      rollno_pass[i=>password]
+      rollno_pass[i]=password
     end
-   puts rollno_pass
+    directory=File.dirname(Rails.root)
+    directory=directory+"/placement/data/excelsheet"
+    file=start_number+"-"+end_number+".csv"
+    CSV.open(File.join(directory,file), 'w' ) do |writer|
+      rollno_pass.each do |key,value|
+        puts value
+        writer<<[key,value]
+      end
+    end
   end
 end

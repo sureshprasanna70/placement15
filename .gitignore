@@ -15,5 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
-data/*/*/*
+data/user/*/*
+data/excelsheet/*
 uploads/*/*
