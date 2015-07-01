@@ -20,13 +20,13 @@
   <%end%>
   <br><br>
   <div class="table-responsive">
-    <table class="table"> 
+    <table class="table table-bordered"> 
       <thead>
         <tr>
           <th>Semester</th>
           <th>Gpa</th>
           <th>Year of Pass</th>
-          <th>Links</th>
+          <th></th>
         </tr>
       </thead>
 
@@ -36,8 +36,8 @@
           <td><%= semester_mark.semester %></td>
           <td><%= semester_mark.gpa %></td>
           <td><%= semester_mark.pass_year %></td>
-          <td><%= link_to edit_semester_mark_path(semester_mark), :class=>"btn btn-success",:remote=>true do%>
-            <i class="mdi-content-create"></i> Edit 
+          <td><%= link_to edit_semester_mark_path(semester_mark), :remote=>true do%>
+           Edit 
           <%end%>
         </td>
       </tr>
