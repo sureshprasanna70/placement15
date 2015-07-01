@@ -1,6 +1,6 @@
 class WorkstatusesController < ApplicationController
   before_action :set_workstatus, only: [:show, :edit, :update, :destroy]
-
+  before_filter :sign_in_check
   # GET /workstatuses
   # GET /workstatuses.json
   def index
@@ -71,4 +71,14 @@ class WorkstatusesController < ApplicationController
     def workstatus_params
       params.require(:workstatus).permit(:numrange, :workstatus)
     end
+    def sign_in_check
+    if not user_signed_in?
+      if not current_user.has_role? "admin"
+        redirect_to root_path
+      end
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
 end
