@@ -139,4 +139,7 @@ a:active{
   0% { transform: rotate(0deg); transform: rotate(0deg); }
   100% { transform: rotate(360deg); transform: rotate(360deg); }
 }
-
+.btn-blue{
+background-color: #2196F3  !important;
+color:white !important;
+}
