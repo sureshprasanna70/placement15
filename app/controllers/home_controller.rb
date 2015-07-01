@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   before_action :sign_in_check ,only:[:index,:resume]
   def index
     @companies=Company.all
+    @notifications=Notification.all
   end
   def resume
   end

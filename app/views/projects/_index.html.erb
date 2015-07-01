@@ -1,5 +1,13 @@
 
 <center><h1><i class="mdi-image-landscape"></i> Projects</h1></center>
+<%if @projects.size==0%>
+  <center>  <p class="message"><i class="mdi-alert-warning"></i> No projects added till date</p>
+  <%=link_to  new_semester_mark_path ,:class=>"btn btn-success",:remote=>true do%>
+    <i class="mdi-content-add"></i> Add
+  <%end%>
+</center>
+<%else%>
+
 <div>
 <%=link_to :back,:class=>"btn btn-danger" do%>
 <i class="mdi-hardware-keyboard-arrow-left"></i> Back
@@ -32,4 +40,6 @@
 </table>
 
 <br>
+<%end%>
 </div>
+

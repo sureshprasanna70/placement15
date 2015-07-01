@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
-
+  before_filter :sign_in_check
   # GET /notifications
   # GET /notifications.json
   def index
@@ -62,13 +62,19 @@ class NotificationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_notification
-      @notification = Notification.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_notification
+    @notification = Notification.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def notification_params
-      params.require(:notification).permit(:title, :message)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def notification_params
+    params.require(:notification).permit(:title, :message)
+  end
+  def sign_in_check
+    if user_signed_in? and current_user.has_role? "admin"
+    else
+      redirect_to root_path
     end
+  end
 end

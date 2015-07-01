@@ -8,10 +8,9 @@
       <div class="panel-body">
         <div class="ticker1">
           <div class="innerWrap">
-            <div class="list"> <a href="#">The company xyz has been changed to so and so date </a></div>
-            <div class="list"> News 2 </div>
-            <div class="list"> News 3 </div>
-            <div class="list"> News 4 </div>
+            <%@notifications.each do |notification|%>
+              <div class="list"><%=notification.title%>-<%=notification.message%> </div>
+            <%end%>
           </div>
         </div>
       </div>
