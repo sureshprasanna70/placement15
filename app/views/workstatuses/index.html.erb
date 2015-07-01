@@ -15,7 +15,9 @@
     <% @workstatuses.each do |workstatus| %>
       <tr>
         <td><%= workstatus.numrange %></td>
-        <td><%= workstatus.workstatus %></td>
+        <td><%= workstatus.status %></td>
+        <td><%= workstatus.filename %></td>
+
         <td><%= link_to 'Show', workstatus %></td>
         <td><%= link_to 'Edit', edit_workstatus_path(workstatus) %></td>
         <td><%= link_to 'Destroy', workstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
