@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
+  get 'admin/rollno'
+
   resources :companies
 
   resources :projects
