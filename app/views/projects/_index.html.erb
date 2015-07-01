@@ -2,7 +2,7 @@
 <center><h1><i class="mdi-image-landscape"></i> Projects</h1></center>
 <%if @projects.size==0%>
   <center>  <p class="message"><i class="mdi-alert-warning"></i> No projects added till date</p>
-  <%=link_to  new_semester_mark_path ,:class=>"btn btn-success",:remote=>true do%>
+  <%=link_to  new_project_path ,:class=>"btn btn-success",:remote=>true do%>
     <i class="mdi-content-add"></i> Add
   <%end%>
 </center>
