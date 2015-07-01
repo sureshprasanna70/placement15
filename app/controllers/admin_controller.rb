@@ -7,19 +7,14 @@ class AdminController < ApplicationController
   end
 
   def createuser
-    puts "controller"
-    puts params[:start_number]
-    puts params[:end_number]
     RollWorker.perform_async(params[:start_number],params[:end_number])
+    redirect_to @workstatuses
   end
   private
   def sign_in_check
-    if not user_signed_in?
-      if not current_user.has_role?"admin"
-        redirect_to root_path
-      end
+    if user_signed_in? and current_user.has_role? "admin"
     else
-      redirect_to new_user_session_path
+        redirect_to root_path
     end
   end
 end

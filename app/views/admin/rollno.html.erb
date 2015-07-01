@@ -1,9 +1,9 @@
-<div class="well">
+<div class="well col-lg-6">
   <h1>Admin</h1>
   <form action="createuser" method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-    <label>From</label><input type="number" name="start_number"/>
-    <label>To</label><input type="number" name="end_number"/>
-    <button type="submit">Submit</button>
+    <label>From</label><input type="number" name="start_number" class="form-control"/><br>
+    <label>To</label><input type="number" name="end_number" class="form-control"/><br>
+    <button type="submit"  class="btn btn-blue">Create users</button>
   </form>
 </div>

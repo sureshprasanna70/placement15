@@ -1,8 +1,9 @@
+<div class="well">
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Workstatuses</h1>
+<h1>Listing Workstatus</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Numrange</th>
@@ -16,16 +17,11 @@
       <tr>
         <td><%= workstatus.numrange %></td>
         <td><%= workstatus.status %></td>
-        <td><%= workstatus.filename %></td>
-
-        <td><%= link_to 'Show', workstatus %></td>
-        <td><%= link_to 'Edit', edit_workstatus_path(workstatus) %></td>
-        <td><%= link_to 'Destroy', workstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><a href="<%= workstatus.filename %>" target="blank">Click to download</a></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Workstatus', new_workstatus_path %>
+</div>
