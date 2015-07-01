@@ -1,6 +1,13 @@
+<div class="well">
 <h1>Editing Company</h1>
-
 <%= render 'form' %>
-
 <%= link_to 'Show', @company %> |
 <%= link_to 'Back', companies_path %>
+</div>
+<script>
+$(document).ready(function(){
+    $("#date").datetimepicker({
+      format:'Y-m-d H:i:s'
+      });
+    })
+</script>
