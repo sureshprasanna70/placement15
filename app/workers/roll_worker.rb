@@ -5,7 +5,7 @@ class RollWorker
     end_num=end_number.to_i
     rollno_pass={}
     for i in start_num..end_num
-      password=Random.rand(2011000000)
+      password=Random.rand(10**10)
       User.create!({:email => "", :phone=>"",:registerno=>i, :password => password, :password_confirmation => password })
       rollno_pass[i]=password
     end
