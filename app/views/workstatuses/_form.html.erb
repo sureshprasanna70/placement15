@@ -1,0 +1,25 @@
+<%= form_for(@workstatus) do |f| %>
+  <% if @workstatus.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workstatus.errors.count, "error") %> prohibited this workstatus from being saved:</h2>
+
+      <ul>
+      <% @workstatus.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numrange %><br>
+    <%= f.text_field :numrange %>
+  </div>
+  <div class="field">
+    <%= f.label :workstatus %><br>
+    <%= f.check_box :workstatus %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
