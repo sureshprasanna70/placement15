@@ -19,6 +19,7 @@ gem 'rmagick','~> 2.15.2'
 gem 'introjs-rails'
 gem 'simple_calendar', "~> 1.1.0"
 gem 'mandrill_mailer'
+gem 'sidekiq'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
