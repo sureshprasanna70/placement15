@@ -1,40 +1,49 @@
 
 <center><h1><i class="mdi-action-view-list"></i>Semester Marks</h1></center>
-Instructions specific to this section
-<ul>
-  <li>UG students should enter marks from their first semester to current semester</li>
-  <li>PG students need not enter their UG marks.Enter your PG marks only</li>
-</ul>
+<%if @semester_marks.size==0%>
+  <center>  <p class="message"><i class="mdi-alert-warning"></i> No semester marks added till date</p>
+  <%=link_to  new_semester_mark_path ,:class=>"btn btn-success",:remote=>true do%>
+    <i class="mdi-content-add"></i> Add
+  <%end%>
+</center>
+<%else%>
+  Instructions specific to this section
+  <ul>
+    <li>UG students should enter marks from their first semester to current semester</li>
+    <li>PG students need not enter their UG marks.Enter your PG marks only</li>
+  </ul>
   <%=link_to :back ,:class=>"btn btn-danger" do%>
     <i class="mdi-hardware-keyboard-arrow-left"></i> Back
   <%end%>
-<%=link_to  new_semester_mark_path ,:class=>"btn btn-success pull-right",:remote=>true do%>
-  <i class="mdi-content-add"></i> New
-<%end%>
-<br><br>
-<div class="table-responsive">
-<table class="table"> 
-  <thead>
-    <tr>
-      <th>Semester</th>
-      <th>Gpa</th>
-      <th>Year of Pass</th>
-      <th>Links</th>
-    </tr>
-  </thead>
+  <%=link_to  new_semester_mark_path ,:class=>"btn btn-success pull-right",:remote=>true do%>
+    <i class="mdi-content-add"></i> New
+  <%end%>
+  <br><br>
+  <div class="table-responsive">
+    <table class="table"> 
+      <thead>
+        <tr>
+          <th>Semester</th>
+          <th>Gpa</th>
+          <th>Year of Pass</th>
+          <th>Links</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @semester_marks.each do |semester_mark| %>
-      <tr>
-        <td><%= semester_mark.semester %></td>
-        <td><%= semester_mark.gpa %></td>
-        <td><%= semester_mark.pass_year %></td>
-        <td><%= link_to edit_semester_mark_path(semester_mark), :class=>"btn btn-success",:remote=>true do%>
-          <i class="mdi-content-create"></i> Edit 
-        <%end%>
-      </td>
+      <tbody>
+      <% @semester_marks.each do |semester_mark| %>
+        <tr>
+          <td><%= semester_mark.semester %></td>
+          <td><%= semester_mark.gpa %></td>
+          <td><%= semester_mark.pass_year %></td>
+          <td><%= link_to edit_semester_mark_path(semester_mark), :class=>"btn btn-success",:remote=>true do%>
+            <i class="mdi-content-create"></i> Edit 
+          <%end%>
+        </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+<%end%>
 </div>
+
