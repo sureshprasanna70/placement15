@@ -3,49 +3,48 @@
     <button type="submit" class="btn btn-success pull-right"><i class="mdi-content-save"></i> Save</button>
   <% if @extra_activity.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@extra_activity.errors.count, "error") %> prohibited this extra_activity from being saved:</h2>
+      <h2><%= pluralize(@extra_activity.errors.count, "error") %> prohibited this from being saved:</h2>
 
-      <ul>
+      <div class="alert alert-danger">
       <% @extra_activity.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <%= message %><br/>
       <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
 
   <div class="form-group">
     <%= f.label :area_of_interest %><br>
-    <%= f.text_area :area_of_interest,:class=>"form-control" %>
+    <%= f.text_area :area_of_interest,:class=>"form-control" ,:required=>true %>
   </div>
   <div class="form-group">
     <%= f.label :extra_curricular %><br>
-    <%= f.text_area :extra_curricular,:class=>"form-control" %>
+    <%= f.text_area :extra_curricular,:class=>"form-control" ,:required=>true %>
   </div>
   <div class="form-group">
     <%= f.label :hobby %><br>
-    <%= f.text_area :hobby,:class=>"form-control" %>
+    <%= f.text_area :hobby,:class=>"form-control" ,:required=>true %>
   </div>
   <div class="form-group">
     <%= f.label :responsibilty %><br>
-    <%= f.text_area :responsibilty,:class=>"form-control" %>
+    <%= f.text_area :responsibilty,:class=>"form-control" ,:required=>true %>
   </div>
   <div class="form-group">
     <%= f.label :electives%><br>
-    <%= f.text_area :electives,:class=>"form-control" %>
+    <%= f.text_area :electives,:class=>"form-control" ,:required=>true %>
 
   </div>
   <div class="form-group">
     <%= f.label :arrears %>
-    <%= f.check_box :arrears %>
-
+    <%=f.check_box :arrears%>
   </div>
   <div class="form-group">
     <%= f.label :current %><br>
-    <%= f.number_field :current,:class=>"form-control" %>
+    <%= f.number_field :current,:class=>"form-control" ,:required=>true %>
   </div>
   <div class="form-group">
     <%= f.label :history%><br>
-    <%= f.number_field :history,:class=>"form-control" %>
+    <%= f.number_field :history,:class=>"form-control" ,:required=>true %>
   </div>
 
   <%=link_to :back,:class=>"btn btn-danger" do%><i class="mdi-hardware-keyboard-arrow-left"></i> Back <%end%>
