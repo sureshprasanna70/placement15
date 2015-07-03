@@ -35,6 +35,20 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+    config.action_mailer.default_url_options = {:host => "128.199.112.135"}
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :enable_starttls_auto => true,
+    :port      => 587,
+    :user_name => "sureshprasanna70@gmail.com",
+    :password  => "3TqzyaUtJDgoUlZdS5wvsg"
+  }
+
+  MandrillMailer.configure do |config|
+    config.api_key ="3TqzyaUtJDgoUlZdS5wvsg"
+  end
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
