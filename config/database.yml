@@ -28,3 +28,4 @@ production:
   host: localhost
   database: placements
   adapter: mysql2
+  pool: 25
