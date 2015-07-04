@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get 'admin/createuser'=>"admin#rollno"
   post 'admin/createuser'
-
+  get 'admin/excelsheet'=>"admin#excelsheet"
+  post 'admin/userexcel'
   resources :companies
 
   resources :projects
