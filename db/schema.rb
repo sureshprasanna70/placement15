@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702162304) do
+ActiveRecord::Schema.define(version: 20150705171209) do
 
   create_table "academic_details", force: :cascade do |t|
     t.string   "course",                limit: 255
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 20150702162304) do
 
   create_table "personal_profiles", force: :cascade do |t|
     t.string   "gender",              limit: 255
-    t.date     "dob"
     t.integer  "age",                 limit: 4
     t.integer  "height",              limit: 4
     t.integer  "weight",              limit: 4
@@ -82,6 +81,7 @@ ActiveRecord::Schema.define(version: 20150702162304) do
     t.text     "current_address",     limit: 65535
     t.text     "permanent_address",   limit: 65535
     t.string   "communicate",         limit: 255
+    t.string   "dob",                 limit: 255
   end
 
   create_table "projects", force: :cascade do |t|
