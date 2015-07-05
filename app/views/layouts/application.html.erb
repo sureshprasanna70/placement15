@@ -42,8 +42,15 @@
             </li>
             <li class="dropdown">       
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+              <%if current_user.pic_url.nil?%>
+              <img src="/assets/defaultpic.png" class="img-circle" width="25px" height="25px"/>
+
+              <%=current_user.name%><span class="caret"></span></a>
+
+              <%else%>
               <img src="<%=current_user.pic_url(:thumb)%>" class="img-circle" width="25px" height="25px"/>
               <%=current_user.name%><span class="caret"></span></a>
+          <%end%>
             <ul class="dropdown-menu">
               <li> 
               <%=link_to edit_user_registration_path do%>
@@ -75,12 +82,12 @@
   <% if key=="alert" %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert">×</button>
-      <%=value%>
+      <%=value.html_safe%>
     </div>
   <%elsif key=="notice"%>
     <div class="alert alert-dismissable alert-success">
       <button type="button" class="close" data-dismiss="alert">×</button>
-      <i class="mdi-action-done"></i> <%=value%>
+      <i class="mdi-action-done"></i> <%=value.html_safe%>
   </div>
 <%end%> 
 <% end %>
