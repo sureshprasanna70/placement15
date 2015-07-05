@@ -7,7 +7,6 @@
   <% if @personal_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@personal_profile.errors.count, "error") %> prohibited this personal_profile from being saved:</h2>
-
       <ul>
         <% @personal_profile.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -37,7 +36,7 @@
       <div class="col-md-6">
 
         <label for="dob">Date of Birth</label><br>
-        <%= f.text_field :dob ,:class=>"form-control" ,:required=>true,:id=>"date" %>
+        <%= f.date_select :dob ,:class=>"form-control" ,:required=>true,:id=>"date" %>
       </div>
       <div class="col-md-6">
         <%= f.label :age %><br>
