@@ -1,4 +1,14 @@
 <div class="well">
-<h1>New Personal Profile</h1>
+  <center><h1><i class="mdi-social-person-outline"></i> New Personal Profile</h1></center>
 <%= render 'form' %>
 </div>
+<script>
+$(document).ready(function(){
+$('#date').datepicker({
+  changeMonth: true,
+  changeYear: true,
+  yearRange: "-30:+0"
+
+  });
+})
+</script>
