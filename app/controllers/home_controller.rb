@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :sign_in_check
+  before_filter :sign_in_check,only:[:index,:resume]
   def index
     @companies=Company.all
     @notifications=Notification.all
@@ -10,7 +10,6 @@ class HomeController < ApplicationController
   end
   private
   def sign_in_check
-    puts "phone and email"
     if not user_signed_in?
       redirect_to new_user_session_path
     else
