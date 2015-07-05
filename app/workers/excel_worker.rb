@@ -1,6 +1,5 @@
 class ExcelWorker
   include Sidekiq::Worker
-  sidekiq_options :queue => :default, :retry => false, :backtrace => true
   def perform(path)
     spreadsheet=Roo::Excel.new(path)
     sheet=spreadsheet.sheet(1)
