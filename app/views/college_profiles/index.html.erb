@@ -1,7 +1,9 @@
 <div class="well col-lg-12" id="ajaxarea">
+  <h1><center><i class="mdi-maps-local-library"></i>College Profile</center></h1>
   <%if @college_profiles.nil?%>
-  <center><i class="mdi-alert-warning"></i> No College Profile yet</center>
-  <center><%=link_to new_college_profile_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%>
+    <center><p class="message"><i class="mdi-alert-warning"></i> No College Profile yet</p></center>
+    <center><a class="btn btn-primary" href="/college_profiles/new"><i class="mdi-content-add"></i> Add</a>
+  </center>
     <%else%>
 
   </div>

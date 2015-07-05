@@ -1,6 +1,7 @@
 class PersonalProfile < ActiveRecord::Base
   validates_presence_of :gender
   validates_presence_of :dob
+  validates :dob,:date=>true
   validates_presence_of :age
   validates_numericality_of :age,:on=>[:create,:update]
   validates_presence_of :height
