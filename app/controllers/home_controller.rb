@@ -15,11 +15,16 @@ class HomeController < ApplicationController
     else
       if current_user.email=="" and current_user.phone=""
         flash[:alert]="Your email and phone field is empty.Please fill it <a href='"+url_for(edit_user_registration_path)+"'>here</a>"
+        redirect_to edit_user_registration_path
       else
         if current_user.email==""
           flash[:alert]="Your email is empty.Please fill it <a href='"+url_for(edit_user_registration_path)+"'>here</a>"
+          redirect_to edit_user_registration_path
+
         else
           flash[:alert]="Your phone is empty.Please fill it <a href='"+url_for(edit_user_registration_path)+"'>here</a>"
+          redirect_to edit_user_registration_path
+
         end
       end
     end
