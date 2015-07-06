@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'admin/excelsheet'=>"admin#excelsheet"
   post 'admin/userexcel'
   get 'college_profile/branch/:degree'=>"college_profiles#getdegree"
+  get 'feedback'=>"home#feedback"
+  post 'feedback/send'=>"home#send_feedback"
   resources :companies
 
   resources :projects

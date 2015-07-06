@@ -8,6 +8,15 @@ class HomeController < ApplicationController
   end
   def faq
   end
+  def feedback
+  end
+  def send_feedback
+    from=current_user.email
+    subject=params[:subject]
+    message=params[:message]
+    FeedbackMailer.send_message(from,subject,message).deliver_now
+    redirect_to root_path
+  end
   private
   def sign_in_check
     if not user_signed_in?
