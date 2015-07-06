@@ -36,43 +36,47 @@
             <li>
             <%=link_to faq_path do%><i class="mdi-action-question-answer"></i> FAQ<%end%>
             </li>
+            <li>
+            <a href="feedback" data-remote="true"><i class="mdi-communication-message"></i> Feedback</a>
+            </li>
+
             <li class="dropdown">       
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
               <%if current_user.pic_url.nil?%>
-              <img src="/assets/defaultpic.png" class="img-circle" width="25px" height="25px"/>
+                <img src="/assets/defaultpic.png" class="img-circle" width="25px" height="25px"/>
 
-              <%=current_user.name%><span class="caret"></span></a>
+                <%=current_user.name%><span class="caret"></span></a>
 
-              <%else%>
+            <%else%>
               <img src="<%=current_user.pic_url(:thumb)%>" class="img-circle" width="25px" height="25px"/>
               <%=current_user.name%><span class="caret"></span></a>
           <%end%>
-            <ul class="dropdown-menu">
-              <li> 
-              <%=link_to edit_user_registration_path do%>
-                <i class="mdi-action-verified-user"></i>  Account            
-              <%end%>
-              </li>
-              <li><%=link_to destroy_user_session_path,:method=>:delete do%>
-              <i class="mdi-action-exit-to-app"></i> Sign out
-            <%end%> 
+          <ul class="dropdown-menu">
+            <li> 
+            <%=link_to edit_user_registration_path do%>
+              <i class="mdi-action-verified-user"></i>  Account            
+            <%end%>
             </li>
-          </ul>
+            <li><%=link_to destroy_user_session_path,:method=>:delete do%>
+            <i class="mdi-action-exit-to-app"></i> Sign out
+          <%end%> 
           </li>
-        <%else%>
-          <li>
-            <%=link_to faq_path do%><i class="mdi-action-question-answer"></i> FAQ<%end%>
-          </li>
-          <li>
-          <%=link_to new_user_session_path do%>
-            <i class="mdi-action-input"></i>
-            Sign in
-          <%end%>
-          </li>
+        </ul>
+        </li>
+      <%else%>
+        <li>
+        <%=link_to faq_path do%><i class="mdi-action-question-answer"></i> FAQ<%end%>
+        </li>
+        <li>
+        <%=link_to new_user_session_path do%>
+          <i class="mdi-action-input"></i>
+          Sign in
         <%end%>
-      </ul>
-    </div>
+        </li>
+      <%end%>
+    </ul>
   </div>
+</div>
 </div>
 <% flash.each do |key, value| %>
   <% if key=="alert" %>
@@ -87,7 +91,7 @@
   </div>
 <%end%> 
 <% end %>
-<div class="col-lg-12" id="jazzloader"> 
+<div class="col-lg-12" id="feedback"> 
 </div>
 <%= yield %>
 </div>
