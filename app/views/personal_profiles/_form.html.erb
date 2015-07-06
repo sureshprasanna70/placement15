@@ -85,6 +85,23 @@
     <%= f.label :communicate %><br>
     <%= f.select :communicate ,options_for_select([["Permanent","permanent"],["Current","current"]]), :class=>"form-control" ,:required=>true %>
   </div>
+  <div class="form-group">
+    <%= f.label :languages_you_can_speak %><br>
+    <%= f.text_area :language_speak ,:class=>"form-control" ,:required=>true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :languages_you_can_read %><br>
+    <%= f.text_area :language_read ,:class=>"form-control" ,:required=>true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :languages_you_can_write%><br>
+    <%= f.text_area :language_write ,:class=>"form-control" ,:required=>true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :social_status %><br>
+    <%= f.select :social_status ,options_for_select("OC"=>"OC","BC"=>"BC","MBC"=>"MBC","BCM"=>"BCM","SC"=>"SC","SCA"=>"SCA","ST"=>"ST","others"=>"others"),:class=>"form-control" ,:required=>true %>
+  </div>
+
 
   <%= link_to :back  ,:class=>"btn btn-danger" do%>
     <i class="mdi-hardware-keyboard-arrow-left"></i> Back
