@@ -72,7 +72,7 @@ class ExtraActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def extra_activity_params
-      params.require(:extra_activity).permit(:area_of_interest, :extra_curricular, :hobby, :responsibilty,:user_id,:arrears,:current,:history,:electives)
+      params.require(:extra_activity).permit(:area_of_interest, :extra_curricular, :hobby, :responsibilty,:user_id,:arrears,:current,:history,:electives,:software_skills)
     end
     def sign_in_check
       if not user_signed_in?
