@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'admin/createuser'
   get 'admin/excelsheet'=>"admin#excelsheet"
   post 'admin/userexcel'
+  get 'college_profile/branch/:degree'=>"college_profiles#getdegree"
   resources :companies
 
   resources :projects

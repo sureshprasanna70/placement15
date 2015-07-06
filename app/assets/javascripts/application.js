@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require jquery.turbolinks
 //= require introjs
+//= require select2
 //= require_tree .
 $(document).ajaxStart(function(){
   $("#ajaxloader").html("<center><img src='/assets/loading.GIF' width=30px></img></center>");

@@ -23,6 +23,7 @@ gem 'sidekiq'
 gem 'roo'
 gem 'roo-xls'
 gem "iconv", "~> 1.0.3"
+gem "select2-rails"
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
