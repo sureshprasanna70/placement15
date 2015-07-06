@@ -1,1 +1,7 @@
 $("#ajaxarea").html("<%= escape_javascript(render(:partial =>"edit"))%>");
+  $("#college_profile_degree").change(function(){
+    url="/college_profile/branch/"+this.value
+    console.log(url);
+    $.getScript(url);
+  })
+
