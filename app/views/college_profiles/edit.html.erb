@@ -2,3 +2,12 @@
   <center><h1> <i class="mdi-maps-local-library"></i> Editing College Profile</h1></center>
 <%= render 'form' %>
 </div>
+<script>
+$(document).ready(function(){
+  $("#college_profile_degree").change(function(){
+    url="/college_profile/branch/"+this.value
+    console.log(url);
+    $.getScript(url);
+    })
+  });
+</script>

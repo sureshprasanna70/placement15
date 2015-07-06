@@ -1,0 +1,12 @@
+  <center><h1><i class="mdi-social-person-outline"></i> New Personal Profile</h1></center>
+<%= render 'form' %>
+<script>
+$(document).ready(function(){
+$('#date').datepicker({
+  changeMonth: true,
+  changeYear: true,
+  yearRange: "-30:+0"
+
+  });
+})
+</script>
