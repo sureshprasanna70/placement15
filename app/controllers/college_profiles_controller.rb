@@ -1,12 +1,14 @@
 class CollegeProfilesController < ApplicationController
   before_action :set_college_profile, only: [:show, :edit, :update, :destroy]
   before_filter :sign_in_check
-  before_action :set_degree,only:[:new,:edit,:getdegree,:excel_dump]
+  before_action :set_degree,only:[:new,:edit,:getdegree,:excel_dump,:index]
   respond_to :js,:html
   # GET /college_profiles
   # GET /college_profiles.json
   def index
     @college_profiles = current_user.college_profile
+    @degree=@college_profiles.degree.gsub(/^\(+|\)+$/, '')
+    puts @degree
   end
 
   # GET /college_profiles/1
@@ -83,9 +85,8 @@ class CollegeProfilesController < ApplicationController
           p.each do |ps|
             if not ps[2].nil? 
               degree=@degrees[0][ps[2]][0]
-              reverse_degree=Hash[degree.to_a.reverse]
               if not ps[3].nil?
-                dept=reverse_degree[ps[3]]
+                dept=degree.key(ps[3])
               end
             end
             csv <<[ps[0],ps[1],ps[2].to_s,dept]
