@@ -1,7 +1,7 @@
 class CollegeProfilesController < ApplicationController
   before_action :set_college_profile, only: [:show, :edit, :update, :destroy]
   before_filter :sign_in_check
-  before_action :set_degree,only:[:new,:edit,:getdegree]
+  before_action :set_degree,only:[:new,:edit,:getdegree,:excel_dump]
   respond_to :js,:html
   # GET /college_profiles
   # GET /college_profiles.json
@@ -62,9 +62,43 @@ class CollegeProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def excel_dump
+    if user_signed_in?
+      if current_user.has_role? "admin"
+        p=ActiveRecord::Base.connection.execute("SELECT users.name, users.registerno, college_profiles.degree,college_profiles.branch FROM `users` LEFT OUTER JOIN college_profiles ON users.id = college_profiles.user_id")
+        filename = Date.today.to_s + ".csv"
+        if request.env['HTTP_USER_AGENT'] =~ /msie/i
+          headers['Pragma'] = 'public'
+          headers["Content-type"] = "text/plain"
+          headers['Cache-Control'] = 'no-cache, must-revalidate, post-check=0, pre-check=0'
+          headers['Content-Disposition'] = "attachment; filename=\"#{filename}\""
+          headers['Expires'] = "0"
+        else
+          headers["Content-Type"] ||= 'text/csv'
+          headers["Content-Disposition"] = "attachment; filename=\"#{filename}\""
+          headers["Content-Transfer-Encoding"] = "binary"
+        end
+        dept=""
+        csv_string = CSV.generate do |csv|
+          p.each do |ps|
+            if not ps[2].nil? 
+              degree=@degrees[0][ps[2]][0]
+              reverse_degree=Hash[degree.to_a.reverse]
+              if not ps[3].nil?
+                dept=reverse_degree[ps[3]]
+              end
+            end
+            csv <<[ps[0],ps[1],ps[2].to_s,dept]
+          end
+        end
+        render :text => csv_string
+      end
+    end
+  end
   def getdegree
     @degree=@degrees[0][params[:degree]][0]
   end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_college_profile
