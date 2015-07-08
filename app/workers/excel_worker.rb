@@ -6,7 +6,7 @@ class ExcelWorker
     start_number=sheet.row(2)[0].to_i.to_s
     end_number=sheet.row(sheet.last_row)[0].to_i.to_s
     directory=File.dirname(Rails.root)
-    directory=directory+"/placement/data/excelsheet"
+    directory=directory+"/placement15/data/excelsheet"
     file=start_number+"-"+end_number+".csv"
     CSV.open(File.join(directory,file), 'w' ) do |writer|
       (2..sheet.last_row).each do |row_num|
@@ -27,7 +27,7 @@ class ExcelWorker
     puts "PG STARTS"
     pgsheet=spreadsheet.sheet(3)
     directory=File.dirname(Rails.root)
-    directory=directory+"/placement/data/excelsheet"
+    directory=directory+"/placement15/data/excelsheet"
     file=start_number+"-"+end_number+".csv"
     start_number=sheet.row(2)[0].to_i.to_s
     end_number=sheet.row(sheet.last_row)[0].to_i.to_s

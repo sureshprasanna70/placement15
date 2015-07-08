@@ -23,8 +23,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  username: <%=ENV["mysql_username"]%>
-  password: <%=ENV["mysql_password"]%>
+  username: root 
+  password: "poiasdmnb943"
   host: localhost
   database: placements
   adapter: mysql2
