@@ -18,3 +18,5 @@
 data/user/*/*
 data/excelsheet/*
 uploads/*/*
+bin/*
+vendor/*/*

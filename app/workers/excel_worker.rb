@@ -12,7 +12,7 @@ class ExcelWorker
          i=sheet.row(row_num)[0].to_i.to_s
          name=sheet.row(row_num)[1].to_s 
          password=Random.rand(15**15)
-         puts "REGISTER NUMBER #{i} NAME #{name} PASSWORD #{password} "
+         puts "#{i},#{password} "
          User.create!({:email => "", :phone=>"",:registerno=>i, :password => password, :password_confirmation => password,:name=>name })
          writer<<[i,password]
       end
@@ -36,7 +36,7 @@ class ExcelWorker
          i=sheet.row(row_num)[0].to_i.to_s
          password=Random.rand(15**15)
          name=sheet.row(row_num)[1].to_s 
-         puts "REGISTER NUMBER #{i} NAME #{name} PASSWORD #{password} "
+         puts "#{i},#{password} "
          User.create!({:email => "", :phone=>"",:registerno=>i, :password => password, :password_confirmation => password,:name=>name })
          writer<<[i,password]
       end
