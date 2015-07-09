@@ -5,15 +5,15 @@ Rails.application.routes.draw do
 
   get 'admin'=>'admin#index'
 
-  get 'admin/createuser'=>"admin#rollno"
+  get 'admin/createuser'=>"admin#rollno",:as=>"multi_user"
   post 'admin/createuser'
-  get 'admin/excelsheet'=>"admin#excelsheet"
+  get 'admin/excelsheet'=>"admin#excelsheet",:as=>"excel_user"
   post 'admin/userexcel'
   get 'college_profile/branch/:degree'=>"college_profiles#getdegree"
   get 'feedback'=>"home#feedback"
   get 'excelsheet'=>"college_profiles#excel_dump"
   post 'feedback/send'=>"home#send_feedback"
-  get 'admin/singleuser'=>"admin#singleuser"
+  get 'admin/singleuser'=>"admin#singleuser",:as=>"single_user"
   post 'admin/singleuser'=>"admin#loneuser"
   resources :companies
 
