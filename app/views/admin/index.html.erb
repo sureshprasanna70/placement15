@@ -1,11 +1,13 @@
 <div class="well col-lg-12">
   <center><h1>Admin Panel</h1>  <ul>
-    <li>  <%=link_to "Add user","createuser"%></li>
-    <li> <%=link_to "Work status",workstatuses_path%></li>
-    <li> <%=link_to "Add company to calendar",new_company_path%></li>
-    <li> <%=link_to "Students sheet","/excelsheet"%></li>
+      <li>  <%=link_to "Add user(Range)","createuser"%></li>
+      <li>  <%=link_to "Add user(Single)","singleuser"%></li>
+      <li> <%=link_to "Work status",workstatuses_path%></li>
+      <li> <%=link_to "Add company to calendar",new_company_path%></li>
+      <li> <%=link_to "Students sheet","/excelsheet"%></li>
+      <li> <%=link_to "Add new notification",new_notification_path%></li>
 
-  </ul>
-</center>
+    </ul>
+  </center>
 
 </div>
