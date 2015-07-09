@@ -1,8 +1,8 @@
 <div class="well col-lg-12">
   <center>  <h1>Admin Panel</h1></center><ul>
-      <li>  <%=link_to "Add user(Range)","admin/createuser"%></li>
-      <li>  <%=link_to "Add user(Single)","admin/singleuser"%></li>
-      <li>  <%=link_to "Add user(Excelsheet)","admin/excelsheet"%></li>
+      <li>  <%=link_to "Add user(Range)",multi_user_path%></li>
+      <li>  <%=link_to "Add user(Single)",single_user_path%></li>
+      <li>  <%=link_to "Add user(Excelsheet)",excel_user_path%></li>
       <li> <%=link_to "Students sheet","/excelsheet"%></li>
       <li> <%=link_to "Work status",workstatuses_path%></li>
       <li> <%=link_to "Add company to calendar",new_company_path%></li>
