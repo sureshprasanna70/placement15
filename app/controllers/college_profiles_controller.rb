@@ -7,10 +7,10 @@ class CollegeProfilesController < ApplicationController
   # GET /college_profiles.json
   def index
     @college_profiles = current_user.college_profile
-	if not @college_profiles.nil?
-    @degree=@college_profiles.degree.gsub(/^\(+|\)+$/, '')
-    puts @degree
-end
+    if not @college_profiles.nil?
+      @degree=@college_profiles.degree.gsub(/^\+|\+$/, '')
+      puts @degree
+    end
   end
 
   # GET /college_profiles/1
