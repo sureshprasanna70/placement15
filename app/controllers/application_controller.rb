@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   end
   def exceldownload
-    send_file "data/excelsheet/"+params[:filename]+"."+params[:extension]
+    send_file Rails.root.to_path+"/data/excelsheet/"+params[:filename]+"."+params[:extension]
   end
   def disable_json
     if request.format =~ /json/
