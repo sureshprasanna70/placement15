@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'feedback'=>"home#feedback"
   get 'excelsheet'=>"college_profiles#excel_dump"
   post 'feedback/send'=>"home#send_feedback"
+  get 'admin/singleuser'=>"admin#singleuser"
+  post 'admin/singleuser'=>"admin#loneuser"
   resources :companies
 
   resources :projects
