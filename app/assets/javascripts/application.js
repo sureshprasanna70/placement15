@@ -18,7 +18,7 @@
 //= require select2
 //= require_tree .
 $(document).ajaxStart(function(){
-  $("#ajaxloader").html("<center><img src='/assets/378.GIF' width=212px height=13px></img></center>");
+  $("#ajaxloader").html("<center><img class='loader' src='/assets/loading.GIF' width=212px height=13px></img></center>");
 });
 $(document).ajaxComplete(function(){
   $("#ajaxloader").html(" ");
