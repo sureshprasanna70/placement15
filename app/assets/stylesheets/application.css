@@ -16,10 +16,13 @@
  *= require select2-bootstrap
  *= require jquery-ui
  */
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 body{
   background-image:url('/assets/gs.png');
-}
 
+}
+.title{ 
+}
 a:active{
   color:grey;
 }
@@ -49,6 +52,7 @@ a:active{
   background-color: #F44336 !important;
   width: 25%;
   padding: 2%;
+  font-family:'Droid-Sans',sans-serif
 }
 .popover-title{
   background-color:transparent !important;
