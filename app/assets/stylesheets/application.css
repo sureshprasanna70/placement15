@@ -21,7 +21,8 @@ body{
   background-image:url('/assets/gs.png');
 
 }
-.title{ 
+.loader{
+ margin-top:150px 
 }
 a:active{
   color:grey;
