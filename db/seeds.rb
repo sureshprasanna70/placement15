@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+notification=Notification.new
+notification.title="Notification"
+notification.message="All notification will be put up here"
+notification.save
