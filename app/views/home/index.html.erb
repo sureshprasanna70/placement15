@@ -9,7 +9,9 @@
         <div class="ticker1">
           <div class="innerWrap">
             <%@notifications.each do |notification|%>
-              <div class="list"><%=notification.title%>-<%=notification.message%> </div>
+              <div class="list"><%=link_to notification do%>
+                <%=notification.title%>-<%=notification.message%>
+              <%end%> </div>
             <%end%>
           </div>
         </div>
@@ -27,7 +29,7 @@
             <%= date.strftime("%d") %>
             <% meetings.each do |meeting| %>
               <div>
-                <%= meeting.name %>
+                <%=link_to meeting do%> <%= meeting.name %> <%end%>
               </div>
             <% end %>
           <% end %>

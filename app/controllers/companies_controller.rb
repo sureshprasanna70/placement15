@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-  before_filter :sign_in_check
+  before_filter :sign_in_check ,:authority_check,only: [:new,:edit,:update,:create,:destroy]
   # GET /companies
   # GET /companies.json
   def index
@@ -72,10 +72,15 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(:name, :visting, :profile,:starts_at)
   end
   def sign_in_check
-    if user_signed_in? and current_user.has_role? "admin"
-    else
+    if not user_signed_in?
       redirect_to root_path
     end
+  end
+  def authority_check
+    if  not current_user.has_role? "admin"
+      redirect_to root_path
+    end
+
   end
 
 end
