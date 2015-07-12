@@ -1,19 +1,16 @@
-<p id="notice"><%= notice %></p>
-
+<div class="well">
 <p>
   <strong>Name:</strong>
   <%= @company.name %>
 </p>
-
 <p>
   <strong>Visting:</strong>
   <%= @company.starts_at %>
 </p>
-
 <p>
   <strong>Profile:</strong>
   <%= @company.profile %>
 </p>
-
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
+</div>

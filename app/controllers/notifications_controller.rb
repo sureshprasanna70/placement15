@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
-  before_filter :sign_in_check
+  before_filter :sign_in_check ,:authority_check,only: [:new,:edit,:update,:create,:destroy]
   # GET /notifications
   # GET /notifications.json
   def index
@@ -72,9 +72,14 @@ class NotificationsController < ApplicationController
     params.require(:notification).permit(:title, :message)
   end
   def sign_in_check
-    if user_signed_in? and current_user.has_role? "admin"
-    else
+    if not user_signed_in? 
       redirect_to root_path
     end
+  end
+  def authority_check
+    if  not current_user.has_role? "admin"
+      redirect_to root_path
+    end
+
   end
 end
