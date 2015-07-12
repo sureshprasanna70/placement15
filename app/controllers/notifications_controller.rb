@@ -1,6 +1,7 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
-  before_filter :sign_in_check ,:authority_check,only: [:new,:edit,:update,:create,:destroy]
+  before_filter :authority_check,only: [:new,:edit,:update,:create,:destroy]
+  before_filter :sign_in_check
   # GET /notifications
   # GET /notifications.json
   def index
