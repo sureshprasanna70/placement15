@@ -30,6 +30,7 @@ class AdminController < ApplicationController
     user.password_confirmation="cuicuser"
     if user.save
       flash[:notice]="User created successfully"
+      redirect_to admin_path
     else
       flash[:alert]=build_error_message(user.errors)
       redirect_to admin_path
