@@ -9,6 +9,6 @@ class FeedbackMailer < ApplicationMailer
     @subject = subject
     @from=from
     @message=message
-    mail(from:from,to: "cuic.annauniv@gmail.com",subject:@subject)
+    mail(from:from,to: "sureshprasanna70@gmail.com",subject:@subject)
   end
 end
