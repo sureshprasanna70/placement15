@@ -17,12 +17,6 @@
 //= require introjs
 //= require select2
 //= require_tree .
-$(document).ajaxStart(function(){
-  $("#ajaxloader").html("<center><img class='loader' src='/assets/loading.GIF' width=212px height=13px></img></center>");
-});
-$(document).ajaxComplete(function(){
-  $("#ajaxloader").html(" ");
-});
 $.material.init()
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip()
