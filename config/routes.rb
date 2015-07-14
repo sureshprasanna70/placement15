@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :workstatuses
 
   get 'admin'=>'admin#index'
-
   get 'admin/createuser'=>"admin#rollno",:as=>"multi_user"
   post 'admin/createuser'
   get 'admin/excelsheet'=>"admin#excelsheet",:as=>"excel_user"
@@ -33,4 +32,5 @@ Rails.application.routes.draw do
   get 'data/user/pic/:id/:filename.:extension'=>"application#download"
   get 'excelsheet/:filename.:extension'=>"application#exceldownload"
   devise_for :users,:controllers=>{registrations:"registrations"},path_names: { sign_up: ''  }
+
 end
