@@ -14,7 +14,7 @@
   <dt>Gender</dt>
   <dd><%= @personal_profiles.gender %></dd>
   <dt>Dob</dt>
-  <dd><%=@personal_profiles.dob %></dd>
+  <dd><%=Date.parse(@personal_profiles.dob).strftime("%d/%m/%Y")%></dd>
   <dt>Age</dt>
   <dd><%=@personal_profiles.age %></dd>
   <dt>Height</dt>
