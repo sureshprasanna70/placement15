@@ -13,8 +13,8 @@
 <dl class="dl-horizontal center">
   <dt>Gender</dt>
   <dd><%= @personal_profiles.gender %></dd>
-  <dt>Dob</dt>
-  <dd><%=Date.parse(@personal_profiles.dob).strftime("%d/%m/%Y")%></dd>
+  <dt>Date of Birth</dt>
+  <dd><%=Date.parse(@personal_profiles.dob).strftime("%B %d,%Y")%></dd>
   <dt>Age</dt>
   <dd><%=@personal_profiles.age %></dd>
   <dt>Height</dt>
