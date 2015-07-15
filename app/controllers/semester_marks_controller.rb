@@ -42,7 +42,7 @@ class SemesterMarksController < ApplicationController
   def update
     respond_to do |format|
       if @semester_mark.update(semester_mark_params)
-        format.html { redirect_to resume_path notice: 'Semester mark was successfully updated.' }
+        format.html { redirect_to resume_path,notice: 'Semester mark was successfully updated.' }
         format.json { render :show, status: :ok, location: @semester_mark }
       else
         format.html { render :edit }
