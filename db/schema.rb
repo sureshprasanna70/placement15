@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706175254) do
+ActiveRecord::Schema.define(version: 20150715163546) do
 
   create_table "academic_details", force: :cascade do |t|
     t.string   "course",                limit: 255
@@ -68,25 +68,26 @@ ActiveRecord::Schema.define(version: 20150706175254) do
   end
 
   create_table "personal_profiles", force: :cascade do |t|
-    t.string   "gender",              limit: 255
-    t.integer  "age",                 limit: 4
-    t.integer  "height",              limit: 4
-    t.integer  "weight",              limit: 4
-    t.text     "guardian_name",       limit: 65535
-    t.text     "guardian_occupation", limit: 65535
-    t.string   "nationality",         limit: 255
-    t.string   "mother_tongue",       limit: 255
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "user_id",             limit: 4
-    t.text     "current_address",     limit: 65535
-    t.text     "permanent_address",   limit: 65535
-    t.string   "communicate",         limit: 255
-    t.string   "dob",                 limit: 255
-    t.text     "language_speak",      limit: 65535
-    t.text     "language_write",      limit: 65535
-    t.text     "language_read",       limit: 65535
-    t.string   "social_status",       limit: 255
+    t.string   "gender",                limit: 255
+    t.integer  "age",                   limit: 4
+    t.integer  "height",                limit: 4
+    t.integer  "weight",                limit: 4
+    t.text     "guardian_name",         limit: 65535
+    t.text     "guardian_occupation",   limit: 65535
+    t.string   "nationality",           limit: 255
+    t.string   "mother_tongue",         limit: 255
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.integer  "user_id",               limit: 4
+    t.text     "current_address",       limit: 65535
+    t.text     "permanent_address",     limit: 65535
+    t.string   "communicate",           limit: 255
+    t.string   "dob",                   limit: 255
+    t.text     "language_speak",        limit: 65535
+    t.text     "language_write",        limit: 65535
+    t.text     "language_read",         limit: 65535
+    t.string   "social_status",         limit: 255
+    t.string   "physically_challenged", limit: 255,   default: "false"
   end
 
   create_table "projects", force: :cascade do |t|
