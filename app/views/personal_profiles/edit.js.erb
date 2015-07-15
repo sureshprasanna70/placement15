@@ -2,6 +2,7 @@ $("#ajaxarea").html("<%= escape_javascript(render(:partial=>"edit"))%>");
 $('#date').datepicker({
   changeMonth: true,
   changeYear: true,
-  yearRange: "-30:+0"
+  yearRange: "-30:+0",
+ dateFormat: 'yy-mm-dd'
 
 });
