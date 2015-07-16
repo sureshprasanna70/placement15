@@ -2,11 +2,11 @@
 <center><h1><i class="mdi-action-view-list"></i>Semester Marks</h1></center>
 <%if @semester_marks.size==0%>
   <center>  <p class="message"><i class="mdi-alert-warning"></i> No semester marks added till date</p>
-  <%=link_to  new_semester_mark_path ,:class=>"btn btn-primary",:remote=>true do%>
-    <i class="mdi-content-add"></i> Add
-  <%end%>
+    <%=link_to  new_semester_mark_path ,:class=>"btn btn-primary",:remote=>true do%>
+      <i class="mdi-content-add"></i> Add
+    <%end%>
 
-</center>
+  </center>
 <%else%>
   Instructions specific to this section
   <ul>
@@ -38,11 +38,11 @@
           <td><%= semester_mark.gpa %></td>
           <td><%= semester_mark.pass_year %></td>
           <td><%= link_to edit_semester_mark_path(semester_mark), :remote=>true do%>
-           Edit 
-         <%end%>
-<%= link_to semester_mark, method: :delete, data: { confirm: 'Are you sure?' }do%>
-Destroy
-<%end%>
+            Edit 
+          <%end%>
+        </td>
+        <td>
+          <%= link_to 'Destroy',semester_mark, method: :delete, data: { confirm: 'Are you sure?' }%>
 
         </td>
       </tr>
