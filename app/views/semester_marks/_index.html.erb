@@ -5,6 +5,7 @@
   <%=link_to  new_semester_mark_path ,:class=>"btn btn-primary",:remote=>true do%>
     <i class="mdi-content-add"></i> Add
   <%end%>
+
 </center>
 <%else%>
   Instructions specific to this section
@@ -38,7 +39,11 @@
           <td><%= semester_mark.pass_year %></td>
           <td><%= link_to edit_semester_mark_path(semester_mark), :remote=>true do%>
            Edit 
-          <%end%>
+         <%end%>
+<%= link_to semester_mark, method: :delete, data: { confirm: 'Are you sure?' }do%>
+Destroy
+<%end%>
+
         </td>
       </tr>
     <% end %>

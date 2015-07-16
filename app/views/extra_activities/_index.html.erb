@@ -9,6 +9,9 @@
   <%= link_to edit_extra_activity_path(@extra_activities) ,:class=>"btn btn-success pull-right",:remote=>true do%>
     <i class="mdi-content-create"></i> Edit
   <%end%>
+<%= link_to @extra_activities, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-danger pull-right" do%>
+<i class="mdi-action-delete"></i> Destroy
+<%end%>
 
 <br><br>
 </div>
