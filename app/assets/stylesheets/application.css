@@ -12,8 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require introjs
- *= require select2-bootstrap
  *= require jquery-ui
  */
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
