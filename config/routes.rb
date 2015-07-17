@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post 'feedback/send'=>"home#send_feedback"
   get 'admin/singleuser'=>"admin#singleuser",:as=>"single_user"
   post 'admin/singleuser'=>"admin#loneuser"
+  get 'admin/changepassword'=>"admin#change_pass",:as=>"changepassword"
+  post 'admin/changepassword'=>'admin#password',:as=>'password_path'
   resources :companies
 
   resources :projects
