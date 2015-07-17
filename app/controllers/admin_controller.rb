@@ -43,7 +43,23 @@ class AdminController < ApplicationController
     end
     return error_string+"</ul>"
   end
+  def change_pass
+  end
+  def password
+    user=User.where(:registerno=>params[:registernumber]).first
+    puts user
+    if not user.nil?
+    user.password="cuicuser"
+    user.password_confirmation="cuicuser"
+    user.save!
+    flash[:notice]="Password changed successfully"
+    redirect_to admin_path
+    else
+      flash[:alert]="User not found"
+      redirect_to changepassword_path
+    end
 
+  end
   private
   def sign_in_check
     if user_signed_in? and current_user.has_role? "admin"
