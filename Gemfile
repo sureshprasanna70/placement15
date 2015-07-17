@@ -16,14 +16,13 @@ gem 'date_validator', '~> 0.7.0'
 gem 'gravatar_image_tag'
 gem 'carrierwave','~> 0.10.0'
 gem 'rmagick','~> 2.15.2'
-gem 'introjs-rails'
 gem 'simple_calendar', "~> 1.1.0"
 gem 'mandrill_mailer'
 gem 'sidekiq'
 gem 'roo'
 gem 'roo-xls'
 gem "iconv", "~> 1.0.3"
-gem "select2-rails"
+gem 'unicorn'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

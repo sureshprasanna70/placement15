@@ -14,8 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.turbolinks
-//= require introjs
-//= require select2
 //= require_tree .
 $.material.init()
   $(document).ready(function(){
