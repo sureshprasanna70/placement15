@@ -1,5 +1,7 @@
 <div class="well col-lg-12">
-  <center>  <h1>Admin Panel</h1></center><ul>
+  <center>  <h1>Admin Panel</h1></center>
+  <div class="col-lg-6">
+  <ul>
       <li>  <%=link_to "Add user(Range)",multi_user_path%></li>
       <li>  <%=link_to "Add user(Single)",single_user_path%></li>
       <li>  <%=link_to "Add user(Excelsheet)",excel_user_path%></li>
@@ -7,5 +9,12 @@
       <li> <%=link_to "Work status",workstatuses_path%></li>
       <li> <%=link_to "Add company to calendar",new_company_path%></li>
       <li> <%=link_to "Add new notification",new_notification_path%></li>
+      <li> <%=link_to "Add new notification",new_notification_path%></li>
+
     </ul>
+  </div>
+  <div class="col-lg-6">
+    <ul>
+      <li><%=link_to "Enable edit",enable_edit_path%>
+  </div>
 </div>
