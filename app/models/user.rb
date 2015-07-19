@@ -18,4 +18,29 @@ class User < ActiveRecord::Base
   def email_changed?
     false
   end
+  def has_personal_profile(user)
+    if not user.personal_profile.nil?
+      return true
+    end
+    return false
+  end
+  def has_college_profile(user)
+    if not user.college_profile.nil?
+      return true
+    end
+    return false
+  end
+  def has_academic_detail(user)
+    if not user.academic_detail.size==0
+      return true
+    end
+    return false
+  end
+  def has_extra_activity(user)
+    if not user.extra_activity.nil?
+      return true
+    end
+    return false
+  end
+
 end
