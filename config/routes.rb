@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post 'admin/singleuser'=>"admin#loneuser"
   get 'admin/changepassword'=>"admin#change_pass",:as=>"changepassword"
   post 'admin/changepassword'=>'admin#password',:as=>'password_path'
+  get 'admin/edit_enable'=>"admin#enable_edit",:as=>"enable_edit"
+  post 'admin/edit_enable'=>"admin#enable_edit_action",:as=>"enable"
   resources :companies
 
   resources :projects

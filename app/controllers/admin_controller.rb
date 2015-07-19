@@ -49,11 +49,26 @@ class AdminController < ApplicationController
     user=User.where(:registerno=>params[:registernumber]).first
     puts user
     if not user.nil?
-    user.password="cuicuser"
-    user.password_confirmation="cuicuser"
-    user.save!
-    flash[:notice]="Password changed successfully"
-    redirect_to admin_path
+      user.password="cuicuser"
+      user.password_confirmation="cuicuser"
+      user.save!
+      flash[:notice]="Password changed successfully"
+      redirect_to admin_path
+    else
+      flash[:alert]="User not found"
+      redirect_to changepassword_path
+    end
+  end
+  def enable_edit
+  end
+  def enable_edit_action
+    user=User.where(:registerno=>params[:registerno]).first
+    puts params[:registerno]
+    if not user.nil?
+      user.can_edit=true
+      user.save!
+      flash[:notice]="Edit enabled"
+      redirect_to admin_path
     else
       flash[:alert]="User not found"
       redirect_to changepassword_path
