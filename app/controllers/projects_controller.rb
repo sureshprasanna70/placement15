@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  before_filter :sign_in_check
   # GET /projects
   # GET /projects.json
   def index
@@ -62,16 +62,26 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-      if not @project.user_id==current_user.id
-        redirect_to root_path
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+    if not @project.user_id==current_user.id
+      redirect_to root_path
+    end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_params
+    params.require(:project).permit(:title, :desc, :technology,:user_id)
+  end
+  def sign_in_check
+    if not user_signed_in?
+      redirect_to new_user_session_path
+    else
+      if not current_user.can_edit?
+        flash[:alert]="Edit disabled"
+        redirect_to resume_path
       end
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:title, :desc, :technology,:user_id)
-    end
+  end
 end

@@ -79,6 +79,11 @@ class PersonalProfilesController < ApplicationController
     def sign_in_check
       if not user_signed_in?
         redirect_to new_user_session_path
+      else
+        if not current_user.can_edit?
+          flash[:alert]="Edit disabled"
+          redirect_to resume_path
+        end
       end
     end
 end

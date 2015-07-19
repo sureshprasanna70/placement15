@@ -62,21 +62,27 @@ class ExtraActivitiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_extra_activity
-      @extra_activity = ExtraActivity.find(params[:id])
-      if not @extra_activity.user_id==current_user.id
-        redirect_to root_path
-      end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_extra_activity
+    @extra_activity = ExtraActivity.find(params[:id])
+    if not @extra_activity.user_id==current_user.id
+      redirect_to root_path
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def extra_activity_params
-      params.require(:extra_activity).permit(:area_of_interest, :extra_curricular, :hobby, :responsibilty,:user_id,:arrears,:current,:history,:electives,:software_skills)
-    end
-    def sign_in_check
-      if not user_signed_in?
-        redirect_to new_user_session_path
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def extra_activity_params
+    params.require(:extra_activity).permit(:area_of_interest, :extra_curricular, :hobby, :responsibilty,:user_id,:arrears,:current,:history,:electives,:software_skills)
+  end
+  def sign_in_check
+    if not user_signed_in?
+      redirect_to new_user_session_path
+    else
+      if not current_user.can_edit?
+        flash[:alert]="Edit disabled"
+        redirect_to resume_path
       end
+
     end
+  end
 end
