@@ -1,11 +1,12 @@
 class PersonalProfilesController < ApplicationController
   before_action :set_personal_profile, only: [:show, :edit, :update, :destroy]
   before_filter :sign_in_check 
+  before_filter :edit_check,only:[:edit,:update,:destroy]
   respond_to :js,:html
   # GET /personal_profiles
   # GET /personal_profiles.json
- def index
-   @personal_profiles =current_user.personal_profile
+  def index
+    @personal_profiles =current_user.personal_profile
   end
 
   # GET /personal_profiles/1
@@ -63,27 +64,31 @@ class PersonalProfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_personal_profile
-      @personal_profile = current_user.personal_profile
-       if not @personal_profile.user_id==current_user.id
-        redirect_to root_path
-      end
-
+  # Use callbacks to share common setup or constraints between actions.
+  def set_personal_profile
+    @personal_profile = current_user.personal_profile
+    if not @personal_profile.user_id==current_user.id
+      redirect_to root_path
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def personal_profile_params
-      params.require(:personal_profile).permit(:gender, :dob, :age, :height, :weight, :guardian_name, :guardian_occupation, :nationality, :mother_tongue,:user_id,:current_address,:permanent_address,:communicate,:language_speak,:language_read,:language_write,:social_status)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def personal_profile_params
+    params.require(:personal_profile).permit(:gender, :dob, :age, :height, :weight, :guardian_name, :guardian_occupation, :nationality, :mother_tongue,:user_id,:current_address,:permanent_address,:communicate,:language_speak,:language_read,:language_write,:social_status)
+  end
+  def sign_in_check
+    if not user_signed_in?
+      redirect_to new_user_session_path
     end
-    def sign_in_check
-      if not user_signed_in?
-        redirect_to new_user_session_path
-      else
-        if not current_user.can_edit?
-          flash[:alert]="Edit disabled"
-          redirect_to resume_path
-        end
+  end
+  def edit_check
+    if not current_user.can_edit?
+      respond_to do |format|
+        @error_message="Edit disabled"
+        format.js{render 'layouts/edit_disable',notice:'Edit disabled'}
+        format.html{redirect_to resume_path,alert:'Delete disabled'}
       end
     end
+  end
 end
