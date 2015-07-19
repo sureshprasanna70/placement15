@@ -1,6 +1,7 @@
 class ExtraActivitiesController < ApplicationController
   before_action :set_extra_activity, only: [:show, :edit, :update, :destroy]
   before_filter :sign_in_check
+  before_filter :edit_check,only:[:update,:edit,:destroy]
   # GET /extra_activities
   # GET /extra_activities.json
   def index
@@ -77,12 +78,17 @@ class ExtraActivitiesController < ApplicationController
   def sign_in_check
     if not user_signed_in?
       redirect_to new_user_session_path
-    else
-      if not current_user.can_edit?
-        flash[:alert]="Edit disabled"
-        redirect_to resume_path
-      end
-
     end
   end
+  def edit_check
+    if not current_user.can_edit?
+      respond_to do |format|
+        @error_message="Edit disabled"
+        format.js{render 'layouts/edit_disable',notice:'Edit disabled'}
+        format.html{redirect_to resume_path,alert:'Delete disabled'}
+      end
+    end
+
+  end
+
 end

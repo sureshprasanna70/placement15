@@ -1,6 +1,7 @@
 class CollegeProfilesController < ApplicationController
   before_action :set_college_profile, only: [:show, :edit, :update, :destroy]
   before_filter :sign_in_check
+  before_filter :edit_check,only:[:edit,:update,:destroy]
   before_action :set_degree,only:[:new,:edit,:getdegree,:excel_dump,:index]
   respond_to :js,:html
   # GET /college_profiles
@@ -122,12 +123,16 @@ class CollegeProfilesController < ApplicationController
   def sign_in_check
     if not user_signed_in?
       redirect_to new_user_session_path
-      else
-        if not current_user.can_edit?
-          flash[:alert]="Edit disabled"
-          redirect_to resume_path
-        end
-
     end
+  end
+  def edit_check
+    if not current_user.can_edit?
+      respond_to do |format|
+        @error_message="Edit disabled"
+        format.js{render 'layouts/edit_disable',notice:'Edit disabled'}
+        format.html{redirect_to resume_path,alert:'Delete disabled'}
+      end
+    end
+
   end
 end
