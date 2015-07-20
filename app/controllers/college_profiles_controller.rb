@@ -75,7 +75,6 @@ class CollegeProfilesController < ApplicationController
         book = Spreadsheet::Workbook.new
         sheet1 = book.create_worksheet :name => 'test'
         filename=Rails.root.to_path+'/tmp/'+Date.today.to_s+'.xls'
-
         dept=""
         i=0;
         p.each do |ps|
@@ -92,7 +91,6 @@ class CollegeProfilesController < ApplicationController
             logger.debug "email incomplete #{ps[2]}"
             status="incomplete"
           end
-          logger.debug "#{ps[0]},#{ps[1]},#{ps[2].to_s},#{dept},#{ps[4]},#{ps[5]},#{status}"
           sheet1.row(i).push ps[0], ps[1], ps[2].to_s,dept,ps[4],ps[5],status
           i+=1;
         end
