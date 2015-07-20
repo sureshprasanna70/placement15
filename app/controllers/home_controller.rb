@@ -11,12 +11,12 @@ class HomeController < ApplicationController
   def feedback
   end
   def send_feedback
-    
     from=params[:from]
     subject=params[:subject]
     rollno=params[:registerno]
     message=params[:message]
     TicketWorker.perform_async(from,subject,rollno,message)
+    flash[:notice]="We'll get back to you shortly"
     redirect_to root_path
   end
   private

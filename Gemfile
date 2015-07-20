@@ -24,6 +24,7 @@ gem 'roo-xls'
 gem "iconv", "~> 1.0.3"
 gem 'unicorn'
 gem 'rufus-scheduler'
+gem 'spreadsheet'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
