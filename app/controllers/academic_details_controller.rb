@@ -1,7 +1,7 @@
 class AcademicDetailsController < ApplicationController
   before_action :set_academic_detail, only: [:show, :edit, :update, :destroy]
   before_filter :sign_in_check
-  before_filter :edit_check,only:[:edit,:update,:destroy]
+  before_filter :edit_check,only:[:edit,:update,:destroy,:new]
   # GET /academic_details
   # GET /academic_details.json
   def index
@@ -84,7 +84,7 @@ class AcademicDetailsController < ApplicationController
   def edit_check
     if not current_user.can_edit?
       respond_to do |format|
-        @error_message="Edit disabled"
+        @error_message="Add or Edit disabled"
         format.js{render 'layouts/edit_disable',notice:'Edit disabled'}
         format.html{redirect_to resume_path,alert:'Delete disabled'}
       end
