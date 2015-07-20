@@ -24,7 +24,7 @@
             <div class="form-group">
               <label>Roll no</label>
               <%if user_signed_in?%>
-                <input type="text" name="<%=current_user.registerno%>" class="form-control" required="true" readonly="true"/>
+                <input type="text" name="registerno" value="<%=current_user.registerno%>" class="form-control" required="true" readonly="true"/>
               <%else%>
                 <input type="text" name="registerno" class="form-control" required="true"/>
 
