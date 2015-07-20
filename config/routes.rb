@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'college_profile/branch/:degree'=>"college_profiles#getdegree"
   get 'feedback'=>"home#feedback"
   get 'excelsheet'=>"college_profiles#excel_dump"
-  post 'feedback/send'=>"home#send_feedback"
+  post 'feedback/send'=>"home#send_feedback",:as=>"send_feedback"
   get 'admin/singleuser'=>"admin#singleuser",:as=>"single_user"
   post 'admin/singleuser'=>"admin#loneuser"
   get 'admin/changepassword'=>"admin#change_pass",:as=>"changepassword"
