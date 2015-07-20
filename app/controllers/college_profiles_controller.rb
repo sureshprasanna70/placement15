@@ -70,33 +70,34 @@ class CollegeProfilesController < ApplicationController
   def excel_dump
     if user_signed_in?
       if current_user.has_role? "admin"
-        p=ActiveRecord::Base.connection.execute("SELECT users.name, users.registerno, college_profiles.degree,college_profiles.branch FROM `users` LEFT OUTER JOIN college_profiles ON users.id = college_profiles.user_id")
-        filename = Date.today.to_s + ".csv"
-        if request.env['HTTP_USER_AGENT'] =~ /msie/i
-          headers['Pragma'] = 'public'
-          headers["Content-type"] = "text/plain"
-          headers['Cache-Control'] = 'no-cache, must-revalidate, post-check=0, pre-check=0'
-          headers['Content-Disposition'] = "attachment; filename=\"#{filename}\""
-          headers['Expires'] = "0"
-        else
-          headers["Content-Type"] ||= 'text/csv'
-          headers["Content-Disposition"] = "attachment; filename=\"#{filename}\""
-          headers["Content-Transfer-Encoding"] = "binary"
-        end
+        p=ActiveRecord::Base.connection.execute("SELECT users.name, users.registerno, college_profiles.degree,college_profiles.branch,users.phone,users.email FROM `users` LEFT OUTER JOIN college_profiles ON users.id = college_profiles.user_id")
+        Spreadsheet.client_encoding = 'UTF-8'
+        book = Spreadsheet::Workbook.new
+        sheet1 = book.create_worksheet :name => 'test'
+        filename=Rails.root.to_path+'/tmp/'+Date.today.to_s+'.xls'
+
         dept=""
-        csv_string = CSV.generate do |csv|
-          p.each do |ps|
-            if not ps[2].nil? 
-              degree=@degrees[0][ps[2]][0]
-              if not ps[3].nil?
-                dept=degree.key(ps[3])
-              end
-            end
-            csv <<[ps[0],ps[1],ps[2].to_s,dept]
-            logger.debug "#{ps[0]},#{ps[1]},#{ps[2].to_s},#{dept}"
+        i=0;
+        p.each do |ps|
+          status="complete"
+          if not ps[2].nil? and not ps[3].nil?
+            degree=@degrees[0][ps[2]][0]
+            dept=degree.key(ps[3])
           end
+          if ps[4]=="" 
+            logger.debug "phone incompletes #{ps[2]}"
+            status="incomplete"
+          end
+          if ps[5]==""
+            logger.debug "email incomplete #{ps[2]}"
+            status="incomplete"
+          end
+          logger.debug "#{ps[0]},#{ps[1]},#{ps[2].to_s},#{dept},#{ps[4]},#{ps[5]},#{status}"
+          sheet1.row(i).push ps[0], ps[1], ps[2].to_s,dept,ps[4],ps[5],status
+          i+=1;
         end
-        render :text => csv_string
+        book.write filename
+        send_file filename
       end
     end
   end
