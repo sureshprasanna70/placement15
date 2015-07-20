@@ -11,10 +11,12 @@ class HomeController < ApplicationController
   def feedback
   end
   def send_feedback
-    from=current_user.email
+    
+    from=params[:from]
     subject=params[:subject]
+    rollno=params[:registerno]
     message=params[:message]
-    FeedbackMailer.send_message(from,subject,message).deliver_now
+    TicketWorker.perform_async(from,subject,rollno,message)
     redirect_to root_path
   end
   private

@@ -38,10 +38,14 @@
             <li>
             <%=link_to faq_path do%><i class="mdi-action-question-answer"></i> FAQ<%end%>
             </li>
-            <%if current_user.has_role?"admin"%>
             <li>
-            <%=link_to admin_path do%><i class="mdi-action-question-answer"></i> Admin<%end%>
+            <%=link_to feedback_path,:remote=>"true" do%><i class="mdi-hardware-headset"></i> Feedback/Help<%end%>
             </li>
+
+            <%if current_user.has_role?"admin"%>
+              <li>
+              <%=link_to admin_path do%><i class="mdi-action-question-answer"></i> Admin<%end%>
+              </li>
             <%end%>
             <li class="dropdown">       
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
@@ -70,6 +74,10 @@
         <li>
         <%=link_to faq_path do%><i class="mdi-action-question-answer"></i> FAQ<%end%>
         </li>
+            <li>
+            <%=link_to feedback_path,:remote=>"true" do%><i class="mdi-hardware-headset"></i> Feedback/Help<%end%>
+            </li>
+
         <li>
         <%=link_to new_user_session_path do%>
           <i class="mdi-action-input"></i>

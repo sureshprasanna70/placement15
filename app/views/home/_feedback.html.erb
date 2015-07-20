@@ -6,20 +6,31 @@
         <h4 class="modal-title">Feedback</h4>
       </div> 
       <div class="modal-body">
-        <form method="post" action="feedback/send">
+        <form method="post" action="<%=send_feedback_path%>">
           <fieldset>
             <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
             <div class="form-group">
               <label>From</label> 
-              <input type="text" value="<%=current_user.email%>" name="from" readonly=true class="form-control" required="true"/>
+              <%if user_signed_in?%>
+                <input type="text" value="<%=current_user.email%>" name="from" readonly=true class="form-control" required="true"/>
+              <%else%>
+                <input type="text" value="" name="from" class="form-control" required="true"/>
+             <%end%>
+
             </div>
             <div class="form-group">
               <label>To</label><input type="text" value="webmaster_cuic@gmail.com" readonly="true" class="form-control" required="true" />
             </div>
             <div class="form-group">
+              <label>Roll no</label>
+              <input type="text" name="registerno" class="form-control" required="true"/>
+            </div>
+
+            <div class="form-group">
               <label>Subject</label>
               <input type="text" name="subject" class="form-control" required="true"/>
             </div>
+
             <div class="form-group">
               <label>Message</label>
               <textarea name="message" class="form-control" required="true"></textarea>
