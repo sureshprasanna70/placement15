@@ -93,7 +93,7 @@ class CollegeProfilesController < ApplicationController
               end
             end
             csv <<[ps[0],ps[1],ps[2].to_s,dept]
-            puts "#{ps[0]},#{ps[1]},#{ps[2].to_s},#{dept}"
+            logger.debug "#{ps[0]},#{ps[1]},#{ps[2].to_s},#{dept}"
           end
         end
         render :text => csv_string
