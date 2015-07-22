@@ -1,4 +1,8 @@
 $("#ajaxarea").html("<%= escape_javascript(render(:partial =>"edit"))%>");
+$("#college_profile_degree").val("<%=@college_profile.degree%>")
+$("#college_profile_branch").val("<%=@college_profile.branch%>")
+$("#college_profile_level").val("<%=@college_profile.level%>")
+$("#college_profile_college").val("<%=@college_profile.college%>")
   $("#college_profile_degree").change(function(){
     url="/college_profile/branch/"+this.value
     console.log(url);
