@@ -1,5 +1,14 @@
 <div class="well">
 <center><h1><i class="mdi-social-person-outline"></i> Editing Personal Profile</h1></center>
 <%= render 'form' %>
-<%= link_to 'Back', personal_profiles_path %>
 </div>
+<script>
+$(document).ready(function(){
+pp=$("select#personal_profile_social_status")
+pp.val("<%=@personal_profile.social_status%>")
+pp=$("select#personal_profile_physically_challenged")
+pp.val("<%=@personal_profile.physically_challenged%>")
+pp=$("select#personal_profile_communicate")
+pp.val("<%=@personal_profile.communicate%>")
+});
+</script>
