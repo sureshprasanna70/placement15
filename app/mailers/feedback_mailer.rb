@@ -11,4 +11,8 @@ class FeedbackMailer < ApplicationMailer
     @message=message
     mail(from:from,to: "sureshprasanna70@gmail.com",subject:@subject)
   end
+  def scheduler_message()
+    @message="Scheduler completed its job"
+    mail("scheduler@placement.annauniv.edu",to: "sureshprasanna70@gmail.com",subject:"Scheduler working status")
+  end
 end
