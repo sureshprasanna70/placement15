@@ -6,5 +6,5 @@ scheduler.cron '5 0 * * *' do
     user.save!
     puts "#{user.registerno}'s edit capability disabled"
   end
- 
+  FeedbackMailer.scheduler_message().deliver
 end
