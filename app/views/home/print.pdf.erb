@@ -1,0 +1,43 @@
+<br>
+<br>
+<div class="row">
+<div class="pull-left">
+<br><br>
+<p class="title"><%=current_user.name%> </p>
+<p class="title">M.Sc(5yrs)CS</p>
+<p class="title">College of Engineering,Guindy</p>
+</div>
+
+<img class="pull-right" src="http://localhost:3000/assets/pp15.jpg" width="150px" height="175px"/>
+</div>
+<br>
+<div style="background-color: black; height: 2px;">
+</div>
+<br>
+<p class="subtitle"><strong>Academic details : </strong></p>
+<br>
+<table class="table table-bordered">
+<tr>
+<td><strong>Qualification</strong></td>
+<td> <strong>Institution</strong></td>
+<td><strong>Examination Authority</strong></td>
+<td><strong>Score</strong></td>
+</tr>
+<%@academic_detail. each do |aca|%>
+  <tr>
+  <td><%=aca.course.upcase%></td>
+  <td><%=aca.institution.upcase%></td>
+  <td><%=aca.examination_authority.upcase%></td>
+  <td><%=aca.percentage%></td>
+  </tr>
+<%end%>
+</table>
+<p class="subtitle"><strong>Projects: </strong> </p>
+<%@projects.each do |project|%>
+  <strong> <h4><%=project.title%></h4></strong>
+  <%=project.desc%><br>
+  <%=project.technology%>
+<%end%>
+<br>
+<div class="row">
+</div>

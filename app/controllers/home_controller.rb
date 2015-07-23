@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :sign_in_check,only:[:index,:resume]
+  before_filter :sign_in_check,only:[:index,:resume,:print]
   def index
     @companies=Company.all
     @notifications=Notification.all
@@ -9,6 +9,19 @@ class HomeController < ApplicationController
   def faq
   end
   def feedback
+  end
+  def print
+    @personal_profile=current_user.personal_profile
+    @college_profile=current_user.college_profile
+    @academic_detail=current_user.academic_detail
+    @projects=current_user.project
+   respond_to do |format|
+     format.pdf  do
+       render pdf: "resume",
+         layout:'wicked_pdf.html',
+         show_as_html:params[:debug].present?
+     end
+    end   
   end
   def send_feedback
     from=params[:from]
