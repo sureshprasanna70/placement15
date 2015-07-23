@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post 'admin/changepassword'=>'admin#password',:as=>'password_path'
   get 'admin/edit_enable'=>"admin#enable_edit",:as=>"enable_edit"
   post 'admin/edit_enable'=>"admin#enable_edit_action",:as=>"enable"
+  get 'myresume'=>"home#print"
   resources :companies
 
   resources :projects
