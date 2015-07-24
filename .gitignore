@@ -19,4 +19,5 @@ data/user/*/*
 data/excelsheet/*
 uploads/*/*
 bin/*
+public/assets/*
 vendor/*/*

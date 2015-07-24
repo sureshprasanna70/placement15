@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery-ui/accordion
 //= require jquery.turbolinks
 //= require_tree .
 $.material.init()
