@@ -2,8 +2,8 @@
 worker_processes 10
 timeout 30
 preload_app true
-pid "/tmp/unicorn.pid"
-listen "/tmp/unicorn.sock"
+pid "tmp/unicorn.pid"
+listen "tmp/unicorn.sock"
 before_fork do |server, worker|
 
   Signal.trap 'TERM' do
