@@ -27,6 +27,7 @@ class ExtraActivitiesController < ApplicationController
   def create
     @extra_activity = ExtraActivity.new(extra_activity_params)
     @extra_activity.user_id=current_user.id
+    @extra_activity.total_arrears=params[:current]+params[:history]
     respond_to do |format|
       if @extra_activity.save
         format.html { redirect_to resume_path, notice: 'Extra activity was successfully created.' }
@@ -41,6 +42,7 @@ class ExtraActivitiesController < ApplicationController
   # PATCH/PUT /extra_activities/1
   # PATCH/PUT /extra_activities/1.json
   def update
+    @extra_activity.total_arrears=params[:current]+params[:history]
     respond_to do |format|
       if @extra_activity.update(extra_activity_params)
         format.html { redirect_to resume_path, notice: 'Extra activity was successfully updated.' }
@@ -73,7 +75,7 @@ class ExtraActivitiesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def extra_activity_params
-    params.require(:extra_activity).permit(:area_of_interest, :extra_curricular, :hobby, :responsibilty,:user_id,:arrears,:current,:history,:electives,:software_skills)
+    params.require(:extra_activity).permit(:area_of_interest, :extra_curricular, :hobby, :responsibilty,:user_id,:arrears,:current,:history,:electives,:software_skills,:total_arrears)
   end
   def sign_in_check
     if not user_signed_in?
