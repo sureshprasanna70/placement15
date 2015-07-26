@@ -27,7 +27,7 @@ class ExtraActivitiesController < ApplicationController
   def create
     @extra_activity = ExtraActivity.new(extra_activity_params)
     @extra_activity.user_id=current_user.id
-    @extra_activity.total_arrears=params[:current]+params[:history]
+    @extra_activity.total_arrears= params[:extra_activity][:current]+params[:extra_activity][:history]
     respond_to do |format|
       if @extra_activity.save
         format.html { redirect_to resume_path, notice: 'Extra activity was successfully created.' }
@@ -42,8 +42,8 @@ class ExtraActivitiesController < ApplicationController
   # PATCH/PUT /extra_activities/1
   # PATCH/PUT /extra_activities/1.json
   def update
-    @extra_activity.total_arrears=params[:current]+params[:history]
     respond_to do |format|
+      @extra_activity.total_arrears= params[:extra_activity][:current]+params[:extra_activity][:history]
       if @extra_activity.update(extra_activity_params)
         format.html { redirect_to resume_path, notice: 'Extra activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @extra_activity }
