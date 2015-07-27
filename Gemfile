@@ -27,6 +27,8 @@ gem 'rufus-scheduler'
 gem 'spreadsheet'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+gem 'barby'
+gem 'chunky_png'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

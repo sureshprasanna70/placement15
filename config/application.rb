@@ -3,6 +3,15 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 require 'csv'
 require 'iconv'
+require 'barby'
+require 'barby/barcode/code_128'
+require 'barby/barcode/code_25'
+require 'barby/barcode/code_39'
+require 'barby/barcode/code_93'
+
+require 'barby/outputter/rmagick_outputter'
+require 'barby/outputter/png_outputter'
+require 'barby/outputter/html_outputter'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
