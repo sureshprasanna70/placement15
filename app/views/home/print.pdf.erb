@@ -7,8 +7,6 @@
 <p class="title"><%=@college_profile.degree%> <%=@dept%></p>
 <p class="title">College of Engineering,Guindy</p>
 </div>
-
-<img class="pull-right" src="http://localhost:3000/assets/pp15.jpg" width="150px" height="175px"/>
 </div>
 <br>
 <div style="background-color: black; height: 2px;">
@@ -44,9 +42,22 @@
 <p class="subtitle"><strong>Projects: </strong> </p>
 <%@projects.each do |project|%>
   <strong> <h4><%=project.title%></h4></strong>
-  <%=project.desc%><br>
-  <%=project.technology%>
+  <strong>Description: </strong> <%=project.desc%><br>
+  <strong>Technologies used: </strong> <%=project.technology%>
 <%end%>
 <br>
 <div class="row">
+<div class="col-lg-12">
+<%if not @extra_activities.nil?%>
+  <%=@extra_activities.hobby%>
+  <%=@extra_activities.hobby%>
+  <%=@extra_activities.hobby%>
+  <%=@extra_activities.hobby%>
+
+<%end%>
+
 </div>
+</div>
+<table>
+<img src="<%=url_for(barcode_path(current_user.registerno,"png"))%>">
+</table>

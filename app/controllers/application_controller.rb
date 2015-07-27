@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   def exceldownload
     send_file Rails.root.to_path+"/data/excelsheet/"+params[:filename]+"."+params[:extension]
   end
+  def barcode
+    send_file Rails.root.to_path+"/data/barcode/"+params[:filename]+"."+params[:extension]
+  end
+
   def disable_json
     if request.format =~ /json/
       puts "json request"

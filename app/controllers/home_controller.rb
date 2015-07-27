@@ -15,6 +15,11 @@ class HomeController < ApplicationController
     @college_profile=current_user.college_profile
     @academic_detail=current_user.academic_detail
     @projects=current_user.project
+    @extra_activities=current_user.extra_activity
+    barcode= Barby::Code93.new('2011239024')
+    File.open('data/barcode/'+current_user.registerno+'.png', 'w'){|f|
+        f.write barcode.to_png
+    }
     hash_to_name
    respond_to do |format|
      format.pdf  do
