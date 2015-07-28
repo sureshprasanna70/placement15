@@ -18,15 +18,25 @@ class HomeController < ApplicationController
     @extra_activities=current_user.extra_activity
     barcode= Barby::Code128B.new('2011239024')
     File.open('data/barcode/'+current_user.registerno+'.png', 'w'){|f|
-        f.write barcode.to_png
+      f.write barcode.to_png
     }
     hash_to_name
-   respond_to do |format|
-     format.pdf  do
-       render pdf: "resume",
-         layout:'wicked_pdf.html',
-         show_as_html:params[:debug].present?
-     end
+    respond_to do |format|
+      format.pdf  do
+        render pdf: "resume",
+          layout:'wicked_pdf.html',
+          show_as_html:params[:debug].present?,
+          outline: {   outline:           true,  outline_depth:     5 },
+          margin:  {   top:               30,                     # default 10 (mm)
+                       bottom:            40,
+                       left:              20,
+                       right:             20 },
+                       footer: {                     html: {template:'home/footer.pdf.erb',
+                                                            spacing:70,
+                                                            padding:25,
+                                                            bottom:15,
+                                                            line:true}}
+      end
     end   
   end
   def hash_to_name
