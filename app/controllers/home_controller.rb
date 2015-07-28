@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     @academic_detail=current_user.academic_detail
     @projects=current_user.project
     @extra_activities=current_user.extra_activity
-    barcode= Barby::Code93.new('2011239024')
+    barcode= Barby::Code128B.new('2011239024')
     File.open('data/barcode/'+current_user.registerno+'.png', 'w'){|f|
         f.write barcode.to_png
     }

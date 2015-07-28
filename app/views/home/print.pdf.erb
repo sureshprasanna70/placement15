@@ -1,19 +1,20 @@
 <br>
-<br>
 <div class="row">
-<div class="pull-left">
-<br><br>
+<center>
 <p class="title"><%=current_user.name%> </p>
-<p class="title"><%=@college_profile.degree%> <%=@dept%></p>
-<p class="title">College of Engineering,Guindy</p>
+</center>
+<div class="pull-left">
+<p><em><%=@college_profile.degree%> <%=@dept%>,<br>College of Engineering,Guindy</em></p>
+</div>
+<div class="pull-right">
+<%=current_user.phone%><br>
+<%=current_user.email%>
 </div>
 </div>
-<br>
 <div style="background-color: black; height: 2px;">
 </div>
 <br>
 <p class="subtitle"><strong>Academic details : </strong></p>
-<br>
 <table class="table table-bordered">
 <tr>
 <td><strong>Qualification</strong></td>
@@ -46,18 +47,36 @@
   <strong>Technologies used: </strong> <%=project.technology%>
 <%end%>
 <br>
-<div class="row">
-<div class="col-lg-12">
+<br>
 <%if not @extra_activities.nil?%>
-  <%=@extra_activities.hobby%>
-  <%=@extra_activities.hobby%>
-  <%=@extra_activities.hobby%>
-  <%=@extra_activities.hobby%>
+  <p class="subtitle"><strong>Areas of interest</strong></p>
+  <ul>
+  <%splitter(@extra_activities.area_of_interest).each do |area|%>
+    <li><%=area%></li>
+  <%end%>
+  </ul>
+   <p class="subtitle"><strong>Responsibility</strong></p>
+  <ul>
+  <%splitter(@extra_activities.responsibilty).each do |resp|%>
+    <li><%=resp%></li>
+  <%end%>
+  </ul>
+ <p class="subtitle"><strong>Extra Curricular</strong></p>
+  <ul>
+  <%splitter(@extra_activities.extra_curricular).each do |extras|%>
+    <li><%=extras%></li>
+  <%end%>
+  </ul>
+
+   <p class="subtitle"><strong>Hobbies</strong></p>
+  <ul>
+  <%splitter(@extra_activities.hobby).each do |hob|%> 
+    <li><%=hob%></li>
+  <%end%>
+  </ul>
 
 <%end%>
-
 </div>
 </div>
 <table>
-<img src="<%=url_for(barcode_path(current_user.registerno,"png"))%>">
 </table>

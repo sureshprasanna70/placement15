@@ -5,4 +5,7 @@ module HomeHelper
   def next_month_link
     ->(param, date_range) { link_to(raw("&raquo;"), {param => date_range.last + 1.day})}
   end
+  def splitter(string)
+    return string.split(",")
+  end
 end
