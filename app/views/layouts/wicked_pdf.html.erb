@@ -8,12 +8,16 @@
 
 <body>
 <div class="container">
-<div class="row">
-<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12">
 
-<%= yield %>
-</div>
-</div>
+      <%= yield %>
+    </div>
+    <footer>
+      <center><img src="<%=barcode_url(current_user.registerno,"png")%>"></center>
+      <center><%=current_user.registerno%></center>
+    </footer>
+  </div>
 </div>
 </body>
 </html>
