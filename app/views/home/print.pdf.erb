@@ -29,7 +29,6 @@
   <td><%=aca.institution.upcase%></td>
   <td><%=aca.examination_authority.upcase%></td>
   <td><%=aca.pass_year%></td>
-
   <td><%=aca.percentage%></td>
   </tr>
 <%end%>
@@ -48,6 +47,7 @@
 <%end%>
 <br>
 <br>
+<br>
 <%if not @extra_activities.nil?%>
   <p class="subtitle"><strong>Areas of interest</strong></p>
   <ul>
@@ -55,28 +55,27 @@
     <li><%=area%></li>
   <%end%>
   </ul>
-   <p class="subtitle"><strong>Responsibility</strong></p>
+  <br>
+  <p class="subtitle"><strong>Responsibility</strong></p>
   <ul>
   <%splitter(@extra_activities.responsibilty).each do |resp|%>
     <li><%=resp%></li>
   <%end%>
   </ul>
- <p class="subtitle"><strong>Extra Curricular</strong></p>
+  <br>
+  <p class="subtitle"><strong>Extra Curricular</strong></p>
   <ul>
   <%splitter(@extra_activities.extra_curricular).each do |extras|%>
     <li><%=extras%></li>
   <%end%>
   </ul>
-
-   <p class="subtitle"><strong>Hobbies</strong></p>
+  <br>
+  <p class="subtitle"><strong>Hobbies</strong></p>
   <ul>
   <%splitter(@extra_activities.hobby).each do |hob|%> 
     <li><%=hob%></li>
   <%end%>
   </ul>
-
 <%end%>
 </div>
 </div>
-<table>
-</table>
