@@ -10,7 +10,6 @@ class CollegeProfilesController < ApplicationController
     @college_profiles = current_user.college_profile
     if not @college_profiles.nil?
       @degree=@college_profiles.degree.gsub(/^\+|\+$/, '')
-      puts @degree
     end
   end
 
