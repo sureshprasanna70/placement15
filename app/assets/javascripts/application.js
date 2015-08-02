@@ -20,3 +20,8 @@ $.material.init()
     $('[data-toggle="tooltip"]').tooltip()
 
   });
+function gaTrack(path,title){
+  ga('set', { page: path, title: title });
+  ga('send', 'pageview');
+};
+
