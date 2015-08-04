@@ -22,6 +22,7 @@ class HomeController < ApplicationController
     }
     hash_to_name
     respond_to do |format|
+      format.html 
       format.pdf  do
         render pdf: "resume",
           layout:'wicked_pdf.html',
