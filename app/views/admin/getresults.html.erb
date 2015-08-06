@@ -1,4 +1,10 @@
 <div class="well">
-<%@college_profiles.each do |college_profile|%>
-  <p> <%=college_profile.cgpa%> <%=college_profile.user.id%></p><br>
+  <%@users.each do |college_profile|%>
+    <p> 
+    <%=college_profile.id%>      <%=college_profile.college_profile.degree%>
+    <%college_profile.academic_detail.each do |acad|%>
+      <%=acad.course%>
+    <%end%>
+    </p>
+  <br>
 <%end%>
