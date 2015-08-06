@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'admin'=>'admin#index'
   get 'admin/query'=>"admin#querybuild"
+  post 'admin/getresults'=>"admin#getresults"
   get 'admin/createuser'=>"admin#rollno",:as=>"multi_user"
   post 'admin/createuser'
   get 'admin/excelsheet'=>"admin#excelsheet",:as=>"excel_user"
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   post 'admin/edit_enable'=>"admin#enable_edit_action",:as=>"enable"
   get 'myresume'=>"home#print",:as=>"myresume"
   get 'barcode/:filename.:extension'=>"application#barcode",:as=>"barcode"
+
   resources :companies
 
   resources :projects
