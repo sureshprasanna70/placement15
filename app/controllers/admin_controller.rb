@@ -10,10 +10,10 @@ class AdminController < ApplicationController
     RollWorker.perform_async(params[:start_number],params[:end_number])
     redirect_to workstatuses_path
   end
-  
+
   def excelsheet
   end
-  
+
   def userexcel
     file=params[:file].original_filename
     directory = Rails.root.+"data/excelsheet"
@@ -23,7 +23,7 @@ class AdminController < ApplicationController
     ExcelWorker.perform_async(path)
     redirect_to root_path
   end
-  
+
   def loneuser
     puts params[:start_number]
     user=User.new
@@ -39,7 +39,7 @@ class AdminController < ApplicationController
       redirect_to admin_path
     end
   end
-  
+
   def build_error_message(discussion_errors)
     error_string="<b>Errors prevented from saving</b><ul>"
     discussion_errors.each do |message,error|
@@ -47,10 +47,10 @@ class AdminController < ApplicationController
     end
     return error_string+"</ul>"
   end
-  
+
   def change_pass
   end
-  
+
   def password
     user=User.where(:registerno=>params[:registernumber]).first
     puts user
@@ -65,10 +65,10 @@ class AdminController < ApplicationController
       redirect_to changepassword_path
     end
   end
-  
+
   def enable_edit
   end
-  
+
   def enable_edit_action
     user=User.where(:registerno=>params[:registerno]).first
     puts params[:registerno]
@@ -83,8 +83,16 @@ class AdminController < ApplicationController
     end
 
   end
+
   def querybuild 
-  end 
+  end
+
+  def getresults
+    @college_profiles=CollegeProfile.includes(:user).where("cgpa > ?  and cgpa <= 10 ",params[:cgpa])
+    puts params[:cgpa]
+    puts @college_profiles.count
+  end
+
   private
   def sign_in_check
     if user_signed_in? and current_user.has_role? "admin"
