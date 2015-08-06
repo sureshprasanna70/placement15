@@ -88,11 +88,8 @@ class AdminController < ApplicationController
   end
 
   def getresults
-    @college_profiles=CollegeProfile.includes(:user).where("cgpa > ?  and cgpa <= 10 ",params[:cgpa])
-    puts params[:cgpa]
-    puts @college_profiles.count
+    @users=User.joins(:college_profile).where("college_profiles.cgpa > ?",7.0).preload(:college_profile,:personal_profile,:academic_detail)
   end
-
   private
   def sign_in_check
     if user_signed_in? and current_user.has_role? "admin"
