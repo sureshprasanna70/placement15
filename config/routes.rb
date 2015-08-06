@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :workstatuses
 
   get 'admin'=>'admin#index'
+  get 'admin/query'=>"admin#querybuild"
   get 'admin/createuser'=>"admin#rollno",:as=>"multi_user"
   post 'admin/createuser'
   get 'admin/excelsheet'=>"admin#excelsheet",:as=>"excel_user"
