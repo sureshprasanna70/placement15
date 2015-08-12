@@ -18,11 +18,12 @@
 <fieldset>
   <div class="form-group">
     <label>Degree</label> 
+    <% options = options_from_collection_for_select(@courses, 'degree', 'degree') %>
     <%= f.select :degree,options_for_select("B.E"=>"BE","B.Tech"=>"BTech","M.E"=>"ME","M.Tech"=>"MTech","M.C.A"=>"MCA","MBA"=>"MBA","M.Sc(5yrs)"=>"MSc(5yrs)","M.Sc"=>"MSc","M.Plan"=>"MPlan","B.Arch"=>"BArch","M.Arch"=>"MArch"),{},{:required=>true,:class=>"form-control"} %><br> 
   </div>
   <div class="form-group">
     <label>Branch</label>
-    <%= f.select :branch,options_for_select("Aeronautical Engineering"=>"AE","Architecture"=>"AR","Agriculture & Irrigation Engineering"=>"AI","Apparel Technology"=>"AP","Automobile Engineering"=>"AU","Bio-Medical Engineering"=>"BM","Ceramic Technology"=>"CR","Chemical Engineering"=>"CH","Civil Engineering"=>"CE","Computer Science and Engg."=>"CS","Electrical and Electronics"=>"EE","Electronics & Communication"=>"EC","Electronics & Instrumentation"=>"EI","Food Technology"=>"FT","Geo-Informatics"=>"GI","Industrial Bio-Technology"=>"IB","Industrial Engineering"=>"IE","Information Technology"=>"IT","Leather Technology"=>"LE","Manufacturing Engineering"=>"MN","Material Science &  Engineering"=>"MS","Mechanical Engineering"=>"ME","Mining Engineering"=>"MI","Pharmaceutical Technology"=>"PH","Printing Technology"=>"PT","Production Engineering"=>"PE","Rubber and Plastics Technology"=>"RP","Textile Technology"=>"TX"),{},{:class=>"form-control",:required=>true}%> 
+    <%= f.select :branch, options_from_collection_for_select(@courses, 'branch_code', 'branch'),{},{:class=>"form-control",:required=>true}%> 
   </div>
   <div class="form-group">
     <label>Semester</label>
