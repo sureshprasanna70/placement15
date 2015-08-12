@@ -18,7 +18,6 @@
 <fieldset>
   <div class="form-group">
     <label>Degree</label> 
-    <% options = options_from_collection_for_select(@courses, 'degree', 'degree') %>
     <%= f.select :degree,options_for_select("B.E"=>"BE","B.Tech"=>"BTech","M.E"=>"ME","M.Tech"=>"MTech","M.C.A"=>"MCA","MBA"=>"MBA","M.Sc(5yrs)"=>"MSc(5yrs)","M.Sc"=>"MSc","M.Plan"=>"MPlan","B.Arch"=>"BArch","M.Arch"=>"MArch"),{},{:required=>true,:class=>"form-control"} %><br> 
   </div>
   <div class="form-group">

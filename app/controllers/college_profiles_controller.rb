@@ -100,7 +100,7 @@ class CollegeProfilesController < ApplicationController
     end
   end
   def getdegree
-    @degree=Courses.where(:degree=>params[:degree])
+    @courses=Course.where(:degree=>params[:degree])
   end
 
   private
