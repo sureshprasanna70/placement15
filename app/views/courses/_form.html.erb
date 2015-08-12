@@ -13,12 +13,17 @@
 
   <div class="field">
     <%= f.label :degree %><br>
-    <%= f.text_field :degree %>
+    <%= f.select :degree,options_for_select("B.E"=>"BE","B.Tech"=>"BTech","M.E"=>"ME","M.Tech"=>"MTech","M.C.A"=>"MCA","MBA"=>"MBA","M.Sc(5yrs)"=>"MSc(5yrs)","M.Sc"=>"MSc","M.Plan"=>"MPlan","B.Arch"=>"BArch","M.Arch"=>"MArch")%>
   </div>
   <div class="field">
     <%= f.label :branch %><br>
     <%= f.text_area :branch %>
   </div>
+  <div class="field">
+    <%= f.text_field :branch_code %><br>
+    <%= f.text_field :branch_code %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

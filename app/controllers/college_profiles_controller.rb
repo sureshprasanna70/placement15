@@ -2,15 +2,14 @@ class CollegeProfilesController < ApplicationController
   before_action :set_college_profile, only: [:show, :edit, :update, :destroy]
   before_filter :sign_in_check
   before_filter :edit_check,only:[:edit,:update,:destroy,:new]
-  before_action :set_degree,only:[:new,:edit,:getdegree,:excel_dump,:index]
+  #before_action :set_degree,only:[:new,:edit,:getdegree,:excel_dump,:index]
   respond_to :js,:html
   # GET /college_profiles
   # GET /college_profiles.json
   def index
     @college_profiles = current_user.college_profile
-    if not @college_profiles.nil?
-      @degree=@college_profiles.degree.gsub(/^\+|\+$/, '')
-    end
+    @degree=Course.where(:branch_code=>@college_profiles.branch).first
+    @degrees=@degree.branch
   end
 
   # GET /college_profiles/1
@@ -21,10 +20,12 @@ class CollegeProfilesController < ApplicationController
   # GET /college_profiles/new
   def new
     @college_profile = CollegeProfile.new
+    @courses=Course.all
   end
 
   # GET /college_profiles/1/edit
   def edit
+    @courses=Course.all
   end
 
   # POST /college_profiles
@@ -99,7 +100,7 @@ class CollegeProfilesController < ApplicationController
     end
   end
   def getdegree
-    @degree=@degrees[0][params[:degree]][0]
+    @degree=Courses.where(:degree=>params[:degree])
   end
 
   private
@@ -112,7 +113,7 @@ class CollegeProfilesController < ApplicationController
 
   end
   def set_degree
-    @degrees=["BE"=>["Aeronautical Engineering"=>"AE","Architecture"=>"AR","Agriculture & Irrigation Engineering"=>"AI","Apparel Technology"=>"AP","Automobile Engineering"=>"AU","Bio-Medical Engineering"=>"BM","Ceramic Technology"=>"CR","Chemical Engineering"=>"CH","Civil Engineering"=>"CE","Computer Science and Engg."=>"CS","Electrical and Electronics"=>"EE","Electronics & Communication"=>"EC","Electronics & Instrumentation"=>"EI","Food Technology"=>"FT","Geo-Informatics"=>"GI","Industrial Bio-Technology"=>"IB","Industrial Engineering"=>"IE","Information Technology"=>"IT","Leather Technology"=>"LE","Manufacturing Engineering"=>"MN","Material Science &  Engineering"=>"MS","Mechanical Engineering"=>"ME","Mining Engineering"=>"MI","Pharmaceutical Technology"=>"PH","Printing Technology"=>"PT","Production Engineering"=>"PE","Rubber and Plastics Technology"=>"RP","Textile Technology"=>"TX"],"ME"=>["Hydrology & Water Ress. Engg"=>"HW","Soil Mechcs & Foundn. Engg"=>"SM","Structural Engineering"=>"SE","Construction Engg. & Mgmt."=>"CN","Geomatics"=>"GIC","Transportation Engineering"=>"TE","Environmental Engineering"=>"EN","Irrigation Water Management"=>"IW","Integrated Water Resource Mgmt."=>"IWR","Environmental Management"=>"EM","Engineering Design"=>"ED","Internal Combustion Engg"=>"IC","Thermal Engg"=>"RA","Energy Engineering"=>"EG","Computer Integrated Manufacturing"=>"CIM","Industrial   Engineering"=>"IE","Manufacturing Systems and Mgt."=>"MSM","Solar Energy"=>"SO","Aeronautical Engineering"=>"AE","Avionics"=>"AV","Aerospace"=>"AS","Automobile Engineering"=>"AU","Manufacturing Engineering"=>"MAN","Mechatronics"=>"MT","High Voltage Engineering"=>"HV","Power Systems Engineering"=>"PS","Power Electronics and Drives"=>"PL","Power Engineering & Management"=>"PEM","Control and Instrumentation Engg"=>"CI","Embedded Systems Technologies"=>"EST","Instrumentation Engineering"=>"IN","Applied Electronics"=>"AL","Biomedical Engineering"=>"BM","Medical Electronics"=>"ML","Communication Systems"=>"CMS","V.L.S.I. Design"=>"VL","Communication & Networking"=>"CNW","Computer Science and Engg."=>"CS","Software Engineering"=>"SW","Multi-Media Technology"=>"MMT","Information Technology"=>"IT"],"MTech"=>["Environmental Science & Tech."=>"EVT","Remote Sensing"=>"RS","LASER & Electro-Optical Engg"=>"LE","Polymer Science and Engg."=>"PM","Coastal Management"=>"CM","Chemical Engineering"=>"CH","Ceramic Technology"=>"CT","Petroleum Refining and Petro-Chemicals"=>"PR","Bio-Technology"=>"BT","Bio-Pharmaceutical Technology"=>"PHT","Food Technology"=>"FT","Textile Technology"=>"TT","Leather Technology"=>"LT","Footwear Science and Engg."=>"FS","Nano Science and Technology"=>"NS","Industrial Safety & Hazard Management"=>"IS","Printing & & Packaging Technology"=>"PPT","Rubber Technology"=>"RT","Computational Biology"=>"CB"],"MArch"=>["Landscape Architecture"=>"LAR","Digital Architecture"=>"DA"],"Mplan"=>["Town and Country Planning"=>"TP","Landscape Architecture"=>"LA"],"MSc(5yrs)"=>["Computer Science"=>"CSM","Information Technology"=>"ITM","Electronic Media"=>"ELM"],"Msc"=>["Applied Mathematics"=>"AM","Material Science"=>"MS","Medical Physics"=>"MP","Applied Chemistry"=>"AC","Applied Geology"=>"AG","Environmental Science"=>"ES","Electronics Media"=>"EMI"],"MBA"=>["Master of Business Administration"=>"MBA","Master of Business Administration – Tourism Management"=>"MBATM"],"MCA"=>["Master of Computer Applications"=>"MCA"],"MPlan"=>["Town and Country Planning"=>"MTCP"],"BArch"=>["Bachelor of Architecture"=>"BArch"],"MSc"=>["Applied Mathematics"=>"AM","Material Science"=>"MS","Medical Physics"=>"MP","Applied Chemistry"=>"AC","Applied Geology"=>"AG","Environmental Science"=>"ES","Electronics Media"=>"EMI"],"BTech"=>["Information Technology"=>"IT"]]
+    #@degrees=["BE"=>["Aeronautical Engineering"=>"AE","Architecture"=>"AR","Agriculture & Irrigation Engineering"=>"AI","Apparel Technology"=>"AP","Automobile Engineering"=>"AU","Bio-Medical Engineering"=>"BM","Ceramic Technology"=>"CR","Chemical Engineering"=>"CH","Civil Engineering"=>"CE","Computer Science and Engg."=>"CS","Electrical and Electronics"=>"EE","Electronics & Communication"=>"EC","Electronics & Instrumentation"=>"EI","Food Technology"=>"FT","Geo-Informatics"=>"GI","Industrial Bio-Technology"=>"IB","Industrial Engineering"=>"IE","Information Technology"=>"IT","Leather Technology"=>"LE","Manufacturing Engineering"=>"MN","Material Science &  Engineering"=>"MS","Mechanical Engineering"=>"ME","Mining Engineering"=>"MI","Pharmaceutical Technology"=>"PH","Printing Technology"=>"PT","Production Engineering"=>"PE","Rubber and Plastics Technology"=>"RP","Textile Technology"=>"TX"],"ME"=>["Hydrology & Water Ress. Engg"=>"HW","Soil Mechcs & Foundn. Engg"=>"SM","Structural Engineering"=>"SE","Construction Engg. & Mgmt."=>"CN","Geomatics"=>"GIC","Transportation Engineering"=>"TE","Environmental Engineering"=>"EN","Irrigation Water Management"=>"IW","Integrated Water Resource Mgmt."=>"IWR","Environmental Management"=>"EM","Engineering Design"=>"ED","Internal Combustion Engg"=>"IC","Thermal Engg"=>"RA","Energy Engineering"=>"EG","Computer Integrated Manufacturing"=>"CIM","Industrial   Engineering"=>"IE","Manufacturing Systems and Mgt."=>"MSM","Solar Energy"=>"SO","Aeronautical Engineering"=>"AE","Avionics"=>"AV","Aerospace"=>"AS","Automobile Engineering"=>"AU","Manufacturing Engineering"=>"MAN","Mechatronics"=>"MT","High Voltage Engineering"=>"HV","Power Systems Engineering"=>"PS","Power Electronics and Drives"=>"PL","Power Engineering & Management"=>"PEM","Control and Instrumentation Engg"=>"CI","Embedded Systems Technologies"=>"EST","Instrumentation Engineering"=>"IN","Applied Electronics"=>"AL","Biomedical Engineering"=>"BM","Medical Electronics"=>"ML","Communication Systems"=>"CMS","V.L.S.I. Design"=>"VL","Communication & Networking"=>"CNW","Computer Science and Engg."=>"CS","Software Engineering"=>"SW","Multi-Media Technology"=>"MMT","Information Technology"=>"IT"],"MTech"=>["Environmental Science & Tech."=>"EVT","Remote Sensing"=>"RS","LASER & Electro-Optical Engg"=>"LE","Polymer Science and Engg."=>"PM","Coastal Management"=>"CM","Chemical Engineering"=>"CH","Ceramic Technology"=>"CT","Petroleum Refining and Petro-Chemicals"=>"PR","Bio-Technology"=>"BT","Bio-Pharmaceutical Technology"=>"PHT","Food Technology"=>"FT","Textile Technology"=>"TT","Leather Technology"=>"LT","Footwear Science and Engg."=>"FS","Nano Science and Technology"=>"NS","Industrial Safety & Hazard Management"=>"IS","Printing & & Packaging Technology"=>"PPT","Rubber Technology"=>"RT","Computational Biology"=>"CB"],"MArch"=>["Landscape Architecture"=>"LAR","Digital Architecture"=>"DA"],"Mplan"=>["Town and Country Planning"=>"TP","Landscape Architecture"=>"LA"],"MSc(5yrs)"=>["Computer Science"=>"CSM","Information Technology"=>"ITM","Electronic Media"=>"ELM"],"Msc"=>["Applied Mathematics"=>"AM","Material Science"=>"MS","Medical Physics"=>"MP","Applied Chemistry"=>"AC","Applied Geology"=>"AG","Environmental Science"=>"ES","Electronics Media"=>"EMI"],"MBA"=>["Master of Business Administration"=>"MBA","Master of Business Administration – Tourism Management"=>"MBATM"],"MCA"=>["Master of Computer Applications"=>"MCA"],"MPlan"=>["Town and Country Planning"=>"MTCP"],"BArch"=>["Bachelor of Architecture"=>"BArch"],"MSc"=>["Applied Mathematics"=>"AM","Material Science"=>"MS","Medical Physics"=>"MP","Applied Chemistry"=>"AC","Applied Geology"=>"AG","Environmental Science"=>"ES","Electronics Media"=>"EMI"],"BTech"=>["Information Technology"=>"IT"]]
 
   end
   # Never trust parameters from the scary internet, only allow the white list through.
