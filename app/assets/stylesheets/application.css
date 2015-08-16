@@ -150,3 +150,7 @@ a:active{
 background-color: #2196F3  !important;
 color:white !important;
 }
+.submit-resume{
+  background-color:red;
+  color:white;
+}

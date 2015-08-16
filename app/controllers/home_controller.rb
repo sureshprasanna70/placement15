@@ -47,6 +47,12 @@ class HomeController < ApplicationController
       @dept=degree.key(@college_profile.branch)
     end
   end
+  def submit
+    all_details=User.includes(:personal_profile,:college_profile,:semester_mark,:extra_activity,:project,:academic_detail).where(:id=>current_user.id).references(:user)
+     @user=all_details.first
+     branch=Course.where(:branch_code=>@user.college_profile.branch).first
+     @branch=branch.branch
+  end
   def send_feedback
     from=params[:from]
     subject=params[:subject]
