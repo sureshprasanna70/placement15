@@ -22,6 +22,9 @@ body{
 .loader{
  margin-top:150px 
 }
+.danger{
+  color:redc
+}
 a:active{
   color:grey;
 }

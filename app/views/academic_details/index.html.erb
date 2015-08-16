@@ -10,7 +10,7 @@
     <%=link_to :back,:class=>"btn btn-danger" ,:remote=>true do%><i class="mdi-hardware-keyboard-arrow-left"></i> Back<%end%>
 
   <div class="pull-right">
-    <%=link_to new_academic_detail_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%>
+    <%=link_to edit_academic_detail_path(@academic_details),:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Edit<%end%>
   </div>
 
 <table class="table table-bordered">
@@ -19,7 +19,6 @@
       <th>Examination authority</th>
       <th>Pass year</th>
       <th>Percentage</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
@@ -50,10 +49,6 @@
         <td><%= @academic_details.pg_institute %></td>
         <td><%= @academic_details.pg_authority %></td>
         <td><%= @academic_details.pg_year %></td>
-      </tr>
-
-        <%= link_to 'Edit', edit_academic_detail_path(@academic_details),:remote=>true %></td>
-        <%= link_to 'Destroy', @academic_details, method: :delete, data: { confirm: 'Are you sure?' } %>
       </tr>
   </tbody>
 </table>
