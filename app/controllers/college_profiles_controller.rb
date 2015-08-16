@@ -47,6 +47,7 @@ class CollegeProfilesController < ApplicationController
   # PATCH/PUT /college_profiles/1.json
   def update
     respond_to do |format|
+      params[:college_profile][:total_arrears]=params[:college_profile][:current]+params[:college_profile][:history]
       if @college_profile.update(college_profile_params)
         format.html { redirect_to '/resume', notice: 'Update Successful.' }
         format.json { render :show, status: :ok, location: @college_profile }
@@ -117,7 +118,7 @@ class CollegeProfilesController < ApplicationController
   end
   # Never trust parameters from the scary internet, only allow the white list through.
   def college_profile_params
-    params.require(:college_profile).permit(:level, :degree, :branch, :college, :semester, :cgpa)
+    params.require(:college_profile).permit(:level, :degree, :branch, :college, :semester, :cgpa,:current,:history,:total_arrears)
   end
   def sign_in_check
     if not user_signed_in?

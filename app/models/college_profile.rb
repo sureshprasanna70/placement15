@@ -8,4 +8,6 @@ class CollegeProfile < ActiveRecord::Base
   validates_presence_of :semester
   validates_presence_of :college
   validates_presence_of :cgpa
+  validates_presence_of :current
+  validates_presence_of :history
 end
