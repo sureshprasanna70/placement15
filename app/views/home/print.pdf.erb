@@ -22,15 +22,34 @@
 <td><strong>Year of passing</strong></td>
 <td><strong>Score</strong></td>
 </tr>
-<%@academic_detail. each do |aca|%>
-  <tr>
-  <td><%=aca.course.upcase%></td>
-  <td><%=aca.institution.upcase%></td>
-  <td><%=aca.examination_authority.upcase%></td>
-  <td><%=aca.pass_year%></td>
-  <td><%=aca.percentage%></td>
-  </tr>
-<%end%>
+<tr>
+        <td>SSLC</td>
+        <td><%= @academic_details.sslc_mark %></td>
+        <td><%= @academic_details.sslc_institute %></td>
+        <td><%= @academic_details.sslc_authority %></td>
+        <td><%= @academic_details.sslc_year %></td>
+      </tr>
+      <tr>
+        <td>HSC</td>
+        <td><%= @academic_details.hsc_mark %></td>
+        <td><%= @academic_details.hsc_institute %></td>
+        <td><%= @academic_details.hsc_authority %></td>
+        <td><%= @academic_details.hsc_year %></td>
+      </tr>
+      <tr>
+        <td>UG</td>
+        <td><%= @academic_details.ug_mark %></td>
+        <td><%= @academic_details.ug_institute %></td>
+        <td><%= @academic_details.ug_authority %></td>
+        <td><%= @academic_details.ug_year %></td>
+      </tr>
+      <tr>
+        <td>PG</td>
+        <td><%= @academic_details.pg_mark %></td>
+        <td><%= @academic_details.pg_institute %></td>
+        <td><%= @academic_details.pg_authority %></td>
+        <td><%= @academic_details.pg_year %></td>
+        </tr>
 <tr>
 <td><%=@college_profile.degree%> <%=@dept%></td>
 <td><%=@college_profile.college%></td>

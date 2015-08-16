@@ -13,10 +13,10 @@ class HomeController < ApplicationController
   def print
     @personal_profile=current_user.personal_profile
     @college_profile=current_user.college_profile
-    @academic_detail=current_user.academic_detail
+    @academic_details=current_user.academic_detail
     @projects=current_user.project
     @extra_activities=current_user.extra_activity
-    barcode= Barby::Code128B.new(current_user.register_no)
+    barcode= Barby::Code128B.new(current_user.registerno)
     File.open('data/barcode/'+current_user.registerno+'.png', 'w'){|f|
       f.write barcode.to_png
     }
