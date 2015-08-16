@@ -1,0 +1,170 @@
+<div class="well col-lg-6">
+  <center><h3>Personal Profile</h3></center>
+  <table class="table">
+    <tr>
+      <td>Gender</td>
+      <td><%=@user.personal_profile.gender%></td>
+    </tr>
+    <tr>
+      <td>Dob</td>
+      <td><%=@user.personal_profile.dob%></td>
+    </tr>
+    <tr>
+      <td>Age</td>
+      <td><%=@user.personal_profile.age%></td>
+    </tr>
+    <tr>
+      <td>Height</td>
+      <td><%=@user.personal_profile.height%></td>
+    </tr>
+    <tr>
+      <td>Weight</td>
+      <td><%=@user.personal_profile.weight%></td>
+    </tr>
+    <tr>
+      <td>Weight</td>
+      <td><%=@user.personal_profile.weight%></td>
+    </tr>
+
+    <tr>
+      <td>Nationality and Mother tongue</td>
+      <td><%=@user.personal_profile.nationality%>/<%=@user.personal_profile.mother_tongue%></td>
+    </tr>
+
+    <tr>
+      <td>Father/Guardian's Name and Occupation</td>
+      <td><%=@user.personal_profile.guardian_name%><%=@user.personal_profile.guardian_occupation%></td>
+    </tr>
+    <tr>
+      <td>Languages you can speak</td>
+      <td><%=@user.personal_profile.language_speak%></td>
+    </tr>
+    <tr>
+      <td>Languages you can write</td>
+      <td><%=@user.personal_profile.language_write%></td>
+    </tr>
+    <tr>
+      <td>Languages you can read</td>
+      <td><%=@user.personal_profile.language_read%></td>
+    </tr>
+
+  </table>
+</div>
+<div class="well col-lg-6">
+
+  <center> <h3>College Profile</h3></center>
+  <table class="table">
+    <tr>
+      <td>DEGREE</td>
+      <td><%=@user.college_profile.degree%></td>
+    </tr>
+    <tr>
+      <td>Branch</td>
+      <td><%=@branch%></td>
+    </tr>
+    <tr>
+      <td>College</td>
+      <td><%=@user.college_profile.college%></td>
+    </tr>
+    <tr>
+      <td>Level</td>
+      <td><%=@user.college_profile.level%></td>
+    </tr>
+    <tr>
+      <td>CGPA</td>
+      <td><%=@user.college_profile.cgpa%></td>
+    </tr>
+  </table>
+</div>
+<div class="col-lg-6">
+  <center><h3>Academic Profile</h3></center>
+  <center>  <h4>SSLC</h4></center>
+  <table class="table">
+    <tr>
+      <td><strong>Mark</strong></td>
+      <td><%=@user.academic_detail.sslc_mark%></td>
+    </tr>
+    <tr>
+      <td><strong>Year</strong></td>
+      <td><%=@user.academic_detail.sslc_year%></td>
+    </tr>
+    <tr>
+      <td><strong>Institute</strong></td>
+
+      <td><%=@user.academic_detail.sslc_institute%></td>
+    </tr>
+    <tr>
+      <td><strong>Authority</strong></td>
+
+      <td><%=@user.academic_detail.sslc_authority%></td>
+
+    </tr>
+  </table>
+  <center>  <h4>HSC</h4></center>
+  <table class="table">
+    <tr>
+      <td><strong>Mark</strong></td>
+      <td><%=@user.academic_detail.hsc_mark%></td>
+    </tr>
+    <tr>
+      <td><strong>Year</strong></td>
+      <td><%=@user.academic_detail.hsc_year%></td>
+    </tr>
+    <tr>
+      <td><strong>Institute</strong></td>
+
+      <td><%=@user.academic_detail.hsc_institute%></td>
+    </tr>
+    <tr>
+      <td><strong>Authority</strong></td>
+
+      <td><%=@user.academic_detail.hsc_authority%></td>
+
+    </tr>
+  </table>
+  <center>  <h4>UG</h4></center>
+  <table class="table">
+    <tr>
+      <td><strong>Mark</strong></td>
+      <td><%=@user.academic_detail.ug_mark%></td>
+    </tr>
+    <tr>
+      <td><strong>Year</strong></td>
+      <td><%=@user.academic_detail.ug_year%></td>
+    </tr>
+    <tr>
+      <td><strong>Institute</strong></td>
+
+      <td><%=@user.academic_detail.ug_institute%></td>
+    </tr>
+    <tr>
+      <td><strong>Authority</strong></td>
+
+      <td><%=@user.academic_detail.ug_authority%></td>
+
+    </tr>
+  </table>
+  <center>  <h4>PG</h4></center>
+  <table class="table">
+    <tr>
+      <td><strong>Mark</strong></td>
+      <td><%=@user.academic_detail.pg_mark%></td>
+    </tr>
+    <tr>
+      <td><strong>Year</strong></td>
+      <td><%=@user.academic_detail.pg_year%></td>
+    </tr>
+    <tr>
+      <td><strong>Institute</strong></td>
+      <td><%=@user.academic_detail.pg_institute%></td>
+    </tr>
+    <tr>
+      <td><strong>Authority</strong></td>
+
+      <td><%=@user.academic_detail.pg_authority%></td>
+
+    </tr>
+  </table>
+
+
+</div>
