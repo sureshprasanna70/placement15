@@ -175,17 +175,17 @@
   <div>
   </div>
   <div class="well col-lg-12">
-    <center><h3>Semester Marks</h3></center>
-    <%redder @user.semester_mark.each do |sem_mark|%>
+    <center><h3>Semester Marks <%=redder @user.semester_mark%></h3></center>
+    <%@user.semester_mark.each do |sem_mark|%>
       <tr>
-        <td><%=sem_mark.semseter%></td>
-        <td><%=sem_mark.cgpa%></td>
-        <td> <%=sem_mark.pass_year%></td>
+        <td><%=redder sem_mark.semseter%></td>
+        <td><%=redder sem_mark.cgpa%></td>
+        <td> <%=redder sem_mark.pass_year%></td>
       </tr>
     <%end%>
   </div>
   <div class="col-lg-12">
-    <center><h3>Extra Activities and others</h3></center>
+    <center><h3>Extra Activities and others <%=redder @user.extra_activity%></h3></center>
     <table class="table">
       <tr>
         <td>Area of interest</td>
@@ -210,7 +210,7 @@
     </table>
   </div>
   <div class="well col-lg-12">
-    <center><h3>Projects</h3></center>
+    <center><h3>Projects <%=redder @user.project%></h3></center>
     <table class="table">
       <thead>
         <tr>
