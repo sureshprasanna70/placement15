@@ -8,4 +8,11 @@ module HomeHelper
   def splitter(string)
     return string.split(",")
   end
+  def redder(value)
+      if value.blank?  || value.nil? || value==0
+       "<p class='danger'>Nil</p>".html_safe
+      else
+         "#{h value}" 
+      end
+  end
 end
