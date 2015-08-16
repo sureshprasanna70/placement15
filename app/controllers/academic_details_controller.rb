@@ -74,7 +74,7 @@ class AcademicDetailsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def academic_detail_params
-    params.require(:academic_detail).permit(:course, :institution, :examination_authority, :pass_year, :percentage,:user_id)
+    params.require(:academic_detail).permit(:sslc_mark, :sslc_institute, :sslc_authority :sslc_year, :hsc_percentage,:hsc_mark, :hsc_institute, :hsc_authority,:hsc_year,:hsc_percentage,:ug_mark, :ug_institute, :ug_authority,:ug_year, :pg_percentage,:pg_mark, :pg_institute, :pg_authority :pg_year, :pg_percentage,:user_id)
   end
   def sign_in_check
     if not user_signed_in?

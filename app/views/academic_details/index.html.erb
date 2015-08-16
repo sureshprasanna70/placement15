@@ -19,18 +19,13 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @academic_details.each do |academic_detail| %>
       <tr>
-        <td><%= academic_detail.course %></td>
-        <td><%= academic_detail.institution %></td>
-        <td><%= academic_detail.examination_authority %></td>
-        <td><%= academic_detail.pass_year %></td>
-        <td><%= academic_detail.percentage %></td>
-        <td><%= link_to 'Edit', edit_academic_detail_path(academic_detail) %></td>
+        <td><%= @academic_details.sslc_marks %></td>
+        <td><%= @academic_details.sslc_institute %></td>
+        <td><%= @academic_details.sslc_authority %></td>
+        <td><%= @academic_details.sslc_year %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 </div>

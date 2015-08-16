@@ -76,11 +76,15 @@ class CollegeProfilesController < ApplicationController
         filename=Rails.root.to_path+'/tmp/'+Date.today.to_s+'.xls'
         dept=""
         i=0;
+        courses=Course.all
+        degrees=Hash.new
+        courses.each do |course|
+          degrees[course.branch_code]=course.branch
+        end
         p.each do |ps|
           status="complete"
           if not ps[2].nil? and not ps[3].nil?
-            degree=@degrees[0][ps[2]][0]
-            dept=degree.key(ps[3])
+            dept=degrees[ps[3]]
           end
           if ps[4]=="" 
             logger.debug "phone incompletes #{ps[2]}"
@@ -111,7 +115,7 @@ class CollegeProfilesController < ApplicationController
     end
 
   end
-   # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list through.
   def college_profile_params
     params.require(:college_profile).permit(:level, :degree, :branch, :college, :semester, :cgpa)
   end
