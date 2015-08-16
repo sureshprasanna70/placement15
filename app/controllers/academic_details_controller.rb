@@ -6,6 +6,7 @@ class AcademicDetailsController < ApplicationController
   # GET /academic_details.json
   def index
     @academic_details = current_user.academic_detail
+    puts @academic_details.nil?
   end
 
   # GET /academic_details/1
