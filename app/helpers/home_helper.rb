@@ -12,7 +12,7 @@ module HomeHelper
       if value.blank?  || value.nil? || value==0
        "<p class='danger'>Nil</p>".html_safe
       else
-         "#{h value}" 
+        "#{h value}".html_safe 
       end
   end
 end
