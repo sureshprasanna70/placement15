@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812155153) do
+ActiveRecord::Schema.define(version: 20150816135047) do
+
+  create_table "academic_detail", force: :cascade do |t|
+    t.float   "sslc_mark",      limit: 24,    null: false
+    t.text    "sslc_institute", limit: 65535, null: false
+    t.integer "sslc_year",      limit: 4,     null: false
+    t.text    "sslc_authority", limit: 65535, null: false
+    t.float   "hsc_mark",       limit: 24,    null: false
+    t.text    "hsc_institute",  limit: 65535, null: false
+    t.integer "hsc_year",       limit: 4,     null: false
+    t.text    "hsc_authority",  limit: 65535, null: false
+    t.float   "ug_mark",        limit: 24,    null: false
+    t.text    "ug_institute",   limit: 65535, null: false
+    t.integer "ug_year",        limit: 4,     null: false
+    t.text    "ug_authority",   limit: 65535, null: false
+    t.float   "pg_mark",        limit: 24,    null: false
+    t.integer "pg_year",        limit: 4,     null: false
+    t.text    "pg_institute",   limit: 65535, null: false
+    t.integer "pg_authority",   limit: 4,     null: false
+    t.integer "user_id",        limit: 4,     null: false
+  end
 
   create_table "academic_details", force: :cascade do |t|
     t.string   "course",                limit: 255
@@ -25,15 +45,18 @@ ActiveRecord::Schema.define(version: 20150812155153) do
   end
 
   create_table "college_profiles", force: :cascade do |t|
-    t.string   "level",      limit: 255
-    t.string   "degree",     limit: 255
-    t.string   "branch",     limit: 255
-    t.string   "college",    limit: 255
-    t.integer  "semester",   limit: 4
-    t.float    "cgpa",       limit: 24
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "user_id",    limit: 4
+    t.string   "level",         limit: 255
+    t.string   "degree",        limit: 255
+    t.string   "branch",        limit: 255
+    t.string   "college",       limit: 255
+    t.integer  "semester",      limit: 4
+    t.float    "cgpa",          limit: 24
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "user_id",       limit: 4
+    t.integer  "current",       limit: 4
+    t.integer  "history",       limit: 4
+    t.integer  "total_arrears", limit: 4
   end
 
   create_table "companies", force: :cascade do |t|

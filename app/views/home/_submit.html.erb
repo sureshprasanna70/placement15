@@ -25,12 +25,10 @@
       <td>Weight</td>
       <td><%=@user.personal_profile.weight%></td>
     </tr>
-
     <tr>
       <td>Nationality and Mother tongue</td>
       <td><%=@user.personal_profile.nationality%>/<%=@user.personal_profile.mother_tongue%></td>
     </tr>
-
     <tr>
       <td>Father/Guardian's Name and Occupation</td>
       <td><%=@user.personal_profile.guardian_name%><%=@user.personal_profile.guardian_occupation%></td>
@@ -47,11 +45,9 @@
       <td>Languages you can read</td>
       <td><%=@user.personal_profile.language_read%></td>
     </tr>
-
   </table>
 </div>
 <div class="well col-lg-6">
-
   <center> <h3>College Profile</h3></center>
   <table class="table">
     <tr>
@@ -97,7 +93,6 @@
       <td><strong>Authority</strong></td>
 
       <td><%=@user.academic_detail.sslc_authority%></td>
-
     </tr>
   </table>
   <center>  <h4>HSC</h4></center>
@@ -112,14 +107,11 @@
     </tr>
     <tr>
       <td><strong>Institute</strong></td>
-
       <td><%=@user.academic_detail.hsc_institute%></td>
     </tr>
     <tr>
       <td><strong>Authority</strong></td>
-
       <td><%=@user.academic_detail.hsc_authority%></td>
-
     </tr>
   </table>
   <center>  <h4>UG</h4></center>
@@ -134,14 +126,11 @@
     </tr>
     <tr>
       <td><strong>Institute</strong></td>
-
       <td><%=@user.academic_detail.ug_institute%></td>
     </tr>
     <tr>
       <td><strong>Authority</strong></td>
-
       <td><%=@user.academic_detail.ug_authority%></td>
-
     </tr>
   </table>
   <center>  <h4>PG</h4></center>
@@ -160,11 +149,20 @@
     </tr>
     <tr>
       <td><strong>Authority</strong></td>
-
       <td><%=@user.academic_detail.pg_authority%></td>
-
     </tr>
   </table>
 
-
 </div>
+<div class="col-lg-6">
+  <%@user.semester_mark.each do |sem_mark|%>
+    <tr>
+      <td><%=sem_mark.semseter%></td>
+      <td><%=sem_mark.cgpa%></td>
+      <td> <%=sem_mark.pass_year%></td>
+    </tr>
+  <%end%>
+</div>
+<div class="col-lg-12">
+  <h3>Extra Activities and others</h3>
+</td>
