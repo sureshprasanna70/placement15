@@ -1,7 +1,7 @@
 <div class="col-lg-12">
 
   <h1><center><i class="mdi-social-school"></i>Academic details</center></h1>
-    <%if @academic_details.size==0%>
+    <%if not @academic_details.nil?%>
     <center><p class="message"><i class="mdi-alert-warning"></i> No Academic detail yet</p></center>
     <center><%=link_to new_academic_detail_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%></center>
   <%else%>
@@ -25,13 +25,36 @@
   <tbody>
     <% @academic_details.each do |academic_detail| %>
       <tr>
-        <td><%= academic_detail.course.upcase %></td>
-        <td><%= academic_detail.institution %></td>
-        <td><%= academic_detail.examination_authority %></td>
-        <td><%= academic_detail.pass_year %></td>
-        <td><%= academic_detail.percentage %></td>
-        <td><%= link_to 'Edit', edit_academic_detail_path(academic_detail),:remote=>true %></td>
-        <td>  <%= link_to 'Destroy', academic_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>SSLC</td>
+        <td><%= academic_detail.sslc_mark %></td>
+        <td><%= academic_detail.sslc_institute %></td>
+        <td><%= academic_detail.sslc_authority %></td>
+        <td><%= academic_detail.sslc_year %></td>
+      </tr>
+      <tr>
+        <td>HSC</td>
+        <td><%= academic_detail.hsc_mark %></td>
+        <td><%= academic_detail.hsc_institute %></td>
+        <td><%= academic_detail.hsc_authority %></td>
+        <td><%= academic_detail.hsc_year %></td>
+      </tr>
+      <tr>
+        <td>UG</td>
+        <td><%= academic_detail.ug_mark %></td>
+        <td><%= academic_detail.ug_institute %></td>
+        <td><%= academic_detail.ug_authority %></td>
+        <td><%= academic_detail.ug_year %></td>
+      </tr>
+      <tr>
+        <td>PG</td>
+        <td><%= academic_detail.pg_mark %></td>
+        <td><%= academic_detail.pg_institute %></td>
+        <td><%= academic_detail.pg_authority %></td>
+        <td><%= academic_detail.pg_year %></td>
+      </tr>
+
+        <%= link_to 'Edit', edit_academic_detail_path(academic_detail),:remote=>true %></td>
+        <%= link_to 'Destroy', academic_detail, method: :delete, data: { confirm: 'Are you sure?' } %>
       </tr>
     <% end %>
   </tbody>

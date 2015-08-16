@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates_numericality_of :registerno
   has_one :college_profile
   has_one :personal_profile
-  has_many :academic_detail
+  has_one :academic_detail
   has_many :semester_mark
   has_one :extra_activity
   has_many :project
