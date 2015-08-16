@@ -1,5 +1,6 @@
 class AcademicDetail < ActiveRecord::Base
   belongs_to :user
+  self.table_name="academic_detail"
   validates_presence_of :course
   validates_presence_of :institution
   validates_presence_of :examination_authority

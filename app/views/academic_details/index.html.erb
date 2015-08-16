@@ -1,15 +1,18 @@
-<div class="well col-lg-12">
+<div class="col-lg-12">
 
-<h1><center><i class="mdi-maps-local-library"></i>Academic details</center></h1>
-  <%if @academic_details.size==0%>
+  <h1><center><i class="mdi-social-school"></i>Academic details</center></h1>
+    <%if not @academic_details.nil?%>
     <center><p class="message"><i class="mdi-alert-warning"></i> No Academic detail yet</p></center>
-    <center><%=link_to new_academic_detail_path,:class=>"btn btn-primary" do%><i class="mdi-content-add"></i> Add<%end%>
+    <center><%=link_to new_academic_detail_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%></center>
   <%else%>
-    <%=link_to new_academic_detail_path,:class=>"btn btn-primary pull-right" do%><i class="mdi-content-add"></i> Add<%end%>
-    <br>
-    <br>
-    <br>
-<div class="table-responsive">
+
+    <div class="table-responsive">
+    <%=link_to :back,:class=>"btn btn-danger" ,:remote=>true do%><i class="mdi-hardware-keyboard-arrow-left"></i> Back<%end%>
+
+  <div class="pull-right">
+    <%=link_to new_academic_detail_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%>
+  </div>
+
 <table class="table table-bordered">
       <th>Course</th>
       <th>Institution</th>
@@ -20,12 +23,40 @@
     </tr>
   </thead>
   <tbody>
+    <% @academic_details.each do |academic_detail| %>
       <tr>
-        <td><%= @academic_details.sslc_marks %></td>
-        <td><%= @academic_details.sslc_institute %></td>
-        <td><%= @academic_details.sslc_authority %></td>
-        <td><%= @academic_details.sslc_year %></td>
+        <td>SSLC</td>
+        <td><%= academic_detail.sslc_mark %></td>
+        <td><%= academic_detail.sslc_institute %></td>
+        <td><%= academic_detail.sslc_authority %></td>
+        <td><%= academic_detail.sslc_year %></td>
       </tr>
+      <tr>
+        <td>HSC</td>
+        <td><%= academic_detail.hsc_mark %></td>
+        <td><%= academic_detail.hsc_institute %></td>
+        <td><%= academic_detail.hsc_authority %></td>
+        <td><%= academic_detail.hsc_year %></td>
+      </tr>
+      <tr>
+        <td>UG</td>
+        <td><%= academic_detail.ug_mark %></td>
+        <td><%= academic_detail.ug_institute %></td>
+        <td><%= academic_detail.ug_authority %></td>
+        <td><%= academic_detail.ug_year %></td>
+      </tr>
+      <tr>
+        <td>PG</td>
+        <td><%= academic_detail.pg_mark %></td>
+        <td><%= academic_detail.pg_institute %></td>
+        <td><%= academic_detail.pg_authority %></td>
+        <td><%= academic_detail.pg_year %></td>
+      </tr>
+
+        <%= link_to 'Edit', edit_academic_detail_path(academic_detail),:remote=>true %></td>
+        <%= link_to 'Destroy', academic_detail, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 </div>
