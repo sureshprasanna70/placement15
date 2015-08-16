@@ -206,6 +206,7 @@
   </div>
   <div class="well col-lg-12">
     <center><h3>Semester Marks <%=redder @user.semester_mark%></h3></center>
+    <table class="table">
     <%@user.semester_mark.each do |sem_mark|%>
       <tr>
         <td><%=redder sem_mark.semester%></td>
@@ -213,6 +214,7 @@
         <td> <%=redder sem_mark.pass_year%></td>
       </tr>
     <%end%>
+  </table>
   </div>
   <div class="col-lg-12">
     <center><h3>Extra Activities and others </h3></center>
@@ -240,7 +242,7 @@
     </table>
   </div>
   <div class="well col-lg-12">
-    <center><h3>Projects <%=redder @user.project%></h3></center>
+    <center><h3>Projects <%if @user.project.nil?%> <p class='danger'>Nil</p><%end%></h3></center>
     <table class="table">
       <thead>
         <tr>
@@ -252,12 +254,11 @@
       </thead>
 
       <tbody>
-      <% redder @user.project.each do |project| %>
+      <%@user.project.each do |project| %>
         <tr>
           <td><%= project.title %></td>
           <td><%= project.desc %></td>
           <td><%= project.technology %></td>
-          <td><%= link_to 'Edit', edit_project_path(project) %></td>
         </tr>
       <% end %>
       </tbody>
