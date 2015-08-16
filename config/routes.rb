@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get 'faq'=>"home#faq",:as=>"faq"
   get 'data/user/pic/:id/:filename.:extension'=>"application#download"
   get 'excelsheet/:filename.:extension'=>"application#exceldownload"
+  get 'resume/complete'=>"home#complete",:as=>"complete"
   devise_for :users,:controllers=>{registrations:"registrations"},path_names: { sign_up: ''  }
 
 end

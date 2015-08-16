@@ -9,10 +9,12 @@ module HomeHelper
     return string.split(",")
   end
   def redder(value)
-      if value.blank?  || value.nil? || value==0
-       "<p class='danger'>Nil</p>".html_safe
-      else
-        "#{h value}".html_safe 
-      end
+    if value.blank?  || value.nil? 
+      "<p class='danger'>Nil</p>".html_safe
+    elsif value==0.0 || value==0 || value=="0.0" || value=="0"
+      "<p>Not applicable to me</p>".html_safe
+    else
+      "#{h value}".html_safe 
+    end
   end
 end

@@ -11,7 +11,6 @@
         <li><%=link_to semester_marks_path,:onclick=>"gaTrack('/semester_marks','Semester Marks')",:remote=>true do%><i class="mdi-action-view-list"></i> Semester Marks<%end%></li>
         <li><%=link_to extra_activities_path,:onclick=>"gaTrack('/extra_activities','Extra Activities')",:remote=>true do%><i class="mdi-image-filter-vintage"></i> Extra Curricular and others<%end%></li>
         <li><%=link_to projects_path,:onclick=>"gaTrack('/projects','Projects')",:remote=>true do%><i class="mdi-image-landscape"></i> Project<%end%></li>
-
         <li><%=link_to submit_resume_path,:onclick=>"gaTrack('/projects','Projects')",:remote=>true ,:class=>"submit-resume" do%><i class="mdi-maps-beenhere"></i> Submit my resume<%end%></li>
       </ul>
     </div>
@@ -32,5 +31,9 @@
     </li>
     <li>For electives in Extra curricular activity section,If you have more than one use commas to separate them</li>
     <li>In projects section,you are allowed to include any number of projects.But only your first three will be considered</li>
+    <li><strong>You can check your entire resume using Submit my resume link in the left hand side.If any of the fields are marked as nil and in red please check it in the relevant section.</strong></li>
+    <li><strong>By entering zero in any field you indicate that the consent field is not applicable to you.</strong></li>
+    <li><strong>Leaving any field empty will be considered as incomplete profile and henceforth will not be considered.</strong></li>
+    <li><strong>You can save only once.After which edit will be disabled again</strong></p>
   </ol>
 </div>

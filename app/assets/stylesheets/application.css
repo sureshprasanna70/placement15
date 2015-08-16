@@ -23,7 +23,7 @@ body{
  margin-top:150px 
 }
 .danger{
-  color:red;
+  color:#F44336 !important;
 }
 a:active{
   color:grey;
@@ -151,6 +151,6 @@ background-color: #2196F3  !important;
 color:white !important;
 }
 .submit-resume{
-  background-color:red;
+  background-color:#F44336 !important;
   color:white;
 }

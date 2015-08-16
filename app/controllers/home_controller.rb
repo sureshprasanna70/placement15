@@ -49,9 +49,20 @@ class HomeController < ApplicationController
   end
   def submit
     all_details=User.includes(:personal_profile,:college_profile,:semester_mark,:extra_activity,:project,:academic_detail).where(:id=>current_user.id).references(:user)
-     @user=all_details.first
-     branch=Course.where(:branch_code=>@user.college_profile.branch).first
-     @branch=branch.branch
+    @user=all_details.first
+    branch=Course.where(:branch_code=>@user.college_profile.branch).first
+    @branch=branch.branch
+  end
+  def complete
+    @user=User.find(current_user.id)
+    if @user.can_edit?
+      @user.can_edit=false
+      @user.save!
+      flash[:notice]="You are done"
+    else 
+      flash[:notice]="Thanks.You have already done"
+    end
+    redirect_to resume_path 
   end
   def send_feedback
     from=params[:from]

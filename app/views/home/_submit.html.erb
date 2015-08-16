@@ -1,3 +1,33 @@
+<div class="modal fade" id="instructionmodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h4 class="modal-title">Read before proceeding</h4></center>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li><strong>You can check your entire data in here.If any of the fields are marked as nil and in red please check it in the relevant section.</strong></li>
+          <li><strong>By entering zero in any field you indicate that the consent field is not applicable to you.</strong></li>
+          <li><strong>Leaving any field empty will be considered as incomplete profile and henceforth will not be considered.</strong></li>
+          <li><strong>You can save only once.After which edit will be disabled again</strong></p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<center><h1>Profile</h1></center>
+<%if current_user.can_edit?%>
+  <%=link_to complete_path,:class=>"btn btn-primary pull-right" do%> Submit<%end%>
+<%else%>
+  <center>  <p class="message">This profile has already been submitted</p></center>
+<%end%>
+<br>
+<br>
+<br>
 <div class="well col-lg-6">
   <center><h3>Personal Profile</h3></center>
   <table class="table">
@@ -185,7 +215,7 @@
     <%end%>
   </div>
   <div class="col-lg-12">
-    <center><h3>Extra Activities and others <%=redder @user.extra_activity%></h3></center>
+    <center><h3>Extra Activities and others </h3></center>
     <table class="table">
       <tr>
         <td>Area of interest</td>
@@ -233,3 +263,8 @@
       </tbody>
     </table>
   </div>
+</div>
+</div>
+  <%if current_user.can_edit?%>
+    <%=link_to complete_path,:class=>"btn btn-primary pull-right" do%> Submit<%end%>
+  <%end%>
