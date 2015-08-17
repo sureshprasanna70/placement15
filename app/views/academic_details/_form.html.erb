@@ -30,7 +30,10 @@
   </div>
   <div class="form-group">
     <%= f.label :sslc_year %><br>
-    <%= f.select :sslc_year, (Time.zone.now.year - 20)..(Time.zone.now.year + 1),:class=>"form-control" ,:required=>true %>
+    <%years=((Time.zone.now.year - 20)..(Time.zone.now.year + 1)).to_a%>
+    <%years=years.push(0)%>
+
+    <%= f.select :sslc_year,years,:class=>"form-control" ,:required=>true %>
   </div>
   <div class="form-group">
     <%= f.label :hsc_mark %><small>(Choose what only what is applicable)</small><br>
@@ -46,7 +49,7 @@
   </div>
   <div class="form-group">
     <%= f.label :hsc_year %><br>
-    <%= f.select :hsc_year, (Time.zone.now.year - 20)..(Time.zone.now.year + 1),:class=>"form-control" ,:required=>true %>
+    <%= f.select :hsc_year, years,:class=>"form-control" ,:required=>true %>
   </div>
   <div class="form-group">
     <%= f.label :ug_mark %><small>(Choose what only what is applicable)</small><br>
@@ -62,7 +65,7 @@
   </div>
   <div class="form-group">
     <%= f.label :ug_year %><br>
-    <%= f.select :ug_year, (Time.zone.now.year - 20)..(Time.zone.now.year + 1),:class=>"form-control" ,:required=>true %>
+    <%= f.select :ug_year,years,:class=>"form-control" ,:required=>true %>
   </div>
   <div class="form-group">
     <%= f.label :pg_mark %><small>(Choose what only what is applicable)</small><br>
@@ -78,7 +81,7 @@
   </div>
   <div class="form-group">
     <%= f.label :pg_year %><br>
-    <%= f.select :pg_year, (Time.zone.now.year - 20)..(Time.zone.now.year + 1),:class=>"form-control" ,:required=>true %>
+    <%= f.select :pg_year, years,:class=>"form-control" ,:required=>true %>
   </div>
 
 <%= link_to :back  ,:class=>"btn btn-danger" do%>
