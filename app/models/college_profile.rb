@@ -10,4 +10,6 @@ class CollegeProfile < ActiveRecord::Base
   validates_presence_of :cgpa
   validates_presence_of :current
   validates_presence_of :history
+  validates :current,:numericality => { :greater_than_or_equal_to => 0 }
+  validates :history,:numericality => { :greater_than_or_equal_to => 0 }
 end

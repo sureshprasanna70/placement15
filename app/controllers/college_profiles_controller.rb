@@ -52,6 +52,9 @@ class CollegeProfilesController < ApplicationController
         format.html { redirect_to '/resume', notice: 'Update Successful.' }
         format.json { render :show, status: :ok, location: @college_profile }
       else
+        @courses=Course.all
+
+
         format.html { render :edit }
         format.json { render json: @college_profile.errors, status: :unprocessable_entity }
       end
