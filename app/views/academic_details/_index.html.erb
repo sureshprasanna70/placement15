@@ -1,57 +1,59 @@
 <div class="col-lg-12">
 
   <h1><center><i class="mdi-social-school"></i>Academic details</center></h1>
-    <%if @academic_details.nil?%>
+  <%if @academic_details.nil?%>
     <center><p class="message"><i class="mdi-alert-warning"></i> No Academic detail yet</p></center>
     <center><%=link_to new_academic_detail_path,:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Add<%end%></center>
   <%else%>
 
     <div class="table-responsive">
-    <%=link_to :back,:class=>"btn btn-danger" ,:remote=>true do%><i class="mdi-hardware-keyboard-arrow-left"></i> Back<%end%>
+      <%=link_to :back,:class=>"btn btn-danger" ,:remote=>true do%><i class="mdi-hardware-keyboard-arrow-left"></i> Back<%end%>
 
-  <div class="pull-right">
-    <%=link_to edit_academic_detail_path(@academic_details),:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Edit<%end%>
-  </div>
+      <div class="pull-right">
+        <%=link_to edit_academic_detail_path(@academic_details),:class=>"btn btn-primary" ,:remote=>true do%><i class="mdi-content-add"></i> Edit<%end%>
+      </div>
 
-<table class="table table-bordered">
-      <th>Course</th>
-      <th>Institution</th>
-      <th>Examination authority</th>
-      <th>Pass year</th>
-      <th>Percentage</th>
+      <table class="table table-bordered">
+        <th>Course</th>
+        <th>Percentage/Mark</th>
+
+        <th>Institution</th>
+
+        <th>Examination authority</th>
+        <th>Pass year</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>SSLC</td>
+      <td><%= @academic_details.sslc_mark %></td>
+      <td><%= @academic_details.sslc_institute %></td>
+      <td><%= @academic_details.sslc_authority %></td>
+      <td><%= @academic_details.sslc_year %></td>
     </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td>SSLC</td>
-        <td><%= @academic_details.sslc_mark %></td>
-        <td><%= @academic_details.sslc_institute %></td>
-        <td><%= @academic_details.sslc_authority %></td>
-        <td><%= @academic_details.sslc_year %></td>
-      </tr>
-      <tr>
-        <td>HSC</td>
-        <td><%= @academic_details.hsc_mark %></td>
-        <td><%= @academic_details.hsc_institute %></td>
-        <td><%= @academic_details.hsc_authority %></td>
-        <td><%= @academic_details.hsc_year %></td>
-      </tr>
-      <tr>
-        <td>UG</td>
-        <td><%= @academic_details.ug_mark %></td>
-        <td><%= @academic_details.ug_institute %></td>
-        <td><%= @academic_details.ug_authority %></td>
-        <td><%= @academic_details.ug_year %></td>
-      </tr>
-      <tr>
-        <td>PG</td>
-        <td><%= @academic_details.pg_mark %></td>
-        <td><%= @academic_details.pg_institute %></td>
-        <td><%= @academic_details.pg_authority %></td>
-        <td><%= @academic_details.pg_year %></td>
-      </tr>
-  </tbody>
-</table>
+    <tr>
+      <td>HSC</td>
+      <td><%= @academic_details.hsc_mark %></td>
+      <td><%= @academic_details.hsc_institute %></td>
+      <td><%= @academic_details.hsc_authority %></td>
+      <td><%= @academic_details.hsc_year %></td>
+    </tr>
+    <tr>
+      <td>UG</td>
+      <td><%= @academic_details.ug_mark %></td>
+      <td><%= @academic_details.ug_institute %></td>
+      <td><%= @academic_details.ug_authority %></td>
+      <td><%= @academic_details.ug_year %></td>
+    </tr>
+    <tr>
+      <td>PG</td>
+      <td><%= @academic_details.pg_mark %></td>
+      <td><%= @academic_details.pg_institute %></td>
+      <td><%= @academic_details.pg_authority %></td>
+      <td><%= @academic_details.pg_year %></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 <%end%>
 <br>
