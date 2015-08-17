@@ -27,7 +27,6 @@ class ExtraActivitiesController < ApplicationController
   def create
     @extra_activity = ExtraActivity.new(extra_activity_params)
     @extra_activity.user_id=current_user.id
-    @extra_activity.total_arrears= params[:extra_activity][:current]+params[:extra_activity][:history]
     respond_to do |format|
       if @extra_activity.save
         format.html { redirect_to resume_path, notice: 'Extra activity was successfully created.' }
