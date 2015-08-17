@@ -43,7 +43,6 @@ class ExtraActivitiesController < ApplicationController
   # PATCH/PUT /extra_activities/1.json
   def update
     respond_to do |format|
-      @extra_activity.total_arrears= params[:extra_activity][:current]+params[:extra_activity][:history]
       if @extra_activity.update(extra_activity_params)
         format.html { redirect_to resume_path, notice: 'Extra activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @extra_activity }
